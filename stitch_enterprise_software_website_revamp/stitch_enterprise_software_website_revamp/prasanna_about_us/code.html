@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | Prasanna Technologies</title>
+<meta content="Learn about Prasanna Technologies, our global presence, innovative solutions, and commitment to social impact." name="description"/>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#d5e3ff",
+                    "secondary": "#006689",
+                    "on-primary-fixed-variant": "#1f477b",
+                    "tertiary-fixed": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#799dd6",
+                    "on-tertiary-fixed": "#181c1e",
+                    "outline-variant": "#c3c6d1",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1b1c1c",
+                    "background": "#fbf9f8",
+                    "inverse-surface": "#303030",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#004c68",
+                    "surface-tint": "#3a5f94",
+                    "on-secondary-container": "#005371",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0eded",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbd9d9",
+                    "tertiary-container": "#303436",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-fixed-dim": "#a7c8ff",
+                    "outline": "#737780",
+                    "surface-variant": "#e4e2e2",
+                    "on-primary-fixed": "#001b3c",
+                    "secondary-fixed-dim": "#78d1ff",
+                    "on-secondary": "#ffffff",
+                    "primary": "#001e40",
+                    "primary-container": "#003366",
+                    "on-background": "#1b1c1c",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "secondary-container": "#5bcaff",
+                    "on-tertiary-fixed-variant": "#434749",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-tertiary-container": "#999c9e",
+                    "surface": "#fbf9f8",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary": "#1b1f21",
+                    "surface-container-high": "#eae8e7",
+                    "on-surface-variant": "#43474f",
+                    "inverse-primary": "#a7c8ff",
+                    "secondary-fixed": "#c3e8ff",
+                    "on-secondary-fixed": "#001e2c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-padding-mobile": "48px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "section-padding-desktop": "96px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(224, 224, 224, 0.3);
+      }
+      .perspective-grid {
+        perspective: 1000px;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface dark:bg-surface-dim shadow-sm">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+                Prasanna
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Products</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Clients</a>
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 font-body-md" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary-container transition-all">
+                Get a Quote
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent z-10"></div>
+<div class="relative z-20 max-w-container-max mx-auto px-gutter w-full">
+<div class="max-w-2xl text-on-primary">
+<span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container font-label-md rounded-full mb-6">ESTABLISHED 1994</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Empowering Global Enterprises Through Strategic Engineering</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed opacity-90 max-w-xl">
+                        A technology powerhouse focused on mission-critical workforce management, asset lifecycle, and industrial automation across borders.
+                    </p>
+</div>
+</div>
+<div class="absolute right-0 top-0 w-1/2 h-full hidden lg:block">
+<img alt="Corporate Headquarters" class="w-full h-full object-cover" data-alt="A professional high-angle shot of a sleek, glass-fronted corporate skyscraper reflecting a clear blue sky. The architectural style is modern and clean, with sharp lines and a sense of industrial stability. The lighting is bright and airy, emphasizing the blue and white tones of the brand, while maintaining a sense of immense scale and global presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClkIK4YHYcmjFG37TS4PsOmoiEjabefnIDmcTTb8iffJK1m7DROaqDytNyMHnErJO_sc-Y-wxoEhtVDnN86sSPIlYM9_GD7nDNreL6kEC_GgyjvVBEdwhZ0YW0QDz4AjFE48-aOc4MdLfgEJVjZtafWCT9u4oq8CXHnSJqfwvOED5Y3VFVRCdSEXZJp_sQbHVaet2W17Cb_c9Dam2C5VlOZP_nbTADe0ss1N9SX4u72q4DM_20LAhrLPe8poY7vro1OKldr1HxDL8"/>
+</div>
+</section>
+<!-- Stats Grid (Global Presence) -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div class="p-8 bg-surface-container-low rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">public</span>
+<div class="text-4xl font-bold text-primary mb-2">4+</div>
+<div class="font-label-md text-on-surface-variant uppercase tracking-widest">Countries</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">groups</span>
+<div class="text-4xl font-bold text-primary mb-2">500+</div>
+<div class="font-label-md text-on-surface-variant uppercase tracking-widest">Technologists</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">handshake</span>
+<div class="text-4xl font-bold text-primary mb-2">250+</div>
+<div class="font-label-md text-on-surface-variant uppercase tracking-widest">Global Clients</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl border border-outline-variant hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">history_edu</span>
+<div class="text-4xl font-bold text-primary mb-2">30</div>
+<div class="font-label-md text-on-surface-variant uppercase tracking-widest">Years Legacy</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Philosophy / Innovative Solutions (Bento Grid) -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Engineering the Future of Industry</h2>
+<p class="font-body-lg text-on-surface-variant">Our solutions bridge the gap between legacy infrastructure and the digital-first economy.</p>
+</div>
+<button class="flex items-center gap-2 text-secondary font-label-md group">
+                        EXPLORE SOLUTIONS <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 relative h-80 rounded-xl overflow-hidden group">
+<img alt="Smart Metering Technology" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An ultra-modern industrial workspace showcasing cutting-edge smart metering hardware on a clean, white workbench. High-resolution sensors and digital interfaces are bathed in soft, cool blue laboratory lighting. The scene conveys technological mastery, precision, and the clean corporate aesthetic of a high-end engineering lab." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4lL9Kxr8zpVat9cw7Jioa65NpC__MKrmR2m4eJaZEydQEiF4D0MdsrlQgZBXOxbEynuF6Ei8Gk3jsrFUI8qHS7c-bSRn4S2FhXkXxcFCww2rmf6HkHlbNNU1gFE6S13z40-Z8RaULVbP54waxa6ih4HV5XHJDmmljwB2Jdpa7oLNdomv2Jf-JJDlxqrcycXtUSfgZCgfa8JIHg3mT1dSjXvLKWQ_oWQ5P6OQWsqMZPGNNie81N08Vy23_aVrtcATAKeXArepib0A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-8 flex flex-col justify-end">
+<span class="text-secondary-fixed text-sm font-bold uppercase mb-2">Advanced Infrastructure</span>
+<h3 class="text-white font-headline-md">Smart Utility Management</h3>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-xl flex flex-col justify-between text-on-primary">
+<span class="material-symbols-outlined text-secondary-container text-4xl">memory</span>
+<div>
+<h3 class="font-headline-md mb-4">Predictive Analytics</h3>
+<p class="opacity-80">Leveraging AI to optimize workforce deployments and reduce operational latency in real-time.</p>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">precision_manufacturing</span>
+<h3 class="font-headline-md text-primary mb-2">Asset Lifecycle</h3>
+<p class="text-on-surface-variant font-body-md">End-to-end tracking systems for industrial equipment across the global supply chain.</p>
+</div>
+<div class="md:col-span-2 relative h-80 rounded-xl overflow-hidden group">
+<img alt="Global Collaboration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A diverse team of professional engineers and project managers collaborating around a large, interactive digital map in a bright, sunlit modern office. The atmosphere is professional yet energetic, with a focus on teamwork and global connectivity. The color palette is dominated by corporate blues and clean whites, symbolizing stability and innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM1DrDtyhhCzZNboWR8VaujyjKm1UPnmD7iXEIyn0sXMiw7IqXpfC61J4zTuilaHQ8W9qfvV4xCZwbebvPM-8Nt7ImU3eWmO2Jb6waA0eSxSDHLTvT0Z8vIE76iwuCAuFzW-5-pa22ZoEtOhhDjV1zUVzsojQZSEdbTlFGnpmfT26yi5QSPKyuIwHJwB-wXnhmK8Oo9o4nMKq6CP-KuSSUq_dzmEgufhp5KHJ9TtjoP4JDdHKllZjsKIYrao0okpkW2Nzj8bu37JY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-8 flex flex-col justify-end">
+<span class="text-secondary-fixed text-sm font-bold uppercase mb-2">Global Operations</span>
+<h3 class="text-white font-headline-md">Multi-Region Deployment Units</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Company History / Timeline -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Journey</h2>
+<div class="w-20 h-1 bg-secondary mx-auto"></div>
+</div>
+<div class="relative space-y-12">
+<!-- Timeline Line -->
+<div class="absolute left-1/2 -translate-x-1/2 h-full w-px bg-outline-variant hidden md:block"></div>
+<!-- Milestone 1 -->
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+<div class="md:w-1/2 md:pr-12 md:text-right">
+<h4 class="text-secondary font-bold text-xl mb-2">1994</h4>
+<h3 class="font-headline-md text-primary mb-2">The Foundation</h3>
+<p class="text-on-surface-variant">Prasanna Technologies was founded with a singular vision: to bring mathematical precision to local industrial challenges.</p>
+</div>
+<div class="w-4 h-4 bg-primary rounded-full relative z-10 ring-4 ring-primary-fixed"></div>
+<div class="md:w-1/2 md:pl-12"></div>
+</div>
+<!-- Milestone 2 -->
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+<div class="md:w-1/2 md:pr-12"></div>
+<div class="w-4 h-4 bg-primary rounded-full relative z-10 ring-4 ring-primary-fixed"></div>
+<div class="md:w-1/2 md:pl-12">
+<h4 class="text-secondary font-bold text-xl mb-2">2008</h4>
+<h3 class="font-headline-md text-primary mb-2">Global Expansion</h3>
+<p class="text-on-surface-variant">Established our first international centers, expanding our footprint to serve global utility markets.</p>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-0">
+<div class="md:w-1/2 md:pr-12 md:text-right">
+<h4 class="text-secondary font-bold text-xl mb-2">2023</h4>
+<h3 class="font-headline-md text-primary mb-2">Strategic Pivot</h3>
+<p class="text-on-surface-variant">Integrating AI and ML into our core workforce management platforms to lead the Industry 4.0 revolution.</p>
+</div>
+<div class="w-4 h-4 bg-primary rounded-full relative z-10 ring-4 ring-primary-fixed"></div>
+<div class="md:w-1/2 md:pl-12"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- CSR / Social Impact Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="inline-block py-1 px-3 border border-secondary-container text-secondary-container font-label-md rounded-full mb-6">IMPACT DRIVEN</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Beyond Technology: Our Social Responsibility</h2>
+<p class="font-body-lg opacity-80 mb-8">
+                        We believe that corporate growth is inseparable from community welfare. Our CSR initiatives focus on STEM education, sustainable industrial practices, and empowering local talent in every country we operate.
+                    </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-container p-2 bg-on-primary/10 rounded">school</span>
+<div>
+<h4 class="font-bold">STEM Scholarship Program</h4>
+<p class="opacity-70 text-sm">Supporting over 100 students annually in pursuing higher education in engineering.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-container p-2 bg-on-primary/10 rounded">energy_savings_leaf</span>
+<div>
+<h4 class="font-bold">Green Tech Initiative</h4>
+<p class="opacity-70 text-sm">Reducing carbon footprints through smart utility management in underserved regions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<img alt="Community Impact" class="rounded-2xl shadow-2xl" data-alt="A clean, minimalist composition of people from diverse backgrounds collaborating in a bright, modern learning environment. Soft daylight floods through large windows, illuminating a space filled with plants and tech educational tools. The mood is hopeful, communal, and highly professional, reflecting a commitment to social progress within a corporate framework." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf0W2PXtdJRa7lsfoQ8c-tndyRa2aBEamHI41QsC562K_VbCvASIe78S0UbyJAmBO81EeMW8OHs9DQecMLfkygao_2Yw3As2uTtWpv-k8QqUcMky-n5Ja87JXlVtFOVHBuoZicVMij6j9vIXGREO0JrO8BXakieR9eUxoYAvKyKV2lJxS_qWYjLZ8IugTN5Sx3TlzK4f6a6XPYpj9magT1dl0hp8LT6A2NtqsCx7ACqM63hbgYnqEdaDAl1EBCbrZkbY3UcLlf5KU"/>
+<div class="absolute -bottom-6 -left-6 bg-secondary-container text-on-secondary-container p-8 rounded-xl hidden md:block">
+<div class="text-3xl font-bold mb-1">15+</div>
+<div class="text-sm font-label-md uppercase">Community Projects</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Team Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Leadership Team</h2>
+<p class="max-w-xl mx-auto text-on-surface-variant">Guided by a board of seasoned professionals with decades of experience in global technology and industrial management.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Team Member 1 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-high rounded-xl mb-4 overflow-hidden relative">
+<img alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional portrait of a senior executive male in a dark blue tailored suit, standing against a minimalist corporate background. The lighting is soft and flattering, emphasizing a trustworthy and confident leadership presence. The style is editorial and clean, following the high-end business aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK2UmnYkDFNjNS48org94xcYPFxwyF6VADC1ClhMEEuu4ubJDQn7JSCwf4KSWnwwK8RymxV6RzLm-O9bJlmY64mmtAWtSYsVEEl3vNi-HjS1XY2HD7Lx3zfjmOrz-6qMqHuXyCNGf8K4OyQycFP29DhDvUWPPaKOFZKvnLag5g0zv4v12i_UfDHKXScTqnOmistHyYvabvaSOCSAQQ6iU6GzdLia1piYPmxRW3qGtvKN8j4yo69V0lE8dcbNpLJGL-w7JoMeWQZzM"/>
+</div>
+<h4 class="font-headline-md text-primary">Ravindra P.</h4>
+<p class="text-secondary font-label-md">Managing Director &amp; CEO</p>
+</div>
+<!-- Team Member 2 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-high rounded-xl mb-4 overflow-hidden relative">
+<img alt="CTO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional portrait of a female tech leader with a sharp, intelligent gaze, wearing business attire in neutral tones. The background is a blurred high-tech office environment with subtle blue highlights. The photography is clean, sharp, and reflects technical mastery and corporate authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADll0tMKljRHuYu-g-XV_84ngmiDB30LnzIMzRi6DNbmQI8ZChSSA5_XKcyGbQbYYYu-cFz6OPRNDM3YeB9_qRM5MSQ0QORd2uR7CN-YFJoLuuXtomyh7JRaR7P6IgkEv8_LkNsrVnBUv1UOhUCnd8iDyJ5uWDDk46ZLFG3dJtKgBhAz6gxHvS-ZXVmQV9d8-TzboICtBG3SQXApr9eFu6E4ZN845YYXcOJZ5z4hjtgMfm2dPooXgfFzYGdNkMjkjvY6-FFYRuW1k"/>
+</div>
+<h4 class="font-headline-md text-primary">Anjali Sharma</h4>
+<p class="text-secondary font-label-md">Chief Technology Officer</p>
+</div>
+<!-- Team Member 3 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-high rounded-xl mb-4 overflow-hidden relative">
+<img alt="COO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional portrait of a male business leader in a light blue shirt, exuding stability and strategic thinking. The setting is a modern, sunlit conference room. The image conveys operational excellence and a focus on corporate growth, maintaining the white and blue brand harmony." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXyyLJplqkalNEQFoa76dBJPKzW_ZPdPyyO__neW-aa_f1O57dAhf0oEu82Mwfz8SupIaNwk8z4kwVLF3K93tfUp8zLsSSjD85HlOsBAWnLYGrPpjt8mL636rFFuehzrMqfEz9GRFldIzKeZvY-2vydc7eqXgAQoNx04SQoTF3u0CtVrc532ngeQShDiLLEnp9E_WfLWyal56tS00LysDaDgBF1SEutpazbSof9zQVXJUcWRRIwN98l7ntQW9TTLADre7OcAjWBgU"/>
+</div>
+<h4 class="font-headline-md text-primary">David Chen</h4>
+<p class="text-secondary font-label-md">Global Operations Lead</p>
+</div>
+<!-- Team Member 4 -->
+<div class="group">
+<div class="aspect-[4/5] bg-surface-container-high rounded-xl mb-4 overflow-hidden relative">
+<img alt="HR" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional portrait of a female human resources director with a warm yet professional demeanor. She is standing in a brightly lit modern office space with clean lines and a sense of corporate maturity. The visual style is polished and trustworthy, aligning with the brand's identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV_EtfzvSxmA0omBNrOqcSJSHos6RMC-fW6V8S2p2bbI2YFqoOwlbmsycyq76gijT8v_bCmwrcUbxbZ2LitLMXpYmwlCvrBAyD8jcRiaq5V9UnDLZ284DVn079SElNDJIVas7V3qg1yCl1izyyqbPRolEmbzcKO_o9L3tOBCXKT71emnE885fRKkP3okyuKeknrVcEYC_udg8CvmvU5jorayBpr4cCdmeKd8kPlTJmPa73Zo6dwUrjhoVh4Fk2IEMGuiuMdzlpJjE"/>
+</div>
+<h4 class="font-headline-md text-primary">Sarah Miller</h4>
+<p class="text-secondary font-label-md">Chief People Officer</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface-container-low border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-gutter text-center">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Ready to Engineer the Future Together?</h2>
+<p class="max-w-2xl mx-auto font-body-lg text-on-surface-variant mb-10">Join the ranks of global leaders who trust Prasanna Technologies for their most critical infrastructure and workforce challenges.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-label-md hover:shadow-xl transition-all">Partner With Us</button>
+<button class="bg-transparent border border-primary text-primary px-10 py-4 rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all">View Our Portfoio</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-primary dark:bg-primary-container text-on-primary">
+<div class="max-w-container-max mx-auto px-gutter py-section-padding-mobile md:py-section-padding-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-bold text-on-primary mb-6">Prasanna</div>
+<p class="text-on-primary/70 text-sm mb-6">Strategic Technology Partners for a Digital World. Engineering excellence since 1994.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-on-primary/30 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+<a class="w-10 h-10 rounded-full border border-on-primary/30 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined text-sm">mail</span></a>
+<a class="w-10 h-10 rounded-full border border-on-primary/30 flex items-center justify-center hover:bg-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined text-sm">phone</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-secondary-fixed">Resources</h4>
+<ul class="space-y-4 text-on-primary/80">
+<li><a class="hover:text-on-primary transition-all" href="#">Case Studies</a></li>
+<li><a class="hover:text-on-primary transition-all" href="#">White Papers</a></li>
+<li><a class="hover:text-on-primary transition-all" href="#">Insights</a></li>
+<li><a class="hover:text-on-primary transition-all" href="#">Documentation</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-secondary-fixed">Company</h4>
+<ul class="space-y-4 text-on-primary/80">
+<li><a class="text-secondary-fixed font-bold" href="#">About Us</a></li>
+<li><a class="hover:text-on-primary transition-all" href="#">Careers</a></li>
+<li><a class="hover:text-on-primary transition-all" href="#">Contact</a></li>
+<li><a class="hover:text-on-primary transition-all" href="#">Sitemap</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-secondary-fixed">Global Office</h4>
+<p class="text-on-primary/80 text-sm leading-relaxed">
+                    Tech Corridor, Phase II<br/>
+                    Bangalore, KA 560001<br/>
+                    India<br/><br/>
+                    T: +91 80 1234 5678<br/>
+                    E: global@prasanna.tech
+                </p>
+</div>
+</div>
+<div class="border-t border-on-primary/10 py-8">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:row justify-between items-center gap-4 text-on-primary/60 text-xs">
+<span>© 2024 Prasanna Technologies. All rights reserved.</span>
+<div class="flex gap-6">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle scroll reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            // Select elements to reveal
+            const revealElements = document.querySelectorAll('.grid > div, h2, .relative img');
+            revealElements.forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

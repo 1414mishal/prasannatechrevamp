@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Prasanna Technologies</title>
+  <meta name="description" content="Workforce, warehouse, asset lifecycle, smart metering, and revenue management services by Prasanna Technologies.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#001e40",
+            "primary-container": "#003366",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#a7c8ff",
+            "primary-fixed": "#d5e3ff",
+            secondary: "#1591EA",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dbeafe",
+            "on-secondary-container": "#1e3a8a",
+            "secondary-fixed-dim": "#93c5fd",
+            surface: "#fbf9f8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f3",
+            "surface-container": "#f0eded",
+            "surface-container-high": "#eae8e7",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#43474f",
+            outline: "#737780",
+            "outline-variant": "#c3c6d1",
+          },
+          maxWidth: { container: "1280px" },
+          fontFamily: { sans: ["Hanken Grotesk", "sans-serif"] },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Navigation -->
+<nav id="navbar" class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-10 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Products</a>
+      <a href="services.html" class="text-sm font-semibold text-secondary border-b-2 border-secondary pb-0.5">Services</a>
+      <a href="about.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">About</a>
+      <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+    </div>
+    <a href="index.html#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+      Get in Touch
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="bg-primary overflow-hidden">
+  <div class="max-w-container mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-4 py-1.5 rounded-full mb-8">
+        Strategic Technology Solutions
+      </span>
+      <h1 class="text-4xl md:text-[56px] font-bold leading-tight tracking-tight text-white mb-6">
+        Engineering Excellence Across the Utility Lifecycle
+      </h1>
+      <p class="text-lg text-primary-fixed/75 max-w-xl leading-relaxed mb-8">
+        We deliver critical infrastructure software for workforce management, warehouse operations, and asset lifecycle — built on a foundation of reliability and sector-specific engineering.
+      </p>
+      <a href="index.html#contact"
+         class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-8 py-3.5 text-sm font-bold rounded hover:opacity-90 transition-opacity">
+        Discuss Your Requirements <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+    <div class="hidden md:block">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/pixelcut-export%20(6)%201.png"
+           alt="Enterprise technology solutions"
+           class="w-full aspect-[4/3] object-cover rounded-xl shadow-2xl">
+    </div>
+  </div>
+</header>
+
+<!-- Quick Nav -->
+<div class="bg-surface-container border-b border-outline-variant sticky top-20 z-40">
+  <div class="max-w-container mx-auto px-6 overflow-x-auto">
+    <div class="flex items-center gap-1 py-0 min-w-max">
+      <a href="#workforce"  class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Workforce</a>
+      <a href="#warehouse"  class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Warehouse</a>
+      <a href="#assets"     class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Asset Lifecycle</a>
+      <a href="#monitoring" class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Condition Monitoring</a>
+      <a href="#metering"   class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Smart Metering</a>
+      <a href="#revenue"    class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Revenue Management</a>
+      <a href="#erp"        class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">ERP</a>
+    </div>
+  </div>
+</div>
+
+<!-- 01 Workforce Management -->
+<section id="workforce" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="order-2 md:order-1 relative rounded-xl overflow-hidden aspect-video shadow-lg">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp"
+             alt="Workforce management operations"
+             class="w-full h-full object-cover">
+      </div>
+      <div class="order-1 md:order-2">
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">01 / Services</span>
+        <h2 class="text-3xl font-bold text-primary mb-6">Workforce Management</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          Ensures secure access, efficient meter installations, and real-time dashboards for field staff. Our workforce management system is built around the operational patterns of electricity and water utility field teams.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Dynamic automated rostering and shift scheduling</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Real-time field staff location and task status</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Meter installation tracking with photographic evidence capture</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Role-based access control and compliance governance</span>
+          </li>
+        </ul>
+        <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+          Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- 02 Warehouse Management -->
+<section id="warehouse" class="py-24 bg-surface-container-low reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">02 / Services</span>
+        <h2 class="text-3xl font-bold text-primary mb-6">Warehouse Management</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          Real-time monitoring and quality control for efficient management of meters, transformers, cables, and other electrical inventory. Designed for the high-volume, high-accountability environment of utility warehouse operations.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5">
+            <div class="text-2xl font-bold text-primary mb-1">Multi-location</div>
+            <div class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Stock Visibility</div>
+          </div>
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5">
+            <div class="text-2xl font-bold text-primary mb-1">Real-time</div>
+            <div class="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">QC Tracking</div>
+          </div>
+        </div>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Inbound receipt and outbound issuance tracking</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Batch-level quality inspection records</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Automated re-order alerts and procurement triggers</span>
+          </li>
+        </ul>
+        <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+          Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+        </a>
+      </div>
+      <div class="relative rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.png"
+             alt="Warehouse operations with tablet"
+             class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- 03 Asset Lifecycle -->
+<section id="assets" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">03 / Services</span>
+      <h2 class="text-3xl font-bold text-primary mb-4">Asset Lifecycle Management</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">End-to-end IT solution for managing Distribution Transformers and high-value utility assets from commissioning through retirement.</p>
+      <div class="w-16 h-0.5 bg-secondary mx-auto mt-6"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-8 hover:shadow-md transition-shadow flex flex-col">
+        <span class="material-symbols-outlined text-secondary mb-6" style="font-size:36px">precision_manufacturing</span>
+        <h3 class="text-lg font-bold text-primary mb-3">Procurement &amp; Commissioning</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed flex-grow mb-6">
+          Strategic acquisition and digital commissioning of high-value assets. Full tracking from purchase order through installation and initial tests.
+        </p>
+        <div class="pt-5 border-t border-outline-variant">
+          <span class="text-xs font-bold uppercase tracking-widest text-secondary">Stage 01: Setup</span>
+        </div>
+      </div>
+      <div class="bg-primary rounded-lg p-8 flex flex-col shadow-lg">
+        <span class="material-symbols-outlined text-secondary mb-6" style="font-size:36px">settings_suggest</span>
+        <h3 class="text-lg font-bold text-white mb-3">Condition Monitoring &amp; Maintenance</h3>
+        <p class="text-sm text-on-primary-container leading-relaxed flex-grow mb-6">
+          Regular inspection scheduling, health scoring, and fault escalation for substations and transformers. Prevents costly breakdowns through proactive intervention.
+        </p>
+        <div class="pt-5 border-t border-on-primary-container/20">
+          <span class="text-xs font-bold uppercase tracking-widest text-secondary">Stage 02: Optimisation</span>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-8 hover:shadow-md transition-shadow flex flex-col">
+        <span class="material-symbols-outlined text-secondary mb-6" style="font-size:36px">analytics</span>
+        <h3 class="text-lg font-bold text-primary mb-3">Decommissioning &amp; Disposal</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed flex-grow mb-6">
+          Data-backed decisions for asset replacement. Compliant disposal records, salvage valuation, and capital planning support.
+        </p>
+        <div class="pt-5 border-t border-outline-variant">
+          <span class="text-xs font-bold uppercase tracking-widest text-secondary">Stage 03: Retirement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- 04 Condition Monitoring -->
+<section id="monitoring" class="py-24 bg-surface-container-low reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/pixelcut-export%20(7)%201.png"
+           alt="Thermal imaging for substation condition monitoring"
+           class="w-full h-full object-cover">
+    </div>
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">04 / Services</span>
+      <h2 class="text-3xl font-bold text-primary mb-6">Condition Monitoring</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        Ensures reliable substation operations and prevents costly breakdowns. We integrate thermal imaging, sensor data, and inspection records to provide a continuous health picture of your distribution infrastructure.
+      </p>
+      <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Thermal imaging integration for hotspot detection</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Natural ester fluid monitoring for transformers</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Automated fault escalation and maintenance scheduling</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Historical trend analysis for predictive planning</span>
+        </li>
+      </ul>
+      <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+        Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- 05 Smart Metering -->
+<section id="metering" class="py-24 bg-primary text-on-primary reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <span class="inline-block text-xs font-bold tracking-widest uppercase bg-secondary text-on-secondary px-3 py-1 rounded mb-6">Smart Metering</span>
+        <h2 class="text-3xl font-bold mb-6">Meter Outlet Management &amp; AMI</h2>
+        <p class="text-primary-fixed/75 leading-relaxed mb-8">
+          Simplifies material handling across meter depots with tools for tracking receipts, issuances, returns, and sales reporting. Combined with our Advanced Metering Infrastructure capabilities, it covers the full meter-to-cash cycle.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-primary-fixed/80">Depot-level stock management for energy meters</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-primary-fixed/80">Automated test bench integration for meter verification</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-primary-fixed/80">Field installation records with GPS and photographic capture</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-primary-fixed/80">Non-technical loss identification through meter data analytics</span>
+          </li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-2">
+        <div class="bg-primary-container border border-on-primary/10 rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary block mb-4" style="font-size:28px">query_stats</span>
+          <h4 class="font-semibold text-white text-sm mb-2">Loss Identification</h4>
+          <p class="text-on-primary-container text-xs leading-relaxed">Pinpoint AT&C losses at the feeder and transformer level through deep meter data analysis.</p>
+        </div>
+        <div class="bg-primary-container border border-on-primary/10 rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary block mb-4" style="font-size:28px">security</span>
+          <h4 class="font-semibold text-white text-sm mb-2">Tamper Detection</h4>
+          <p class="text-on-primary-container text-xs leading-relaxed">Automated alerts for meter tampering, bypass attempts, and abnormal consumption patterns.</p>
+        </div>
+        <div class="bg-primary-container border border-on-primary/10 rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary block mb-4" style="font-size:28px">electric_meter</span>
+          <h4 class="font-semibold text-white text-sm mb-2">Retail Business</h4>
+          <p class="text-on-primary-container text-xs leading-relaxed">Energy meter retail business management for Karnataka distribution network.</p>
+        </div>
+        <div class="bg-primary-container border border-on-primary/10 rounded-lg p-6">
+          <span class="material-symbols-outlined text-secondary block mb-4" style="font-size:28px">verified</span>
+          <h4 class="font-semibold text-white text-sm mb-2">Test Bench Integration</h4>
+          <p class="text-on-primary-container text-xs leading-relaxed">Fully automatic test bench integration for energy meter quality verification at scale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- 06 Revenue Management -->
+<section id="revenue" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">06 / Services</span>
+      <h2 class="text-3xl font-bold text-primary mb-6">Total Revenue Management System</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        Maximise profitability through comprehensive, data-driven revenue management. Our system covers the full billing-to-collection cycle and provides management reporting for revenue performance at every level of the organisation.
+      </p>
+      <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Automated billing cycle management and exception handling</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Collections tracking with dunning and recovery workflows</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Revenue leakage analysis and audit reporting</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Deployed with KMC and L&T revenue operations</span>
+        </li>
+      </ul>
+      <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+        Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">receipt_long</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Billing Automation</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Eliminate manual billing errors with fully automated cycle management.</p>
+      </div>
+      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">payments</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Collections</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Structured follow-up workflows and payment reconciliation in one view.</p>
+      </div>
+      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">bar_chart</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Revenue Analytics</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Segment performance by geography, customer type, and billing period.</p>
+      </div>
+      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">policy</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Audit &amp; Compliance</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Full audit trail for every billing and collection transaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- 07 ERP -->
+<section id="erp" class="py-24 bg-surface-container-low reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2b7e4fdda24bbbb5d86_pexels-cottonbro-4065162.webp"
+           alt="Enterprise operations"
+           class="w-full h-full object-cover">
+    </div>
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">07 / Services</span>
+      <h2 class="text-3xl font-bold text-primary mb-6">Enterprise Resource Planning</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        Streamline operations with integrated, efficient enterprise resource planning. Our ERP solution is configured for the operational patterns of technology companies and heavy industry, consolidating HR, procurement, inventory, and project data into a single coherent system.
+      </p>
+      <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">HR and payroll management integrated with attendance systems</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Procurement and supplier management with approval workflows</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Project lifecycle tracking with budget and milestone management</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Financial consolidation and management reporting</span>
+        </li>
+      </ul>
+      <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+        Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="bg-surface-container-high rounded-xl border border-outline-variant p-12 md:p-16 text-center">
+      <h2 class="text-3xl font-bold text-primary mb-4">Ready to discuss your requirements?</h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto mb-8 leading-relaxed">
+        Our engineers work with organisations to understand the specific operational context before recommending a solution. Reach out to start the conversation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-sm mx-auto">
+        <input type="email" placeholder="Your work email"
+               class="flex-grow px-4 py-3 rounded border border-outline text-on-surface focus:ring-2 focus:ring-secondary focus:outline-none bg-white text-sm">
+        <a href="index.html#contact"
+           class="bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+          Schedule a Call
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+  <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+    <div>
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-8 w-auto brightness-0 invert mb-6">
+      <p class="text-on-primary/60 text-sm leading-relaxed mb-6">Enterprise software for India's utility sector. Trusted by electricity boards, water utilities, and revenue departments.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="LinkedIn">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f91f9039caa49a56993_linkedin-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="Facebook">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f6dca124b85500c45f6_facebook-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="YouTube">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f78e6b18611b8a10593_youtube-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Services</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="#workforce"  class="hover:text-white transition-colors">Workforce Management</a></li>
+        <li><a href="#warehouse"  class="hover:text-white transition-colors">Warehouse Management</a></li>
+        <li><a href="#assets"     class="hover:text-white transition-colors">Asset Lifecycle</a></li>
+        <li><a href="#monitoring" class="hover:text-white transition-colors">Condition Monitoring</a></li>
+        <li><a href="#metering"   class="hover:text-white transition-colors">Smart Metering</a></li>
+        <li><a href="#revenue"    class="hover:text-white transition-colors">Revenue Management</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="about.html"      class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="products.html"   class="hover:text-white transition-colors">Products</a></li>
+        <li><a href="#"               class="hover:text-white transition-colors">Careers</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
+      <div class="space-y-3 text-sm text-on-primary/70">
+        <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
+        <p><a href="tel:+918244293001" class="hover:text-white transition-colors">+91 824 4293001</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-container mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-on-primary/40">
+      <span>Copyright &copy; 2024 | Prasanna Technologies Pvt. Ltd.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shadow-md', window.scrollY > 8);
+  }, { passive: true });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

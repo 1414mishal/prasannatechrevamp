@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Prasanna Technologies</title>
+  <meta name="description" content="20+ years of enterprise software for India's utility sector. Learn about Prasanna Technologies, our values, and our commitment to responsible technology.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#001e40",
+            "primary-container": "#003366",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#a7c8ff",
+            "primary-fixed": "#d5e3ff",
+            secondary: "#1591EA",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dbeafe",
+            "on-secondary-container": "#1e3a8a",
+            "secondary-fixed-dim": "#93c5fd",
+            surface: "#fbf9f8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f3",
+            "surface-container": "#f0eded",
+            "surface-container-high": "#eae8e7",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#43474f",
+            outline: "#737780",
+            "outline-variant": "#c3c6d1",
+          },
+          maxWidth: { container: "1280px" },
+          fontFamily: { sans: ["Hanken Grotesk", "sans-serif"] },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Navigation -->
+<nav id="navbar" class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-10 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Products</a>
+      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Services</a>
+      <a href="about.html"    class="text-sm font-semibold text-secondary border-b-2 border-secondary pb-0.5">About</a>
+      <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+    </div>
+    <a href="index.html#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+      Get in Touch
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative h-[640px] md:h-[680px] flex items-center overflow-hidden bg-primary">
+  <!-- Digital globe background -->
+  <div class="absolute right-0 top-0 w-full md:w-3/5 h-full">
+    <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/home-v1-placeholder.webp"
+         alt=""
+         class="w-full h-full object-cover opacity-30">
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/30"></div>
+  <div class="relative z-10 max-w-container mx-auto px-6 w-full">
+    <div class="max-w-2xl">
+      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-4 py-1.5 rounded-full mb-8">
+        About Prasanna Technologies
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight tracking-tight text-white mb-6">
+        Two Decades of Utility Sector Engineering
+      </h1>
+      <p class="text-lg text-primary-fixed/75 max-w-xl leading-relaxed">
+        A technology company focused on mission-critical software for electricity boards, water utilities, and public revenue departments — with a track record built over 20+ years and 105 completed deployments.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- Stats -->
+<div class="bg-primary-container">
+  <div class="max-w-container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">4+</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Countries</div>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">20+</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Years Experience</div>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">105</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Completed Projects</div>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">200+</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Qualified Staff</div>
+    </div>
+  </div>
+</div>
+
+<!-- Mission & Values -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-4">Our Mission</span>
+      <h2 class="text-3xl font-bold text-primary mb-6">Provide unparalleled consulting services that drive growth and efficiency</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        Prasanna Technologies was established to bring technology-driven precision to the operational challenges of India's utility sector. Our focus has always been on sectors where software reliability has direct consequences — electricity distribution, water management, and public revenue administration.
+      </p>
+      <p class="text-on-surface-variant leading-relaxed">
+        Over two decades, we have evolved from a local software consultancy into a multi-country technology partner, while keeping our core commitment: building software that operators actually rely on, day to day.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-4">
+      <div class="flex items-start gap-4 p-6 bg-surface-container-low border border-outline-variant rounded-lg">
+        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:24px">gavel</span>
+        <div>
+          <h4 class="font-bold text-primary mb-1">Integrity</h4>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Honest in our assessments, transparent in our processes, and accountable in our delivery.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-surface-container-low border border-outline-variant rounded-lg">
+        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:24px">lightbulb</span>
+        <div>
+          <h4 class="font-bold text-primary mb-1">Innovation</h4>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Continuously improving our platforms to address new challenges in utility operations and governance.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-surface-container-low border border-outline-variant rounded-lg">
+        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:24px">workspace_premium</span>
+        <div>
+          <h4 class="font-bold text-primary mb-1">Excellence</h4>
+          <p class="text-sm text-on-surface-variant leading-relaxed">ISO 9001 quality management and CMMI Level 3 process maturity underpin everything we build.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-6 bg-surface-container-low border border-outline-variant rounded-lg">
+        <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:24px">diversity_3</span>
+        <div>
+          <h4 class="font-bold text-primary mb-1">Collaboration</h4>
+          <p class="text-sm text-on-surface-variant leading-relaxed">We work alongside our clients, not just for them — forming partnerships rather than transactional vendor relationships.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bento: Engineering the Future -->
+<section class="py-24 bg-surface-container-low reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+      <div class="max-w-xl">
+        <h2 class="text-3xl font-bold text-primary mb-3">Engineering the Future of Utility Operations</h2>
+        <p class="text-on-surface-variant leading-relaxed">Our work bridges the gap between legacy infrastructure and the demands of modern utility governance.</p>
+      </div>
+      <a href="services.html" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group whitespace-nowrap">
+        All Services <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="md:col-span-2 relative h-72 rounded-xl overflow-hidden group">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp"
+             alt="Prasanna Technologies engineering team"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-8 flex flex-col justify-end">
+          <span class="text-secondary-fixed-dim text-xs font-bold uppercase tracking-widest mb-2">Our Team</span>
+          <h3 class="text-white font-bold text-xl">200+ Engineers &amp; Operations Specialists</h3>
+        </div>
+      </div>
+
+      <div class="bg-primary rounded-xl p-8 flex flex-col justify-between">
+        <span class="material-symbols-outlined text-secondary mb-4" style="font-size:32px">memory</span>
+        <div>
+          <h3 class="font-bold text-white text-lg mb-3">Data-Driven Operations</h3>
+          <p class="text-on-primary-container text-sm leading-relaxed opacity-80">Business intelligence dashboards built around the actual reporting needs of utility managers — not generic KPI summaries.</p>
+        </div>
+      </div>
+
+      <div class="bg-surface-container border border-outline-variant rounded-xl p-8">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:32px">precision_manufacturing</span>
+        <h3 class="font-bold text-primary text-lg mb-2">Asset Management</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">End-to-end tracking for Distribution Transformers and substation equipment across the full infrastructure lifecycle.</p>
+      </div>
+
+      <div class="md:col-span-2 relative h-72 rounded-xl overflow-hidden group">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/pixelcut-export%20(6)%201.png"
+             alt="Technology solutions for utilities"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent p-8 flex flex-col justify-end">
+          <span class="text-secondary-fixed-dim text-xs font-bold uppercase tracking-widest mb-2">Technology</span>
+          <h3 class="text-white font-bold text-xl">Sector-Specific Software Architecture</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Our Journey</span>
+      <h2 class="text-3xl font-bold text-primary mb-4">Building Experience Over Time</h2>
+      <div class="w-16 h-0.5 bg-secondary mx-auto"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto space-y-0">
+      <div class="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-outline-variant hidden md:block"></div>
+
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-0 py-10">
+        <div class="md:w-1/2 md:pr-12 md:text-right">
+          <h4 class="text-secondary font-bold text-lg mb-1">Foundation</h4>
+          <h3 class="font-bold text-primary text-lg mb-2">Established in India</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Prasanna Technologies was founded with a focus on bringing software solutions to the operational challenges of Karnataka's electricity distribution sector.</p>
+        </div>
+        <div class="w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed relative z-10 flex-shrink-0"></div>
+        <div class="md:w-1/2 md:pl-12"></div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-0 py-10">
+        <div class="md:w-1/2 md:pr-12"></div>
+        <div class="w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed relative z-10 flex-shrink-0"></div>
+        <div class="md:w-1/2 md:pl-12">
+          <h4 class="text-secondary font-bold text-lg mb-1">Scale</h4>
+          <h3 class="font-bold text-primary text-lg mb-2">BESCOM, MESCOM &amp; KPTCL Deployments</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Major workforce and revenue management deployments with Karnataka's largest electricity utilities, establishing our position as a trusted sector partner.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-0 py-10">
+        <div class="md:w-1/2 md:pr-12 md:text-right">
+          <h4 class="text-secondary font-bold text-lg mb-1">Expansion</h4>
+          <h3 class="font-bold text-primary text-lg mb-2">Water Utilities &amp; Multi-Country Reach</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Extended our platform to water utilities (MCC, UCMC) and grew our footprint to 4+ countries, with 200+ qualified staff serving clients across the region.</p>
+        </div>
+        <div class="w-4 h-4 rounded-full bg-primary ring-4 ring-primary-fixed relative z-10 flex-shrink-0"></div>
+        <div class="md:w-1/2 md:pl-12"></div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-0 py-10">
+        <div class="md:w-1/2 md:pr-12"></div>
+        <div class="w-4 h-4 rounded-full bg-secondary ring-4 ring-secondary-container relative z-10 flex-shrink-0"></div>
+        <div class="md:w-1/2 md:pl-12">
+          <h4 class="text-secondary font-bold text-lg mb-1">Today</h4>
+          <h3 class="font-bold text-primary text-lg mb-2">105 Projects. ISO-Certified. CMMI Level 3.</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">With ISO 9001, ISO 27001, and CMMI Level 3 certifications, and 105 completed projects across utilities and revenue management, we continue to grow and deepen our sector expertise.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Work Culture -->
+<section class="bg-surface-container-low py-24 reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-4">Our People</span>
+      <h2 class="text-3xl font-bold text-primary mb-6">A Dynamic and Engaging Work Environment</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-6">
+        At Prasanna Technologies, we foster a positive, innovative, and collaborative environment with a strong focus on continuous learning. Our 200+ staff work across software engineering, field deployment, customer operations, and product development.
+      </p>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        We invest in technical depth across the organisation — both because it builds better software and because it creates careers that people want to build. Many of our senior engineers and operations specialists have been with us for over a decade.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <span class="bg-surface-container border border-outline-variant text-on-surface text-xs font-semibold px-3 py-1.5 rounded-full">Software Engineering</span>
+        <span class="bg-surface-container border border-outline-variant text-on-surface text-xs font-semibold px-3 py-1.5 rounded-full">Field Operations</span>
+        <span class="bg-surface-container border border-outline-variant text-on-surface text-xs font-semibold px-3 py-1.5 rounded-full">Customer Success</span>
+        <span class="bg-surface-container border border-outline-variant text-on-surface text-xs font-semibold px-3 py-1.5 rounded-full">Product &amp; Design</span>
+        <span class="bg-surface-container border border-outline-variant text-on-surface text-xs font-semibold px-3 py-1.5 rounded-full">Business Development</span>
+      </div>
+    </div>
+    <div class="relative rounded-xl overflow-hidden h-96">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/dynamic.png"
+           alt="Prasanna Technologies team at work"
+           class="w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- CSR -->
+<section class="bg-primary py-24 reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-3 py-1 rounded-full mb-6">
+        Impact Driven
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Social Impact and Corporate Responsibility</h2>
+      <p class="text-primary-fixed/75 leading-relaxed mb-8">
+        At Prasanna Technologies, we believe in conducting business ethically, sustainably, and with a positive social impact. Our software helps public utilities run cleaner operations — and that has a direct bearing on the communities they serve.
+      </p>
+      <div class="space-y-5">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-secondary" style="font-size:20px">bolt</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm mb-1">Efficiency in Essential Services</h4>
+            <p class="text-primary-fixed/60 text-sm leading-relaxed">Better electricity and water management means more reliable supply for households and businesses — particularly in underserved areas.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-secondary" style="font-size:20px">eco</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm mb-1">Reducing Waste Through Better Data</h4>
+            <p class="text-primary-fixed/60 text-sm leading-relaxed">AT&C loss reduction, water network monitoring, and transformer health management all contribute to more resource-efficient infrastructure.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-secondary" style="font-size:20px">groups</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm mb-1">Local Employment and Development</h4>
+            <p class="text-primary-fixed/60 text-sm leading-relaxed">200+ qualified staff with deliberate investment in technical training and career development for professionals in the regions we operate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/social.png"
+           alt="Prasanna Technologies community engagement"
+           class="w-full rounded-2xl shadow-2xl">
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6 text-center">
+    <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Standards</span>
+    <h2 class="text-3xl font-bold text-primary mb-4">Quality &amp; Security Certifications</h2>
+    <p class="text-on-surface-variant max-w-xl mx-auto mb-12">Our certifications reflect an institutional commitment to quality management and information security — not just in our products, but in how we run our business.</p>
+    <div class="flex flex-wrap justify-center items-center gap-16">
+      <div class="flex flex-col items-center gap-3">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso%209001.png"
+             alt="ISO 9001 Certified" class="h-24 w-auto">
+        <div>
+          <div class="font-bold text-primary">ISO 9001</div>
+          <div class="text-xs text-on-surface-variant">Quality Management</div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso%202701.png"
+             alt="ISO 27001 Certified" class="h-24 w-auto">
+        <div>
+          <div class="font-bold text-primary">ISO 27001</div>
+          <div class="text-xs text-on-surface-variant">Information Security</div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-3 bg-surface-container border border-outline-variant rounded-2xl px-12 py-8">
+        <div class="text-5xl font-bold text-primary leading-none">CMMI</div>
+        <div class="text-secondary font-bold tracking-widest text-sm">LEVEL 3</div>
+        <div class="text-xs text-on-surface-variant">Process Maturity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-surface-container-low border-y border-outline-variant py-24 reveal">
+  <div class="max-w-container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Ready to work with us?</h2>
+    <p class="text-on-surface-variant max-w-xl mx-auto leading-relaxed mb-10">
+      Whether you're looking to modernise a specific operation or need a long-term technology partner for your utility — we'd be glad to have the conversation.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="index.html#contact"
+         class="bg-primary text-on-primary px-10 py-4 rounded text-sm font-bold hover:bg-primary-container transition-colors">
+        Get in Touch
+      </a>
+      <a href="services.html"
+         class="border border-primary text-primary px-10 py-4 rounded text-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors">
+        View Our Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+  <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+    <div>
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-8 w-auto brightness-0 invert mb-6">
+      <p class="text-on-primary/60 text-sm leading-relaxed mb-6">Enterprise software for India's utility sector. Trusted by electricity boards, water utilities, and revenue departments.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="LinkedIn">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f91f9039caa49a56993_linkedin-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="Facebook">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f6dca124b85500c45f6_facebook-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="YouTube">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f78e6b18611b8a10593_youtube-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Solutions</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="services.html#workforce" class="hover:text-white transition-colors">Workforce Management</a></li>
+        <li><a href="services.html#warehouse" class="hover:text-white transition-colors">Warehouse Management</a></li>
+        <li><a href="services.html#assets"    class="hover:text-white transition-colors">Asset Lifecycle</a></li>
+        <li><a href="services.html#metering"  class="hover:text-white transition-colors">Smart Metering</a></li>
+        <li><a href="services.html#revenue"   class="hover:text-white transition-colors">Revenue Management</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="about.html"    class="font-semibold text-white">About Us</a></li>
+        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+        <li><a href="#"             class="hover:text-white transition-colors">Careers</a></li>
+        <li><a href="#"             class="hover:text-white transition-colors">Blog</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
+      <div class="space-y-3 text-sm text-on-primary/70">
+        <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
+        <p><a href="tel:+918244293001" class="hover:text-white transition-colors">+91 824 4293001</a></p>
+        <div class="pt-6 border-t border-white/10 mt-4 flex items-center gap-4">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso%209001.png"  alt="ISO 9001"  class="h-12 w-auto">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso%202701.png"  alt="ISO 27001" class="h-12 w-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-container mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-on-primary/40">
+      <span>Copyright &copy; 2024 | Prasanna Technologies Pvt. Ltd.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shadow-md', window.scrollY > 8);
+  }, { passive: true });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

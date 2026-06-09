@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Prasanna Technologies</title>
+  <meta name="description" content="STYRA, EnergySync, and AquaSys — enterprise software products for utilities by Prasanna Technologies.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#001e40",
+            "primary-container": "#003366",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#a7c8ff",
+            "primary-fixed": "#d5e3ff",
+            secondary: "#1591EA",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dbeafe",
+            "on-secondary-container": "#1e3a8a",
+            "secondary-fixed-dim": "#93c5fd",
+            surface: "#fbf9f8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f3",
+            "surface-container": "#f0eded",
+            "surface-container-high": "#eae8e7",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#43474f",
+            outline: "#737780",
+            "outline-variant": "#c3c6d1",
+          },
+          maxWidth: { container: "1280px" },
+          fontFamily: { sans: ["Hanken Grotesk", "sans-serif"] },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Navigation -->
+<nav id="navbar" class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-10 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Home</a>
+      <a href="products.html" class="text-sm font-semibold text-secondary border-b-2 border-secondary pb-0.5">Products</a>
+      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Services</a>
+      <a href="about.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">About</a>
+      <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+    </div>
+    <a href="index.html#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+      Get in Touch
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="bg-primary overflow-hidden">
+  <div class="max-w-container mx-auto px-6 py-24 md:py-32">
+    <div class="max-w-3xl">
+      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-4 py-1.5 rounded-full mb-8">
+        Strategic Solutions
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight tracking-tight text-white mb-6">
+        Empowering Enterprise Infrastructure with Precision Technology
+      </h1>
+      <p class="text-lg text-primary-fixed/75 max-w-2xl leading-relaxed">
+        From grid-wide revenue management to hyper-efficient resource planning, our software is engineered for the demands of utility operators and public sector organisations.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- STYRA -->
+<section id="styra" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="bg-purple-50 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center p-8">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/styra-ui.png"
+             alt="STYRA platform dashboard"
+             class="w-full h-full object-contain drop-shadow-2xl">
+      </div>
+      <div>
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">01 / Products</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">STYRA</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          A SaaS application that helps businesses adapt to digital transformation. STYRA consolidates key operational functions — scheduling, analytics, approvals, and reporting — into a single governed platform that scales with your organisation.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Unified workflow management across departments</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Real-time analytics and executive dashboards</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Role-based access with full audit trails</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Configurable to organisational structure and approval workflows</span>
+          </li>
+        </ul>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+          Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- EnergySync -->
+<section id="energysync" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="order-2 md:order-1">
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">02 / Products</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">EnergySync™</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          A solution for electricity utilities that eliminates inefficiencies from back-office operations. EnergySync covers the full billing cycle, field workforce coordination, AT&C loss identification, and management reporting for DISCOMs of all sizes.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Automated billing and collections management</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">AT&C loss monitoring with root-cause drill-down</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Field workforce scheduling and live status tracking</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Deployed with BESCOM, MESCOM, and KPTCL</span>
+          </li>
+        </ul>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+          Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+        </a>
+      </div>
+      <div class="bg-green-50 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center p-8 order-1 md:order-2">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/enrgysync-ui.png"
+             alt="EnergySync platform dashboard"
+             class="w-full h-full object-contain drop-shadow-2xl">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- AquaSys -->
+<section id="aquasys" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="bg-blue-50 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center p-8">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/aquasis-ui.png"
+             alt="AquaSys platform dashboard"
+             class="w-full h-full object-contain drop-shadow-2xl">
+      </div>
+      <div>
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">03 / Products</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">AquaSys™</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          A water utility management system that automates billing with RF-based prepaid cards, streamlines customer service operations, and integrates with GIS to provide a network-wide view of the distribution infrastructure.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">RF-based prepaid card billing — accurate and tamper-resistant</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">GIS integration for network management and fault tracking</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Customer service portal and complaint management</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Deployed with MCC and UCMC water utilities</span>
+          </li>
+        </ul>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+          Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Solutions -->
+<section class="bg-surface-container-low py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16 space-y-3">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary">Additional Modules</span>
+      <h2 class="text-3xl font-bold text-primary">Broader Solution Portfolio</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">Beyond our three flagship platforms, we offer specialised modules for revenue management, warehouse operations, and enterprise resource planning.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:36px">account_balance_wallet</span>
+        <h3 class="text-lg font-bold text-primary mb-3">Total Revenue Management System</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Maximise profitability through comprehensive, data-driven revenue management. Covers billing, collections, reconciliation, and leakage detection for utility providers.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:36px">settings_input_component</span>
+        <h3 class="text-lg font-bold text-primary mb-3">Meter Outlet Management</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Simplifies material handling at meter depots with tools for tracking receipts, issuances, returns, inventory status, and sales reporting across all locations.
+        </p>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:36px">hub</span>
+        <h3 class="text-lg font-bold text-primary mb-3">Enterprise Resource Planning</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">
+          Streamline operations with integrated, efficient enterprise resource planning. Consolidates HR, procurement, inventory, and project data into a single system.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="bg-primary-container rounded-2xl overflow-hidden grid md:grid-cols-2">
+      <div class="p-12 md:p-16 flex flex-col justify-center">
+        <h2 class="text-3xl font-bold text-white mb-4">Need a custom solution?</h2>
+        <p class="text-on-primary-container/80 leading-relaxed mb-8">
+          Our engineering team specialises in bespoke adaptations for complex utility and industrial environments. Tell us about your infrastructure and we'll outline a viable approach.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="index.html#contact"
+             class="bg-secondary text-on-secondary px-8 py-3.5 text-sm font-bold rounded hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+            Speak to an Engineer <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative min-h-72 overflow-hidden">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f373a55324be69750b183_pexels-sora-shimazaki-5673496.webp"
+             alt="Prasanna Technologies engineering team"
+             class="absolute inset-0 w-full h-full object-cover opacity-40">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+  <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+    <div>
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-8 w-auto brightness-0 invert mb-6">
+      <p class="text-on-primary/60 text-sm leading-relaxed mb-6">Enterprise software for India's utility sector. Trusted by electricity boards, water utilities, and revenue departments.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="LinkedIn">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f91f9039caa49a56993_linkedin-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="Facebook">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f6dca124b85500c45f6_facebook-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="YouTube">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f78e6b18611b8a10593_youtube-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Products</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="#styra"      class="hover:text-white transition-colors">STYRA</a></li>
+        <li><a href="#energysync" class="hover:text-white transition-colors">EnergySync™</a></li>
+        <li><a href="#aquasys"    class="hover:text-white transition-colors">AquaSys™</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">All Services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="about.html"      class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="#"               class="hover:text-white transition-colors">Careers</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
+      <div class="space-y-3 text-sm text-on-primary/70">
+        <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
+        <p><a href="tel:+918244293001" class="hover:text-white transition-colors">+91 824 4293001</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-container mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-on-primary/40">
+      <span>Copyright &copy; 2024 | Prasanna Technologies Pvt. Ltd.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shadow-md', window.scrollY > 8);
+  }, { passive: true });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
