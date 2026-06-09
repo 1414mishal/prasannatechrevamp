@@ -80,14 +80,6 @@
     .cap-outer::-webkit-scrollbar { display: none; }
     .cap-card img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
     .cap-card:hover img { transform: scale(1.06); }
-    .cap-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(0,30,64,0.18);
-      border: none; padding: 0; cursor: pointer;
-      transition: background 0.3s, width 0.3s;
-      flex-shrink: 0;
-    }
-    .cap-dot.active { background: #1591EA; width: 24px; border-radius: 4px; }
 
     /* Chrome button — liquid iridescent pill */
     .chrome-btn { position: relative; padding: 14px 28px; border-radius: 9999px; background: #04080e; overflow: hidden; color: #fff; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.01em; cursor: pointer; display: inline-flex; align-items: center; border: 1.5px solid rgba(255,255,255,0.09); box-shadow: 0 0 24px rgba(21,145,234,0.22), 0 4px 20px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06); text-decoration: none; transition: transform 0.07s ease, box-shadow 0.35s ease; -webkit-tap-highlight-color: transparent; }
@@ -369,16 +361,6 @@
         </div>
       </a>
     </div>
-  </div>
-  <!-- Dot indicators -->
-  <div class="flex justify-center items-center gap-2 mt-7" id="cap-dots">
-    <button class="cap-dot active" aria-label="Slide 1"></button>
-    <button class="cap-dot" aria-label="Slide 2"></button>
-    <button class="cap-dot" aria-label="Slide 3"></button>
-    <button class="cap-dot" aria-label="Slide 4"></button>
-    <button class="cap-dot" aria-label="Slide 5"></button>
-    <button class="cap-dot" aria-label="Slide 6"></button>
-    <button class="cap-dot" aria-label="Slide 7"></button>
   </div>
 </section>
 
@@ -671,10 +653,10 @@
   <div class="max-w-container mx-auto px-6 text-center">
     <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Standards</span>
     <h2 class="text-3xl font-bold text-primary mb-16">Quality &amp; Security Certifications</h2>
-    <div class="flex flex-wrap justify-center items-end gap-20">
+    <div class="flex flex-wrap justify-center items-center gap-20">
       <div class="flex flex-col items-center gap-4">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso9001.png"
-             alt="ISO 9001 Certified" class="h-40 w-auto">
+             alt="ISO 9001 Certified" class="h-32 w-auto">
         <span class="text-sm font-semibold text-on-surface-variant">ISO 9001</span>
       </div>
       <div class="flex flex-col items-center gap-4">
@@ -861,7 +843,7 @@
 
     var dots = Array.from(document.querySelectorAll('#cap-dots .cap-dot'));
     var N = 7; // unique cards (14 total with duplicate)
-    var AUTO_SPEED = 0.75;  // px/frame default (scrolls right)
+    var AUTO_SPEED = 0.40;  // px/frame default (scrolls right)
     var currentSpeed = AUTO_SPEED;
     var targetSpeed  = AUTO_SPEED;
     var mouseOver = false;
@@ -894,7 +876,7 @@
     function frame() {
       if (mouseOver) {
         // left half → negative (scroll left), right half → positive (scroll right)
-        targetSpeed = (mouseRel - 0.5) * 4; // -2 to +2 px/frame
+        targetSpeed = (mouseRel - 0.5) * 3; // -1.5 to +1.5 px/frame
       } else {
         targetSpeed = AUTO_SPEED;
       }
