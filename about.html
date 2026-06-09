@@ -44,6 +44,8 @@
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .nav-active { position: relative; color: #1591EA; font-weight: 600; background: rgba(21,145,234,0.08); padding: 6px 14px; border-radius: 8px; }
+    .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
@@ -55,12 +57,14 @@
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
            alt="Prasanna Technologies" class="h-10 w-auto">
     </a>
-    <div class="hidden md:flex items-center gap-8">
-      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Home</a>
-      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Products</a>
-      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Services</a>
-      <a href="about.html"    class="text-sm font-semibold text-secondary border-b-2 border-secondary pb-0.5">About</a>
-      <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+    <div class="hidden md:flex items-center gap-1">
+      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Home</a>
+      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Products</a>
+      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Services</a>
+      <a href="about.html"    class="nav-active text-sm">About</a>
+      <a href="team.html"     class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Our Team</a>
+      <a href="careers.html"  class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Careers</a>
+      <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Contact</a>
     </div>
     <a href="index.html#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
       Get in Touch
@@ -79,7 +83,7 @@
   <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/30"></div>
   <div class="relative z-10 max-w-container mx-auto px-6 w-full">
     <div class="max-w-2xl">
-      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-4 py-1.5 rounded-full mb-8">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-6">
         About Prasanna Technologies
       </span>
       <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight tracking-tight text-white mb-6">
@@ -299,7 +303,7 @@
 <section class="bg-primary py-24 reveal">
   <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
     <div>
-      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-3 py-1 rounded-full mb-6">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-6">
         Impact Driven
       </span>
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Social Impact and Corporate Responsibility</h2>
@@ -428,10 +432,10 @@
     <div>
       <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
       <ul class="space-y-3 text-sm text-on-primary/70">
-        <li><a href="about.html"    class="font-semibold text-white">About Us</a></li>
-        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
-        <li><a href="#"             class="hover:text-white transition-colors">Careers</a></li>
-        <li><a href="#"             class="hover:text-white transition-colors">Blog</a></li>
+        <li><a href="about.html"         class="font-semibold text-white">About Us</a></li>
+        <li><a href="team.html"          class="hover:text-white transition-colors">Our Team</a></li>
+        <li><a href="products.html"      class="hover:text-white transition-colors">Products</a></li>
+        <li><a href="careers.html"       class="hover:text-white transition-colors">Careers</a></li>
         <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
       </ul>
     </div>

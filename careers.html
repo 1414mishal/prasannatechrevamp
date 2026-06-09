@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Prasanna Technologies</title>
+  <meta name="description" content="Build your career at Prasanna Technologies. We're hiring engineers, field specialists, and customer success professionals across India's utility sector.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#001e40",
+            "primary-container": "#003366",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#a7c8ff",
+            "primary-fixed": "#d5e3ff",
+            secondary: "#1591EA",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dbeafe",
+            "on-secondary-container": "#1e3a8a",
+            "secondary-fixed-dim": "#93c5fd",
+            surface: "#fbf9f8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f3",
+            "surface-container": "#f0eded",
+            "surface-container-high": "#eae8e7",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#43474f",
+            outline: "#737780",
+            "outline-variant": "#c3c6d1",
+          },
+          maxWidth: { container: "1280px" },
+          fontFamily: { sans: ["Hanken Grotesk", "sans-serif"] },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .nav-active { position: relative; color: #1591EA; font-weight: 600; background: rgba(21,145,234,0.08); padding: 6px 14px; border-radius: 8px; }
+    .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
+    .job-card { transition: border-color 0.2s, box-shadow 0.2s; }
+    .job-card:hover { border-color: #1591EA; box-shadow: 0 4px 20px rgba(21,145,234,0.1); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Navigation -->
+<nav id="navbar" class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-10 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-1">
+      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Home</a>
+      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Products</a>
+      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Services</a>
+      <a href="about.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">About</a>
+      <a href="team.html"     class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Our Team</a>
+      <a href="careers.html"  class="nav-active text-sm">Careers</a>
+      <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Contact</a>
+    </div>
+    <a href="index.html#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+      Get in Touch
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="bg-primary overflow-hidden">
+  <div class="max-w-container mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-6">
+        Join Prasanna Technologies
+      </span>
+      <h1 class="text-4xl md:text-[52px] font-bold leading-tight tracking-tight text-white mb-6">
+        Work That Makes a Real Difference
+      </h1>
+      <p class="text-lg text-primary-fixed/75 max-w-xl leading-relaxed mb-8">
+        Our software runs the electricity and water systems that millions of people depend on every day. We're looking for people who want to build things that matter — and build careers that last.
+      </p>
+      <a href="#openings"
+         class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-8 py-3.5 text-sm font-bold rounded hover:opacity-90 transition-opacity">
+        See Open Roles <span class="material-symbols-outlined" style="font-size:18px">arrow_downward</span>
+      </a>
+    </div>
+    <div class="hidden md:block">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp"
+           alt="Prasanna Technologies engineers"
+           class="w-full aspect-[4/3] object-cover rounded-xl shadow-2xl">
+    </div>
+  </div>
+</header>
+
+<!-- Why Join Us -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Why Prasanna</span>
+      <h2 class="text-3xl font-bold text-primary mb-4">What We Offer</h2>
+      <div class="w-16 h-0.5 bg-secondary mx-auto"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-5 block" style="font-size:36px">school</span>
+        <h3 class="font-bold text-primary text-lg mb-3">Continuous Learning</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Structured learning programmes, technical mentorship, and access to domain experts who have been working in utility software for two decades.</p>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-5 block" style="font-size:36px">trending_up</span>
+        <h3 class="font-bold text-primary text-lg mb-3">Career Progression</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Many of our senior engineers and operations leads started as juniors with us. We promote from within and build long-term careers, not just jobs.</p>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-5 block" style="font-size:36px">diversity_3</span>
+        <h3 class="font-bold text-primary text-lg mb-3">Collaborative Culture</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Cross-functional teams where engineers work alongside field operators, product managers, and customer success — building shared understanding.</p>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-5 block" style="font-size:36px">bolt</span>
+        <h3 class="font-bold text-primary text-lg mb-3">Meaningful Work</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Software that manages electricity distribution and water supply for real communities. The stakes are tangible, and so is the impact.</p>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-5 block" style="font-size:36px">workspace_premium</span>
+        <h3 class="font-bold text-primary text-lg mb-3">ISO-Certified Quality</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Work within a CMMI Level 3, ISO 9001 and ISO 27001 certified environment — structured processes, quality engineering, and professional standards.</p>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 hover:shadow-md transition-shadow">
+        <span class="material-symbols-outlined text-secondary mb-5 block" style="font-size:36px">location_on</span>
+        <h3 class="font-bold text-primary text-lg mb-3">Karnataka-Based</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Headquartered in Mangalore, with project teams operating across Karnataka. Local roots, regional impact, and growing international presence.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Culture Photo -->
+<section class="bg-surface-container-low py-24 reveal">
+  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div class="relative rounded-xl overflow-hidden h-96">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/dynamic.png"
+           alt="Prasanna Technologies workplace"
+           class="w-full h-full object-cover">
+    </div>
+    <div>
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-4">Our Environment</span>
+      <h2 class="text-3xl font-bold text-primary mb-6">A Dynamic and Engaging Work Environment</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-6">
+        At Prasanna Technologies, we foster a positive, innovative, and collaborative environment with a strong focus on continuous learning. Our teams work across disciplines in a culture that values both technical depth and personal growth.
+      </p>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        We hire carefully and invest in the people we bring in. You'll work with colleagues who know the utility sector deeply, and be given the space to develop your own expertise over time.
+      </p>
+      <a href="team.html" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+        Meet Our Team <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Open Positions -->
+<section id="openings" class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Current Openings</span>
+      <h2 class="text-3xl font-bold text-primary mb-4">Open Roles</h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto">We're building across engineering, operations, and customer success. If you see a role that fits, we'd like to hear from you.</p>
+      <div class="w-16 h-0.5 bg-secondary mx-auto mt-6"></div>
+    </div>
+
+    <!-- Engineering -->
+    <div class="mb-12">
+      <h3 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px">code</span> Software Engineering
+      </h3>
+      <div class="space-y-4">
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">Senior Software Engineer — Platform</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Mangalore, Karnataka</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-secondary-container text-on-secondary-container text-xs font-semibold px-2.5 py-1 rounded-full">Engineering</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">Design and develop core platform features for EnergySync and AquaSys. Work across the full stack — APIs, data pipelines, and frontend dashboards used by utility operators daily.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: Senior Software Engineer — Platform"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">Software Engineer — Business Intelligence</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Mangalore, Karnataka</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-secondary-container text-on-secondary-container text-xs font-semibold px-2.5 py-1 rounded-full">Engineering</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">Build reporting dashboards and analytics modules that give utility managers actionable insight into AT&C losses, billing performance, and asset health.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: Software Engineer — BI"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">QA Engineer</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Mangalore, Karnataka</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-secondary-container text-on-secondary-container text-xs font-semibold px-2.5 py-1 rounded-full">Engineering</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">Own test strategy and execution for mission-critical utility software. Define test plans, build automation coverage, and ensure the reliability our clients depend on.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: QA Engineer"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Field Operations -->
+    <div class="mb-12">
+      <h3 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px">engineering</span> Field Operations
+      </h3>
+      <div class="space-y-4">
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">Field Operations Supervisor — Metering</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Bangalore / Mangalore, Karnataka</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-full">Operations</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">Lead meter installation teams for BESCOM/MESCOM deployments. Coordinate daily scheduling, quality checks, and photographic evidence capture for smart meter rollouts.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: Field Operations Supervisor"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">Substation Inspection Technician</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Karnataka (Various)</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-full">Operations</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">Carry out routine condition monitoring inspections at distribution substations using thermal imaging and our proprietary asset management platform.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: Substation Inspection Technician"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Customer Success -->
+    <div class="mb-12">
+      <h3 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined" style="font-size:16px">support_agent</span> Customer Success
+      </h3>
+      <div class="space-y-4">
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">Customer Success Manager — Utilities</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Mangalore, Karnataka</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-1 rounded-full">Customer Success</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">Own relationships with electricity and water utility clients post-implementation. Drive adoption, manage escalations, and coordinate training for operator teams.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: Customer Success Manager"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+        <div class="job-card bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-primary text-lg mb-1">Technical Support Specialist</h4>
+            <div class="flex flex-wrap gap-3 mt-2">
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">location_on</span> Mangalore, Karnataka</span>
+              <span class="flex items-center gap-1 text-xs text-on-surface-variant"><span class="material-symbols-outlined" style="font-size:14px">work</span> Full-time</span>
+              <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-1 rounded-full">Customer Success</span>
+            </div>
+            <p class="text-on-surface-variant text-sm mt-3 leading-relaxed max-w-2xl">First and second line support for EnergySync, AquaSys, and STYRA deployments. Diagnose issues, escalate to engineering when needed, and document resolutions.</p>
+          </div>
+          <a href="mailto:info@prasannatechnologies.com?subject=Application: Technical Support Specialist"
+             class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded text-sm font-semibold hover:bg-primary-container transition-colors whitespace-nowrap">
+            Apply Now
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Open Application -->
+    <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-10 text-center">
+      <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:40px">mail</span>
+      <h3 class="text-xl font-bold text-primary mb-3">Don't see a role that fits?</h3>
+      <p class="text-on-surface-variant max-w-lg mx-auto mb-6 leading-relaxed">
+        We sometimes hire ahead of specific openings for strong candidates. Send your CV and a note about what you're looking for.
+      </p>
+      <a href="mailto:info@prasannatechnologies.com?subject=Open Application — Prasanna Technologies"
+         class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-3.5 rounded text-sm font-bold hover:bg-primary-container transition-colors">
+        Send an Open Application <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Process -->
+<section class="bg-primary py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-3">Hiring Process</span>
+      <h2 class="text-3xl font-bold text-white mb-4">How We Hire</h2>
+      <p class="text-primary-fixed/70 max-w-xl mx-auto">A straightforward process — we respect your time and communicate clearly at every step.</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center mx-auto mb-4">
+          <span class="text-secondary font-bold">01</span>
+        </div>
+        <h4 class="font-bold text-white mb-2">Application</h4>
+        <p class="text-primary-fixed/60 text-sm leading-relaxed">Send your CV and a brief note about why you're interested. No cover letter templates needed.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center mx-auto mb-4">
+          <span class="text-secondary font-bold">02</span>
+        </div>
+        <h4 class="font-bold text-white mb-2">Initial Call</h4>
+        <p class="text-primary-fixed/60 text-sm leading-relaxed">30-minute call with our team to understand your background and answer your questions about the role.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center mx-auto mb-4">
+          <span class="text-secondary font-bold">03</span>
+        </div>
+        <h4 class="font-bold text-white mb-2">Technical Assessment</h4>
+        <p class="text-primary-fixed/60 text-sm leading-relaxed">A practical task or interview relevant to the role. We keep it focused and fair — no trick questions.</p>
+      </div>
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center mx-auto mb-4">
+          <span class="text-secondary font-bold">04</span>
+        </div>
+        <h4 class="font-bold text-white mb-2">Offer</h4>
+        <p class="text-primary-fixed/60 text-sm leading-relaxed">A clear, competitive offer with timeline and next steps. We move quickly once we've made a decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary border-t border-white/10">
+  <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+    <div>
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-8 w-auto brightness-0 invert mb-6">
+      <p class="text-on-primary/60 text-sm leading-relaxed mb-6">Enterprise software for India's utility sector. Trusted by electricity boards, water utilities, and revenue departments across 4 countries.</p>
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="LinkedIn">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f91f9039caa49a56993_linkedin-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="Facebook">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f6dca124b85500c45f6_facebook-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="YouTube">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f78e6b18611b8a10593_youtube-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Solutions</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="services.html#workforce" class="hover:text-white transition-colors">Workforce Management</a></li>
+        <li><a href="services.html#warehouse" class="hover:text-white transition-colors">Warehouse Management</a></li>
+        <li><a href="services.html#assets"    class="hover:text-white transition-colors">Asset Lifecycle</a></li>
+        <li><a href="services.html#metering"  class="hover:text-white transition-colors">Smart Metering</a></li>
+        <li><a href="services.html#revenue"   class="hover:text-white transition-colors">Revenue Management</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="about.html"         class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="team.html"          class="hover:text-white transition-colors">Our Team</a></li>
+        <li><a href="products.html"      class="hover:text-white transition-colors">Products</a></li>
+        <li><a href="careers.html"       class="font-semibold text-white">Careers</a></li>
+        <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
+      <div class="space-y-3 text-sm text-on-primary/70">
+        <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
+        <p><a href="tel:+918244293001" class="hover:text-white transition-colors">+91 824 4293001</a></p>
+        <div class="pt-6 border-t border-white/10 mt-4 flex items-center gap-4">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso%209001.png"  alt="ISO 9001"  class="h-12 w-auto">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso%202701.png"  alt="ISO 27001" class="h-12 w-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-container mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-on-primary/40">
+      <span>Copyright &copy; 2024 | Prasanna Technologies Pvt. Ltd.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shadow-md', window.scrollY > 8);
+  }, { passive: true });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

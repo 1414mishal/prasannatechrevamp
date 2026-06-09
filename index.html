@@ -46,6 +46,16 @@
     .card-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,30,64,0.12); }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Tubelight nav active pill */
+    .nav-active { position: relative; color: #1591EA; font-weight: 600; background: rgba(21,145,234,0.08); padding: 6px 14px; border-radius: 8px; }
+    .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
+
+    /* Infinite logo carousel */
+    @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .logo-track { display: flex; width: max-content; animation: logoScroll 36s linear infinite; align-items: center; gap: 64px; }
+    .logo-track:hover { animation-play-state: paused; }
+    .logo-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
@@ -58,12 +68,14 @@
            alt="Prasanna Technologies — Technology for Better Governance"
            class="h-10 w-auto">
     </a>
-    <div class="hidden md:flex items-center gap-8">
-      <a href="index.html"    class="text-sm font-semibold text-secondary border-b-2 border-secondary pb-0.5">Home</a>
-      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Products</a>
-      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Services</a>
-      <a href="about.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">About</a>
-      <a href="#contact"      class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+    <div class="hidden md:flex items-center gap-1">
+      <a href="index.html"    class="nav-active text-sm">Home</a>
+      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Products</a>
+      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Services</a>
+      <a href="about.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">About</a>
+      <a href="team.html"     class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Our Team</a>
+      <a href="careers.html"  class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Careers</a>
+      <a href="#contact"      class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Contact</a>
     </div>
     <a href="#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
       Get in Touch
@@ -75,7 +87,7 @@
 <header class="bg-primary overflow-hidden">
   <div class="max-w-container mx-auto px-6 py-24 md:py-36 grid md:grid-cols-2 gap-16 items-center">
     <div class="space-y-8">
-      <span class="inline-block text-xs font-bold tracking-widest uppercase border border-secondary-fixed-dim/40 text-secondary-fixed-dim px-4 py-1.5 rounded-full">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-2">
         Technology for Better Governance
       </span>
       <h1 class="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight tracking-tight text-white">
@@ -273,18 +285,33 @@
         </p>
       </div>
     </div>
-    <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"  class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris" class="h-8 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"  class="h-8 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-8 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
-      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png" alt="Client" class="h-10 w-auto mx-auto grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all">
+    <div class="logo-outer mt-2">
+      <div class="logo-track py-4">
+        <!-- Set 1 -->
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-8  w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-8  w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-8  w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png" alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <!-- Set 2 — seamless duplicate -->
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-8  w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-8  w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-8  w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png" alt="Client"    class="h-10 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+      </div>
     </div>
   </div>
 </section>
@@ -548,9 +575,9 @@
       <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
       <ul class="space-y-3 text-sm text-on-primary/70">
         <li><a href="about.html"    class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="team.html"    class="hover:text-white transition-colors">Our Team</a></li>
         <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
-        <li><a href="#"             class="hover:text-white transition-colors">Careers</a></li>
-        <li><a href="#"             class="hover:text-white transition-colors">Blog</a></li>
+        <li><a href="careers.html"  class="hover:text-white transition-colors">Careers</a></li>
         <li><a href="#contact"      class="hover:text-white transition-colors">Contact</a></li>
       </ul>
     </div>
