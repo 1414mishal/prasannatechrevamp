@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients & Partners | Prasanna Technologies</title>
+  <meta name="description" content="Trusted by electricity boards, water utilities, and enterprise partners across India and 4 countries. Explore Prasanna Technologies' client network.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#001e40",
+            "primary-container": "#003366",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#a7c8ff",
+            "primary-fixed": "#d5e3ff",
+            secondary: "#1591EA",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#dbeafe",
+            "on-secondary-container": "#1e3a8a",
+            "secondary-fixed-dim": "#93c5fd",
+            surface: "#fbf9f8",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f3f3",
+            "surface-container": "#f0eded",
+            "surface-container-high": "#eae8e7",
+            "on-surface": "#1b1c1c",
+            "on-surface-variant": "#43474f",
+            outline: "#737780",
+            "outline-variant": "#c3c6d1",
+          },
+          maxWidth: { container: "1280px" },
+          fontFamily: { sans: ["Hanken Grotesk", "sans-serif"] },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .grid-stagger > * { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .grid-stagger > *.in { opacity: 1; transform: none; }
+    .nav-active { position: relative; color: #1591EA; font-weight: 600; background: rgba(21,145,234,0.08); padding: 6px 14px; border-radius: 8px; }
+    .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
+    /* Logo carousel */
+    @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .logo-track { display: flex; width: max-content; animation: logoScroll 36s linear infinite; align-items: center; gap: 64px; }
+    .logo-track:hover { animation-play-state: paused; }
+    .logo-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
+    /* Navbar */
+    #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+    #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    /* Client logo card */
+    .client-card { background: white; border-radius: 16px; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; padding: 2rem; transition: box-shadow 0.3s ease, transform 0.3s ease; }
+    .client-card:hover { box-shadow: 0 8px 32px rgba(0,30,64,0.10); transform: translateY(-3px); }
+    /* Mobile */
+    @media (max-width: 639px) {
+      .py-24 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      .gap-16 { gap: 1.5rem !important; }
+      .text-3xl { font-size: 1.5rem !important; line-height: 1.3 !important; }
+      .text-4xl { font-size: 1.875rem !important; line-height: 1.2 !important; }
+    }
+    @media (max-width: 767px) {
+      .logo-track img { height: 2.5rem !important; }
+      .logo-track { gap: 2rem !important; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- Navigation -->
+<nav id="navbar" class="sticky top-0 z-50 border-b transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-10 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-1">
+      <a href="index.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Home</a>
+      <a href="products.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Products</a>
+      <a href="services.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Services</a>
+      <a href="about.html"    class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">About</a>
+      <a href="team.html"     class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Our Team</a>
+      <a href="clients.html"  class="nav-active text-sm">Clients</a>
+      <a href="careers.html"  class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Careers</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="index.html#contact" class="hidden md:inline-flex bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+        Get in Touch
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Open menu">
+        <span class="material-symbols-outlined text-on-surface" id="menu-icon" style="font-size:24px">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant shadow-xl">
+    <div class="px-4 py-3 flex flex-col gap-0.5">
+      <a href="index.html"    class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Home</a>
+      <a href="products.html" class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Products</a>
+      <a href="services.html" class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Services</a>
+      <a href="about.html"    class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">About</a>
+      <a href="team.html"     class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Our Team</a>
+      <a href="clients.html"  class="px-4 py-3 text-sm font-medium text-on-surface hover:bg-surface-container rounded-xl transition-colors">Clients</a>
+      <a href="careers.html"  class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Careers</a>
+      <div class="pt-2 mt-1 border-t border-outline-variant">
+        <a href="index.html#contact" class="flex items-center justify-center w-full bg-primary text-on-primary px-5 py-3.5 text-sm font-semibold rounded-xl hover:bg-primary-container transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative h-[420px] md:h-[560px] flex items-center overflow-hidden bg-primary">
+  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2084&q=80"
+       alt="" aria-hidden="true"
+       class="absolute inset-0 w-full h-full object-cover object-center opacity-30">
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,18,38,0.85) 0%, rgba(0,30,64,0.65) 100%)"></div>
+  <div class="relative z-10 max-w-container mx-auto px-6 md:px-12">
+    <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-4">Our Network</span>
+    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">Clients &amp; Partners</h1>
+    <p class="text-white/70 text-lg max-w-xl leading-relaxed">
+      Trusted by electricity boards, water utilities, and enterprise organisations across India and beyond for over two decades.
+    </p>
+  </div>
+</header>
+
+<!-- Stats -->
+<div class="bg-primary-container">
+  <div class="max-w-container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">4+</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Countries</div>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">105</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Projects Delivered</div>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">20+</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Years of Trust</div>
+    </div>
+    <div class="px-6 py-8 text-center">
+      <div class="text-3xl font-bold text-white">10+</div>
+      <div class="text-xs font-semibold uppercase tracking-widest text-on-primary-container mt-1">Yr Avg. Relationship</div>
+    </div>
+  </div>
+</div>
+
+<!-- Client Logo Grid -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Trusted By</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-primary">Our Clients</h2>
+      <div class="w-16 h-0.5 bg-secondary mx-auto mt-4"></div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 grid-stagger">
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-14 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-14 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-14 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png" alt="Client"    class="h-16 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/landis-gyr.png" alt="Landis+Gyr" class="h-14 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/lt-logo.png"    alt="L&T"        class="h-14 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/hpl-logo.png"   alt="HPL"        class="h-12 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/zera-logo.png"  alt="ZERA"       class="h-12 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/flir-logo.png"  alt="FLIR"       class="h-12 w-auto object-contain"></div>
+      <div class="client-card"><img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/cargill-logo.png" alt="Cargill"  class="h-12 w-auto object-contain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section class="bg-surface-container-low py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Ecosystem</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-primary">Technology Partners</h2>
+      <div class="w-16 h-0.5 bg-secondary mx-auto mt-4"></div>
+      <p class="text-on-surface-variant max-w-2xl mx-auto mt-6 leading-relaxed">
+        We collaborate with leading technology providers to deliver best-in-class solutions for the utility sector.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 grid-stagger">
+      <div class="bg-white rounded-2xl p-8 border border-outline-variant">
+        <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-secondary">sensors</span>
+        </div>
+        <h3 class="text-lg font-bold text-primary mb-3">Metering OEMs</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Partnerships with leading meter manufacturers including Genus, Landis+Gyr, HPL, and L&T for seamless AMI integration.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-outline-variant">
+        <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-secondary">thermostat</span>
+        </div>
+        <h3 class="text-lg font-bold text-primary mb-3">Diagnostic & Testing</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Collaboration with FLIR and ZERA for thermal imaging and precision meter testing solutions used in substation operations.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-outline-variant">
+        <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-secondary">hub</span>
+        </div>
+        <h3 class="text-lg font-bold text-primary mb-3">Enterprise Integrations</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Deep integration capabilities with SAP, Oracle, and custom ERP platforms used by large utilities and government departments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-primary py-20 reveal">
+  <div class="max-w-container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Growing Client Network</h2>
+    <p class="text-primary-fixed/70 max-w-xl mx-auto mb-10 leading-relaxed">
+      Whether you're an electricity board, water utility, or enterprise organisation — let's build something that lasts.
+    </p>
+    <a href="index.html#contact" class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-sm">
+      Get in Touch
+      <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+  <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+    <div>
+      <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
+           alt="Prasanna Technologies" class="h-12 w-auto brightness-0 invert mb-6">
+      <p class="text-on-primary/60 text-sm leading-relaxed mb-6">
+        Enterprise software for India's utility sector. Trusted by electricity boards, water utilities, and revenue departments across 4 countries.
+      </p>
+      <div class="flex gap-3">
+        <a href="https://www.linkedin.com/company/prasanna-technologies-pvt-ltd/?originalSubdomain=in" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="LinkedIn">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f91f9039caa49a56993_linkedin-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="https://www.facebook.com/prasannatechnologies/" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="Facebook">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f6dca124b85500c45f6_facebook-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+        <a href="https://youtube.com/@prasannatechnologies?si=a0tVz7eLMd5ry5of" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all" aria-label="YouTube">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f7f78e6b18611b8a10593_youtube-logo-white.svg" alt="" class="w-4 h-4">
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Solutions</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="services.html#workforce" class="hover:text-white transition-colors">Workforce Management</a></li>
+        <li><a href="services.html#warehouse" class="hover:text-white transition-colors">Warehouse Management</a></li>
+        <li><a href="services.html#assets"    class="hover:text-white transition-colors">Asset Lifecycle</a></li>
+        <li><a href="services.html#metering"  class="hover:text-white transition-colors">Smart Metering</a></li>
+        <li><a href="services.html#revenue"   class="hover:text-white transition-colors">Revenue Management</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Company</h4>
+      <ul class="space-y-3 text-sm text-on-primary/70">
+        <li><a href="about.html"    class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="team.html"     class="hover:text-white transition-colors">Our Team</a></li>
+        <li><a href="clients.html"  class="hover:text-white transition-colors">Clients</a></li>
+        <li><a href="products.html" class="hover:text-white transition-colors">Products</a></li>
+        <li><a href="careers.html"  class="hover:text-white transition-colors">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
+      <div class="space-y-3 text-sm text-on-primary/70">
+        <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
+        <p><a href="tel:+918244293001" class="hover:text-white transition-colors">+91 824 4293001</a></p>
+        <div class="pt-6 border-t border-white/10 mt-4 flex items-center gap-3 flex-wrap">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso9001.png"  alt="ISO 9001"  class="h-14 w-auto">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso27001.png"  alt="ISO 27001" class="h-14 w-auto">
+          <img src="./cmmi-level-3-certification-removebg-preview.png" alt="CMMI Level 3" class="h-14 w-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-container mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-on-primary/40">
+      <span>Copyright &copy; 2026 | Prasanna Technologies Pvt. Ltd.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('shadow-md', window.scrollY > 8);
+    navbar.classList.toggle('nav-scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Array.from(entry.target.children).forEach((child, i) => { setTimeout(() => child.classList.add('in'), i * 80); });
+        staggerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.grid-stagger').forEach(el => staggerObserver.observe(el));
+
+  (function() {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('menu-icon');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(e) { e.stopPropagation(); var isOpen = !menu.classList.contains('hidden'); menu.classList.toggle('hidden', isOpen); if (icon) icon.textContent = isOpen ? 'menu' : 'close'; });
+    document.addEventListener('click', function(e) { if (!btn.contains(e.target) && !menu.contains(e.target)) { menu.classList.add('hidden'); if (icon) icon.textContent = 'menu'; } });
+  })();
+</script>
+</body>
+</html>
