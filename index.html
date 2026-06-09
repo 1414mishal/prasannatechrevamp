@@ -896,6 +896,8 @@
       requestAnimationFrame(frame);
     }
 
+    // Start mid-track so carousel appears to come from nowhere
+    outer.scrollLeft = halfWidth() * 0.37;
     requestAnimationFrame(frame);
 
     // Dot clicks jump to that card
