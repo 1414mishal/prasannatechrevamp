@@ -52,12 +52,14 @@
     .hero-animate { opacity: 0; animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     .nav-active { position: relative; color: #1591EA; font-weight: 600; background: rgba(21,145,234,0.08); padding: 6px 14px; border-radius: 8px; }
     .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
+    #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+    #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
 
 <!-- Navigation -->
-<nav id="navbar" class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-shadow duration-300">
+<nav id="navbar" class="sticky top-0 z-50 border-b transition-shadow duration-300">
   <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
     <a href="index.html" class="flex-shrink-0">
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
@@ -385,6 +387,7 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('shadow-md', window.scrollY > 8);
+    navbar.classList.toggle('nav-scrolled', window.scrollY > 60);
   }, { passive: true });
 
   const revealObserver = new IntersectionObserver((entries) => {

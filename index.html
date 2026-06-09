@@ -69,6 +69,14 @@
     .logo-track:hover { animation-play-state: paused; }
     .logo-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
 
+    /* Capabilities carousel */
+    @keyframes capScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .cap-track { display: flex; width: max-content; animation: capScroll 48s linear infinite; }
+    .cap-track:hover { animation-play-state: paused; }
+    .cap-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%); }
+    .cap-card img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .cap-card:hover img { transform: scale(1.06); }
+
     /* Chrome button — liquid iridescent pill */
     .chrome-btn { position: relative; padding: 14px 28px; border-radius: 9999px; background: #04080e; overflow: hidden; color: #fff; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.01em; cursor: pointer; display: inline-flex; align-items: center; border: 1.5px solid rgba(255,255,255,0.09); box-shadow: 0 0 24px rgba(21,145,234,0.22), 0 4px 20px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06); text-decoration: none; transition: transform 0.07s ease, box-shadow 0.35s ease; -webkit-tap-highlight-color: transparent; }
     .chrome-btn:active { transform: scale(0.95); }
@@ -78,12 +86,16 @@
     .chrome-btn-text { position: relative; z-index: 10; display: flex; align-items: center; gap: 8px; }
     @keyframes chromeLiquid { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @keyframes chromeShimmer { 0% { left: -50%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 140%; opacity: 0; } }
+
+    /* Transparent-to-solid navbar on scroll */
+    #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+    #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
 
 <!-- Navigation -->
-<nav id="navbar" class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-shadow duration-300">
+<nav id="navbar" class="sticky top-0 z-50 border-b transition-shadow duration-300">
   <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
     <a href="index.html" class="flex-shrink-0">
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
@@ -184,70 +196,143 @@
   </div>
 </div>
 
-<!-- Core Solutions -->
+<!-- Core Capabilities Carousel -->
 <section class="py-24 reveal">
-  <div class="max-w-container mx-auto px-6">
-    <div class="text-center mb-16 space-y-3">
-      <span class="text-xs font-bold tracking-widest uppercase text-secondary">Enterprise Solutions</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-primary">Core Capabilities</h2>
-      <div class="w-16 h-0.5 bg-secondary mx-auto mt-3"></div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6 grid-stagger">
-
-      <div class="card-lift group border border-outline-variant rounded-lg overflow-hidden bg-surface-container-lowest">
-        <div class="h-56 overflow-hidden">
-          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp"
-               alt="Workforce management"
-               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="p-8">
+  <div class="max-w-container mx-auto px-6 text-center mb-14">
+    <span class="text-xs font-bold tracking-widest uppercase text-secondary">Enterprise Solutions</span>
+    <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Core Capabilities</h2>
+    <div class="w-16 h-0.5 bg-secondary mx-auto mt-4"></div>
+  </div>
+  <div class="cap-outer">
+    <div class="cap-track gap-1" style="display:flex;gap:4px;">
+      <!-- Set 1 -->
+      <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Management</span>
-          <h3 class="text-xl font-bold text-primary mb-3">Workforce Management</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
-            Secure access control, real-time field staff dashboards, and automated meter installation workflows. Purpose-built for utility operations.
-          </p>
-          <a href="services.html#workforce" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group/link w-fit">
-            Learn More <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
-          </a>
+          <h3 class="text-2xl font-bold text-white mb-2">Workforce Management</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Ensures secure access, efficient meter installations with real-time dashboards.</p>
         </div>
-      </div>
-
-      <div class="card-lift group border border-outline-variant rounded-lg overflow-hidden bg-surface-container-lowest">
-        <div class="h-56 overflow-hidden">
-          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.png"
-               alt="Warehouse management with tablet"
-               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="p-8">
+      </a>
+      <a href="services.html#warehouse" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.png" alt="Warehouse Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Logistics</span>
-          <h3 class="text-xl font-bold text-primary mb-3">Warehouse Management</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
-            Real-time monitoring and quality control for meters, transformers, and electrical inventory across multiple storage locations.
-          </p>
-          <a href="services.html#warehouse" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group/link w-fit">
-            Learn More <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
-          </a>
+          <h3 class="text-2xl font-bold text-white mb-2">Warehouse Management</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Real-time monitoring and QC for efficient management of meters and electrical inventory.</p>
         </div>
-      </div>
-
-      <div class="card-lift group border border-outline-variant rounded-lg overflow-hidden bg-surface-container-lowest">
-        <div class="h-56 overflow-hidden">
-          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/pixelcut-export%20(7)%201.png"
-               alt="Thermal imaging for asset condition monitoring"
-               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="p-8">
+      </a>
+      <a href="services.html#assets" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/thermal-imaging.png" alt="Asset Lifecycle Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Infrastructure</span>
-          <h3 class="text-xl font-bold text-primary mb-3">Asset Lifecycle Management</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
-            End-to-end IT solution for Distribution Transformers — from commissioning and condition monitoring to decommissioning.
-          </p>
-          <a href="services.html#assets" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group/link w-fit">
-            Learn More <span class="material-symbols-outlined group-hover/link:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
-          </a>
+          <h3 class="text-2xl font-bold text-white mb-2">Asset Lifecycle Management</h3>
+          <p class="text-white/65 text-sm leading-relaxed">End-to-end IT solution for managing Distribution Transformers.</p>
         </div>
-      </div>
-
+      </a>
+      <a href="services.html#monitoring" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/electric.png" alt="Condition Monitoring" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Monitoring</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Condition Monitoring</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Ensures reliable substation operations and prevents costly breakdowns.</p>
+        </div>
+      </a>
+      <a href="services.html#metering" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/water.png" alt="Meter Outlet Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Smart Metering</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Meter Outlet Management & AMI</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Simplifies material handling with tools for tracking receipts, issuances, and sales reporting.</p>
+        </div>
+      </a>
+      <a href="services.html#revenue" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f373a55324be69750b183_pexels-sora-shimazaki-5673496.webp" alt="Revenue Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Revenue</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Total Revenue Management System</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Maximize profitability through comprehensive, data-driven revenue management solutions.</p>
+        </div>
+      </a>
+      <a href="services.html#erp" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2b7e4fdda24bbbb5d86_pexels-cottonbro-4065162.webp" alt="Enterprise Resource Planning" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">ERP</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Enterprise Resource Planning</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
+        </div>
+      </a>
+      <!-- Set 2 — seamless duplicate -->
+      <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Management</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Workforce Management</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Ensures secure access, efficient meter installations with real-time dashboards.</p>
+        </div>
+      </a>
+      <a href="services.html#warehouse" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.png" alt="Warehouse Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Logistics</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Warehouse Management</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Real-time monitoring and QC for efficient management of meters and electrical inventory.</p>
+        </div>
+      </a>
+      <a href="services.html#assets" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/thermal-imaging.png" alt="Asset Lifecycle Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Infrastructure</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Asset Lifecycle Management</h3>
+          <p class="text-white/65 text-sm leading-relaxed">End-to-end IT solution for managing Distribution Transformers.</p>
+        </div>
+      </a>
+      <a href="services.html#monitoring" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/electric.png" alt="Condition Monitoring" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Monitoring</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Condition Monitoring</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Ensures reliable substation operations and prevents costly breakdowns.</p>
+        </div>
+      </a>
+      <a href="services.html#metering" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/water.png" alt="Meter Outlet Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Smart Metering</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Meter Outlet Management & AMI</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Simplifies material handling with tools for tracking receipts, issuances, and sales reporting.</p>
+        </div>
+      </a>
+      <a href="services.html#revenue" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f373a55324be69750b183_pexels-sora-shimazaki-5673496.webp" alt="Revenue Management" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Revenue</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Total Revenue Management System</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Maximize profitability through comprehensive, data-driven revenue management solutions.</p>
+        </div>
+      </a>
+      <a href="services.html#erp" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2b7e4fdda24bbbb5d86_pexels-cottonbro-4065162.webp" alt="Enterprise Resource Planning" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">ERP</span>
+          <h3 class="text-2xl font-bold text-white mb-2">Enterprise Resource Planning</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -334,29 +419,41 @@
     <div class="logo-outer mt-2">
       <div class="logo-track py-4">
         <!-- Set 1 -->
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-16 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-16 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-16 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png" alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png"        alt="Client"       class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/landis-gyr.png" alt="Landis+Gyr"  class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/lt-logo.png"    alt="L&T"         class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/hpl-logo.png"   alt="HPL"         class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/zera-logo.png"  alt="ZERA"        class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/flir-logo.png"  alt="FLIR"        class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/cargill-logo.png" alt="Cargill"  class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
         <!-- Set 2 — seamless duplicate -->
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-16 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-16 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-16 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png" alt="Client"    class="h-20 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/1.png"  alt="Genus"     class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/2.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/3.png"  alt="Polaris"   class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/4.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/5.png"  alt="Bosch"     class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/6.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/7.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/8.png"  alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/9.png"  alt="Visiontek" class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/10.png" alt="Client"    class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/11.png"        alt="Client"       class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/landis-gyr.png" alt="Landis+Gyr"  class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/lt-logo.png"    alt="L&T"         class="h-36 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/hpl-logo.png"   alt="HPL"         class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/zera-logo.png"  alt="ZERA"        class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/flir-logo.png"  alt="FLIR"        class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/cargill-logo.png" alt="Cargill"  class="h-28 w-auto flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
       </div>
     </div>
   </div>
@@ -558,16 +655,19 @@
         <p class="text-primary-fixed/75 leading-relaxed mb-10">
           Fill out the form below to get in touch with our support team. We respond within one business day.
         </p>
-        <form class="space-y-4 text-left">
+        <form action="https://formsubmit.co/info@prasannatechnologies.com" method="POST" class="space-y-4 text-left">
+          <input type="hidden" name="_subject" value="New Enquiry from Prasanna Technologies Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="grid md:grid-cols-2 gap-4">
-            <input type="text" placeholder="Your Name"
+            <input type="text" name="name" placeholder="Your Name" required
                    class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm">
-            <input type="text" placeholder="Organisation"
+            <input type="text" name="organisation" placeholder="Organisation"
                    class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm">
           </div>
-          <input type="email" placeholder="Work Email"
+          <input type="email" name="email" placeholder="Work Email" required
                  class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm">
-          <textarea rows="4" placeholder="Tell us about your requirements"
+          <textarea rows="4" name="message" placeholder="Tell us about your requirements"
                     class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm resize-none"></textarea>
           <button type="submit"
                   class="w-full bg-secondary text-on-secondary py-3.5 font-bold rounded hover:opacity-90 transition-opacity text-sm">
@@ -651,10 +751,12 @@
 </footer>
 
 <script>
-  // Nav shadow on scroll
+  // Nav transparent-to-solid on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 60;
     navbar.classList.toggle('shadow-md', window.scrollY > 8);
+    navbar.classList.toggle('nav-scrolled', scrolled);
   }, { passive: true });
 
   // Scroll reveal
