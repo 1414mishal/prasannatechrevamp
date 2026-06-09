@@ -875,14 +875,19 @@
       dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
     }
 
+    var seeded = false;
     function frame() {
+      // On first real frame, cards are laid out — jump to mid-track so no card is "first"
+      if (!seeded) {
+        outer.scrollLeft = halfWidth() * 0.5;
+        seeded = true;
+      }
+
       if (mouseOver) {
-        // left half → negative (scroll left), right half → positive (scroll right)
-        targetSpeed = (mouseRel - 0.5) * 3; // -1.5 to +1.5 px/frame
+        targetSpeed = (mouseRel - 0.5) * 3;
       } else {
         targetSpeed = AUTO_SPEED;
       }
-      // Smooth lerp toward target
       currentSpeed += (targetSpeed - currentSpeed) * 0.10;
 
       outer.scrollLeft += currentSpeed;
@@ -896,8 +901,6 @@
       requestAnimationFrame(frame);
     }
 
-    // Start mid-track so carousel appears to come from nowhere
-    outer.scrollLeft = halfWidth() * 0.37;
     requestAnimationFrame(frame);
 
     // Dot clicks jump to that card
