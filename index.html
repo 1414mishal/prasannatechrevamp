@@ -68,6 +68,16 @@
     .logo-track { display: flex; width: max-content; animation: logoScroll 36s linear infinite; align-items: center; gap: 64px; }
     .logo-track:hover { animation-play-state: paused; }
     .logo-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
+
+    /* Chrome button — liquid iridescent pill */
+    .chrome-btn { position: relative; padding: 14px 28px; border-radius: 9999px; background: #04080e; overflow: hidden; color: #fff; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.01em; cursor: pointer; display: inline-flex; align-items: center; border: 1.5px solid rgba(255,255,255,0.09); box-shadow: 0 0 24px rgba(21,145,234,0.22), 0 4px 20px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06); text-decoration: none; transition: transform 0.07s ease, box-shadow 0.35s ease; -webkit-tap-highlight-color: transparent; }
+    .chrome-btn:active { transform: scale(0.95); }
+    .chrome-btn:hover { box-shadow: 0 0 44px rgba(21,145,234,0.48), 0 8px 32px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.11); }
+    .chrome-btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, #04080e 0%, rgba(0,40,100,0.6) 15%, rgba(21,145,234,0.55) 30%, #04080e 50%, rgba(0,60,160,0.5) 65%, rgba(21,145,234,0.45) 80%, #04080e 100%); background-size: 280% 280%; animation: chromeLiquid 5s ease infinite; }
+    .chrome-btn::after { content: ''; position: absolute; top: -150%; left: -50%; width: 35%; height: 400%; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%); transform: rotate(18deg); animation: chromeShimmer 3.5s ease-in-out infinite; pointer-events: none; }
+    .chrome-btn-text { position: relative; z-index: 10; display: flex; align-items: center; gap: 8px; }
+    @keyframes chromeLiquid { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes chromeShimmer { 0% { left: -50%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 140%; opacity: 0; } }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
@@ -118,13 +128,14 @@
       Prasanna Technologies develops enterprise software for electricity boards, water utilities, and revenue departments — deployed across Karnataka, Goa, and beyond for over two decades.
     </p>
     <div class="mt-10 flex flex-wrap gap-4 hero-animate" style="animation-delay:0.52s">
-      <a href="services.html"
-         class="bg-secondary text-on-secondary px-8 py-3.5 text-sm font-bold rounded flex items-center gap-2 hover:opacity-90 transition-opacity">
-        Explore Solutions
-        <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+      <a href="services.html" class="chrome-btn">
+        <span class="chrome-btn-text">
+          Explore Solutions
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </span>
       </a>
       <a href="#contact"
-         class="border border-white/30 text-white px-8 py-3.5 text-sm font-semibold rounded hover:bg-white/10 transition-colors">
+         class="border border-white/30 text-white px-8 py-3.5 text-sm font-semibold rounded-full hover:bg-white/10 transition-colors inline-flex items-center">
         Contact Us
       </a>
     </div>
