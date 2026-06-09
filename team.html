@@ -40,7 +40,7 @@
     }
   </script>
   <style>
-    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
     .card-lift { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
     .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,30,64,0.15); }
@@ -72,9 +72,29 @@
       <a href="careers.html"  class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Careers</a>
       <a href="index.html#contact" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Contact</a>
     </div>
-    <a href="index.html#contact" class="bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
-      Get in Touch
-    </a>
+    <div class="flex items-center gap-2">
+      <a href="index.html#contact" class="hidden md:inline-flex bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+        Get in Touch
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container transition-colors" aria-label="Open menu">
+        <span class="material-symbols-outlined text-on-surface" id="menu-icon" style="font-size:24px">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant shadow-xl">
+    <div class="px-4 py-3 flex flex-col gap-0.5">
+      <a href="index.html"    class="px-4 py-3 text-sm font-medium text-on-surface hover:bg-surface-container rounded-xl transition-colors">Home</a>
+      <a href="products.html" class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Products</a>
+      <a href="services.html" class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Services</a>
+      <a href="about.html"    class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">About</a>
+      <a href="team.html"     class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Our Team</a>
+      <a href="careers.html"  class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Careers</a>
+      <div class="pt-2 mt-1 border-t border-outline-variant">
+        <a href="index.html#contact" class="flex items-center justify-center w-full bg-primary text-on-primary px-5 py-3.5 text-sm font-semibold rounded-xl hover:bg-primary-container transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -414,6 +434,26 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+  // Mobile nav toggle
+  (function() {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = document.getElementById('menu-icon');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', isOpen);
+      if (icon) icon.textContent = isOpen ? 'menu' : 'close';
+    });
+    document.addEventListener('click', function(e) {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+        if (icon) icon.textContent = 'menu';
+      }
+    });
+  })();
 </script>
 </body>
 </html>
