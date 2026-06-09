@@ -525,75 +525,6 @@
   </div>
 </section>
 
-<!-- Blog -->
-<section class="bg-surface-container-low py-24 reveal">
-  <div class="max-w-container mx-auto px-6">
-    <div class="flex justify-between items-end mb-12 gap-6">
-      <div>
-        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Insights</span>
-        <h2 class="text-3xl font-bold text-primary">From the Blog</h2>
-      </div>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8 grid-stagger">
-
-      <article class="card-lift bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant">
-        <div class="h-48 overflow-hidden">
-          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f373a55324be69750b183_pexels-sora-shimazaki-5673496.webp"
-               alt="Blog post illustration"
-               class="w-full h-full object-cover">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-xs font-bold uppercase bg-secondary-container text-on-secondary-container px-2 py-1 rounded">Smart Metering</span>
-            <span class="text-xs text-on-surface-variant">Sep 04, 2024</span>
-          </div>
-          <h3 class="font-bold text-primary mb-4 leading-snug">Smart Metering Rollouts, Roadblocks, and the Path to Net-Zero</h3>
-          <a href="#" class="text-secondary text-sm font-semibold flex items-center gap-1 group w-fit">
-            Read Article <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="card-lift bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant">
-        <div class="h-48 overflow-hidden">
-          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp"
-               alt="Blog post illustration"
-               class="w-full h-full object-cover">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-xs font-bold uppercase bg-secondary-container text-on-secondary-container px-2 py-1 rounded">Insights</span>
-            <span class="text-xs text-on-surface-variant">Jan 13, 2023</span>
-          </div>
-          <h3 class="font-bold text-primary mb-4 leading-snug">Navigating the Challenges of Smart Metering: Insights and Solutions</h3>
-          <a href="#" class="text-secondary text-sm font-semibold flex items-center gap-1 group w-fit">
-            Read Article <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
-          </a>
-        </div>
-      </article>
-
-      <article class="card-lift bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant">
-        <div class="h-48 overflow-hidden">
-          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2b7e4fdda24bbbb5d86_pexels-cottonbro-4065162.webp"
-               alt="Blog post illustration"
-               class="w-full h-full object-cover">
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-xs font-bold uppercase bg-secondary-container text-on-secondary-container px-2 py-1 rounded">Energy</span>
-            <span class="text-xs text-on-surface-variant">2024</span>
-          </div>
-          <h3 class="font-bold text-primary mb-4 leading-snug">India's Smart Metering Drive Advances Efficiency, Sustainability, and Revenue Growth</h3>
-          <a href="#" class="text-secondary text-sm font-semibold flex items-center gap-1 group w-fit">
-            Read Article <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
 <!-- Certifications -->
 <section class="py-24 reveal">
   <div class="max-w-container mx-auto px-6 text-center">
@@ -850,30 +781,33 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
 
-  // ── Capabilities Carousel: cursor-position driven + infinite loop ──
+  // ── Capabilities Carousel: mouse + touch driven + infinite loop ──
   (function() {
     var outer = document.getElementById('cap-outer');
     var track = document.getElementById('cap-track');
     if (!outer || !track) return;
 
     var dots = Array.from(document.querySelectorAll('#cap-dots .cap-dot'));
-    var N = 7; // unique cards (14 total with duplicate)
-    var AUTO_SPEED = 0.40;  // px/frame default (scrolls right)
+    var N = 7;
+    var AUTO_SPEED = 0.40;
     var currentSpeed = AUTO_SPEED;
     var targetSpeed  = AUTO_SPEED;
-    var mouseOver = false;
-    var mouseRel  = 0.5; // cursor relative position 0=left 1=right
 
-    outer.addEventListener('mouseenter', function() { mouseOver = true; });
-    outer.addEventListener('mouseleave', function() { mouseOver = false; });
-    outer.addEventListener('mousemove', function(e) {
-      var rect = outer.getBoundingClientRect();
-      mouseRel = (e.clientX - rect.left) / rect.width; // 0..1
-    });
+    // Mouse state
+    var mouseOver = false;
+    var mouseRel  = 0.5;
+
+    // Touch state
+    var touching     = false;
+    var touchStartX  = 0;
+    var touchLastX   = 0;
+    var touchVel     = 0;  // px/frame from touch drag
+    var touchPrevX   = 0;
+    var touchPrevT   = 0;
 
     function halfWidth() {
       var cards = track.querySelectorAll('.cap-card');
-      if (!cards.length) return 2828; // fallback
+      if (!cards.length) return 2828;
       return (cards.length / 2) * (cards[0].offsetWidth + 4);
     }
 
@@ -888,27 +822,74 @@
       dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
     }
 
+    // ── Mouse (desktop) ──
+    outer.addEventListener('mouseenter', function() { mouseOver = true; });
+    outer.addEventListener('mouseleave', function() { mouseOver = false; });
+    outer.addEventListener('mousemove', function(e) {
+      var rect = outer.getBoundingClientRect();
+      mouseRel = (e.clientX - rect.left) / rect.width;
+    });
+
+    // ── Touch (mobile) ──
+    outer.addEventListener('touchstart', function(e) {
+      touching    = true;
+      touchStartX = e.touches[0].clientX;
+      touchLastX  = touchStartX;
+      touchPrevX  = touchStartX;
+      touchPrevT  = performance.now();
+      touchVel    = 0;
+      currentSpeed = 0;
+      targetSpeed  = 0;
+    }, { passive: true });
+
+    outer.addEventListener('touchmove', function(e) {
+      if (!touching) return;
+      var x   = e.touches[0].clientX;
+      var now = performance.now();
+      var dt  = Math.max(now - touchPrevT, 1);
+      // velocity in px/ms → convert to px/frame (60fps ≈ 16.67ms)
+      touchVel  = -((x - touchPrevX) / dt) * 16.67;
+      touchPrevX = x;
+      touchPrevT = now;
+
+      outer.scrollLeft -= (x - touchLastX);
+      touchLastX = x;
+
+      var half = halfWidth();
+      if (outer.scrollLeft >= half) outer.scrollLeft -= half;
+      if (outer.scrollLeft < 0)    outer.scrollLeft += half;
+    }, { passive: true });
+
+    outer.addEventListener('touchend', function() {
+      touching     = false;
+      // Hand off touch velocity to currentSpeed for momentum, then let it decay back to AUTO
+      currentSpeed = Math.max(-6, Math.min(6, touchVel)); // cap momentum
+      targetSpeed  = AUTO_SPEED;
+    });
+
+    // ── RAF loop ──
     var seeded = false;
     function frame() {
-      // On first real frame, cards are laid out — jump to mid-track so no card is "first"
       if (!seeded) {
         outer.scrollLeft = halfWidth() * 0.5;
         seeded = true;
       }
 
-      if (mouseOver) {
-        targetSpeed = (mouseRel - 0.5) * 3;
-      } else {
-        targetSpeed = AUTO_SPEED;
+      if (!touching) {
+        if (mouseOver) {
+          targetSpeed = (mouseRel - 0.5) * 3;
+        } else {
+          targetSpeed = AUTO_SPEED;
+        }
+        // Stronger lerp back to auto after touch momentum
+        var lerpFactor = (Math.abs(currentSpeed - AUTO_SPEED) > 1) ? 0.06 : 0.10;
+        currentSpeed += (targetSpeed - currentSpeed) * lerpFactor;
+        outer.scrollLeft += currentSpeed;
+
+        var half = halfWidth();
+        if (outer.scrollLeft >= half) outer.scrollLeft -= half;
+        if (outer.scrollLeft < 0)    outer.scrollLeft += half;
       }
-      currentSpeed += (targetSpeed - currentSpeed) * 0.10;
-
-      outer.scrollLeft += currentSpeed;
-
-      // Seamless loop
-      var half = halfWidth();
-      if (outer.scrollLeft >= half)  outer.scrollLeft -= half;
-      if (outer.scrollLeft < 0)      outer.scrollLeft += half;
 
       updateDots();
       requestAnimationFrame(frame);
@@ -916,7 +897,6 @@
 
     requestAnimationFrame(frame);
 
-    // Dot clicks jump to that card
     dots.forEach(function(d, i) {
       d.addEventListener('click', function() {
         var cards = track.querySelectorAll('.cap-card');
