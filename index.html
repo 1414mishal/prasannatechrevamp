@@ -70,12 +70,28 @@
     .logo-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
 
     /* Capabilities carousel */
-    @keyframes capScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .cap-track { display: flex; width: max-content; animation: capScroll 48s linear infinite; }
-    .cap-track:hover { animation-play-state: paused; }
-    .cap-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%); }
+    .cap-track { display: flex; width: max-content; gap: 4px; }
+    .cap-outer {
+      overflow-x: scroll; overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      cursor: grab;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+    .cap-outer::-webkit-scrollbar { display: none; }
+    .cap-outer.is-dragging { cursor: grabbing; user-select: none; }
+    .cap-card { scroll-snap-align: center; }
     .cap-card img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
     .cap-card:hover img { transform: scale(1.06); }
+    .cap-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,30,64,0.18);
+      border: none; padding: 0; cursor: pointer;
+      transition: background 0.3s, transform 0.3s, width 0.3s;
+      flex-shrink: 0;
+    }
+    .cap-dot.active { background: #1591EA; width: 24px; border-radius: 4px; }
 
     /* Chrome button — liquid iridescent pill */
     .chrome-btn { position: relative; padding: 14px 28px; border-radius: 9999px; background: #04080e; overflow: hidden; color: #fff; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.01em; cursor: pointer; display: inline-flex; align-items: center; border: 1.5px solid rgba(255,255,255,0.09); box-shadow: 0 0 24px rgba(21,145,234,0.22), 0 4px 20px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06); text-decoration: none; transition: transform 0.07s ease, box-shadow 0.35s ease; -webkit-tap-highlight-color: transparent; }
@@ -90,6 +106,29 @@
     /* Transparent-to-solid navbar on scroll */
     #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
     #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+    /* ── Mobile compact overrides ── */
+    @media (max-width: 639px) {
+      .py-24 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+      .py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+      .gap-16 { gap: 1.5rem !important; }
+      .gap-12 { gap: 1.25rem !important; }
+      .p-12, .p-16 { padding: 1.25rem !important; }
+      .p-8 { padding: 1rem !important; }
+      .mb-16 { margin-bottom: 2rem !important; }
+      .mb-14 { margin-bottom: 1.75rem !important; }
+      .mb-12 { margin-bottom: 1.25rem !important; }
+      .text-3xl { font-size: 1.5rem !important; line-height: 1.3 !important; }
+      .text-4xl { font-size: 1.875rem !important; line-height: 1.2 !important; }
+      .max-w-xl, .max-w-2xl { max-width: 100% !important; }
+    }
+    @media (max-width: 767px) {
+      .cap-card { width: 78vw !important; height: 390px !important; scroll-snap-align: center; }
+      .cap-card h3 { font-size: 1.1rem !important; line-height: 1.3; }
+      .cap-card p { font-size: 0.8rem !important; }
+      .logo-track img { height: 2.5rem !important; }
+      .logo-track { gap: 2rem !important; }
+    }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
@@ -138,7 +177,7 @@
 </nav>
 
 <!-- Hero -->
-<header class="relative overflow-hidden" style="min-height:max(600px, 92vh)">
+<header class="relative overflow-hidden" style="min-height:clamp(480px, 85vh, 850px)">
   <!-- Earth background image -->
   <img
     src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
@@ -203,8 +242,8 @@
     <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Core Capabilities</h2>
     <div class="w-16 h-0.5 bg-secondary mx-auto mt-4"></div>
   </div>
-  <div class="cap-outer">
-    <div class="cap-track gap-1" style="display:flex;gap:4px;">
+  <div class="cap-outer" id="cap-outer">
+    <div class="cap-track" id="cap-track">
       <!-- Set 1 -->
       <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
@@ -269,71 +308,17 @@
           <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
         </div>
       </a>
-      <!-- Set 2 — seamless duplicate -->
-      <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Management</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Workforce Management</h3>
-          <p class="text-white/65 text-sm leading-relaxed">Ensures secure access, efficient meter installations with real-time dashboards.</p>
-        </div>
-      </a>
-      <a href="services.html#warehouse" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.png" alt="Warehouse Management" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Logistics</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Warehouse Management</h3>
-          <p class="text-white/65 text-sm leading-relaxed">Real-time monitoring and QC for efficient management of meters and electrical inventory.</p>
-        </div>
-      </a>
-      <a href="services.html#assets" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/thermal-imaging.png" alt="Asset Lifecycle Management" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Infrastructure</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Asset Lifecycle Management</h3>
-          <p class="text-white/65 text-sm leading-relaxed">End-to-end IT solution for managing Distribution Transformers.</p>
-        </div>
-      </a>
-      <a href="services.html#monitoring" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/electric.png" alt="Condition Monitoring" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Monitoring</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Condition Monitoring</h3>
-          <p class="text-white/65 text-sm leading-relaxed">Ensures reliable substation operations and prevents costly breakdowns.</p>
-        </div>
-      </a>
-      <a href="services.html#metering" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/water.png" alt="Meter Outlet Management" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Smart Metering</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Meter Outlet Management & AMI</h3>
-          <p class="text-white/65 text-sm leading-relaxed">Simplifies material handling with tools for tracking receipts, issuances, and sales reporting.</p>
-        </div>
-      </a>
-      <a href="services.html#revenue" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664f373a55324be69750b183_pexels-sora-shimazaki-5673496.webp" alt="Revenue Management" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Revenue</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Total Revenue Management System</h3>
-          <p class="text-white/65 text-sm leading-relaxed">Maximize profitability through comprehensive, data-driven revenue management solutions.</p>
-        </div>
-      </a>
-      <a href="services.html#erp" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
-        <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2b7e4fdda24bbbb5d86_pexels-cottonbro-4065162.webp" alt="Enterprise Resource Planning" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
-          <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">ERP</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Enterprise Resource Planning</h3>
-          <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
-        </div>
-      </a>
     </div>
+  </div>
+  <!-- Dot indicators -->
+  <div class="flex justify-center items-center gap-2 mt-7" id="cap-dots">
+    <button class="cap-dot active" aria-label="Slide 1"></button>
+    <button class="cap-dot" aria-label="Slide 2"></button>
+    <button class="cap-dot" aria-label="Slide 3"></button>
+    <button class="cap-dot" aria-label="Slide 4"></button>
+    <button class="cap-dot" aria-label="Slide 5"></button>
+    <button class="cap-dot" aria-label="Slide 6"></button>
+    <button class="cap-dot" aria-label="Slide 7"></button>
   </div>
 </section>
 
@@ -807,6 +792,96 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+  // ── Capabilities Carousel: drag + dots + autoplay ──
+  (function() {
+    var outer = document.getElementById('cap-outer');
+    var track = document.getElementById('cap-track');
+    if (!outer || !track) return;
+
+    var cards = Array.from(track.querySelectorAll('.cap-card'));
+    var dots  = Array.from(document.querySelectorAll('#cap-dots .cap-dot'));
+    var N = cards.length; // 7
+
+    function cardW() {
+      return cards[0] ? (cards[0].offsetWidth + 4) : 404;
+    }
+
+    function getIdx() {
+      var cw = cardW();
+      return Math.min(N - 1, Math.max(0, Math.round(outer.scrollLeft / cw)));
+    }
+
+    function updateDots(i) {
+      dots.forEach(function(d, j) {
+        d.classList.toggle('active', j === i);
+      });
+    }
+
+    function scrollTo(idx) {
+      outer.scrollTo({ left: idx * cardW(), behavior: 'smooth' });
+    }
+
+    // Autoplay
+    var autoTimer = null;
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function() {
+        var next = (getIdx() + 1) % N;
+        scrollTo(next);
+      }, 3600);
+    }
+    function stopAuto() { clearInterval(autoTimer); }
+
+    // ── Mouse drag ──
+    var dragging = false, startX = 0, startScroll = 0, moved = false;
+
+    outer.addEventListener('mousedown', function(e) {
+      dragging = true; moved = false;
+      startX = e.clientX;
+      startScroll = outer.scrollLeft;
+      outer.classList.add('is-dragging');
+      stopAuto();
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', function(e) {
+      if (!dragging) return;
+      var dx = startX - e.clientX;
+      if (Math.abs(dx) > 4) moved = true;
+      outer.scrollLeft = startScroll + dx;
+    });
+
+    window.addEventListener('mouseup', function() {
+      if (!dragging) return;
+      dragging = false;
+      outer.classList.remove('is-dragging');
+      // Snap to nearest
+      var idx = Math.min(N - 1, Math.max(0, Math.round(outer.scrollLeft / cardW())));
+      scrollTo(idx);
+      startAuto();
+    });
+
+    // Block link navigation if user dragged
+    outer.addEventListener('click', function(e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+
+    // ── Touch ── (scroll-snap handles snapping natively)
+    outer.addEventListener('touchstart', function() { stopAuto(); }, { passive: true });
+    outer.addEventListener('touchend',   function() { startAuto(); }, { passive: true });
+
+    // ── Scroll → update dots ──
+    outer.addEventListener('scroll', function() { updateDots(getIdx()); }, { passive: true });
+
+    // ── Dot click ──
+    dots.forEach(function(d, i) {
+      d.addEventListener('click', function() { scrollTo(i); stopAuto(); startAuto(); });
+    });
+
+    updateDots(0);
+    startAuto();
+  })();
 
   // Mobile nav toggle
   (function() {
