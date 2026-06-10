@@ -189,7 +189,8 @@
   <!-- Hero background video -->
   <video
     id="hero-video"
-    src="./5069-182666800_medium.mp4"
+    src="./hero-bg-optimized.mp4"
+    preload="auto"
     autoplay loop muted playsinline
     aria-hidden="true"
     class="absolute inset-0 w-full h-full object-cover object-center"
@@ -769,9 +770,14 @@
 </footer>
 
 <script>
-  // Slow down hero background video
+  // Slow down hero background video, and pause it when off-screen
   const heroVideo = document.getElementById('hero-video');
-  if (heroVideo) heroVideo.playbackRate = 0.5;
+  if (heroVideo) {
+    heroVideo.playbackRate = 0.5;
+    new IntersectionObserver((entries) => {
+      entries.forEach(entry => entry.isIntersecting ? heroVideo.play() : heroVideo.pause());
+    }).observe(heroVideo);
+  }
 
   // Nav transparent-to-solid on scroll
   const navbar = document.getElementById('navbar');
