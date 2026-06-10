@@ -849,13 +849,17 @@
 
     // ── RAF loop ──
     var seeded = false;
-    function frame() {
+    var startTime = null;
+    function frame(now) {
       if (!seeded) {
         outer.scrollLeft = 0;
         seeded = true;
+        startTime = now;
       }
 
-      if (!touching) {
+      var waiting = (now - startTime) < 3000;
+
+      if (!touching && !waiting) {
         if (mouseOver) {
           targetSpeed = (mouseRel - 0.5) * 3;
         } else {
