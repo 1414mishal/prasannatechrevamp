@@ -618,27 +618,25 @@
       if (window.innerWidth < 768) { pathLen = 0; update(); return; }
       var r = track.getBoundingClientRect();
       trackH = r.height;
-      var cx = r.width / 2;
-      var ys = dots.map(function(d) {
-        var dr = d.getBoundingClientRect();
-        return dr.top - r.top + dr.height / 2;
+      var pts = dots.map(function(el) {
+        var dr = el.getBoundingClientRect();
+        return { x: dr.left - r.left + dr.width / 2, y: dr.top - r.top + dr.height / 2 };
       });
       svg.setAttribute('viewBox', '0 0 ' + r.width + ' ' + r.height);
-      var amp = Math.min(160, r.width * 0.2);
-      var d = 'M ' + cx + ' 0 C ' + cx + ' ' + (ys[0] * 0.45) + ', ' + cx + ' ' + (ys[0] * 0.75) + ', ' + cx + ' ' + ys[0];
-      for (var i = 0; i < ys.length - 1; i++) {
-        var y1 = ys[i], y2 = ys[i + 1];
+      // text columns start 48px from centre (md:pr-12/pl-12) — keep the curve inside that gutter
+      var amp = 40;
+      var d = 'M ' + pts[0].x + ' 0 C ' + pts[0].x + ' ' + (pts[0].y * 0.45) + ', ' + pts[0].x + ' ' + (pts[0].y * 0.75) + ', ' + pts[0].x + ' ' + pts[0].y;
+      for (var i = 0; i < pts.length - 1; i++) {
+        var p1 = pts[i], p2 = pts[i + 1];
         var dir = (i % 2 === 0) ? 1 : -1;
-        d += ' C ' + (cx + amp * dir) + ' ' + (y1 + (y2 - y1) * 0.3) + ', ' + (cx + amp * dir) + ' ' + (y2 - (y2 - y1) * 0.3) + ', ' + cx + ' ' + y2;
+        d += ' C ' + (p1.x + amp * dir) + ' ' + (p1.y + (p2.y - p1.y) * 0.35) + ', ' + (p2.x + amp * dir) + ' ' + (p2.y - (p2.y - p1.y) * 0.35) + ', ' + p2.x + ' ' + p2.y;
       }
-      var lastY = ys[ys.length - 1];
-      d += ' C ' + cx + ' ' + (lastY + (trackH - lastY) * 0.5) + ', ' + cx + ' ' + trackH + ', ' + cx + ' ' + trackH;
       base.setAttribute('d', d);
       prog.setAttribute('d', d);
       pathLen = prog.getTotalLength();
       prog.style.strokeDasharray = pathLen + ' ' + pathLen;
       prog.style.strokeDashoffset = pathLen;
-      dotLens = ys.map(lengthAtY);
+      dotLens = pts.map(function(p) { return lengthAtY(p.y); });
       update();
     }
 
@@ -674,12 +672,21 @@
     }
 
     var resizeTimer;
-    window.addEventListener('resize', function() {
+    function scheduleRebuild() {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(buildPath, 150);
-    });
+      resizeTimer = setTimeout(buildPath, 120);
+    }
+    window.addEventListener('resize', scheduleRebuild);
+    if (window.ResizeObserver) {
+      var lastH = 0;
+      new ResizeObserver(function(entries) {
+        var h = entries[0].contentRect.height;
+        if (Math.abs(h - lastH) > 1) { lastH = h; scheduleRebuild(); }
+      }).observe(track);
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildPath);
+    window.addEventListener('load', buildPath);
     buildPath();
   })();
 </script>
