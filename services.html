@@ -97,13 +97,18 @@
     a, button, label[for] { cursor: pointer; }
     a:not(.cap-card):not(.card-lift),
     button:not(.chrome-btn) {
-      transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, transform 0.15s ease;
+      transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease, opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    a:active:not(.cap-card):not(.card-lift), button:active:not(.chrome-btn) { transform: scale(0.97); }
+    button:not(.chrome-btn):not(.card-lift):hover,
+    a.inline-flex:not(.cap-card):not(.card-lift):hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px -8px rgba(0,30,64,0.35);
+    }
+    a:active:not(.cap-card):not(.card-lift), button:active:not(.chrome-btn) { transform: scale(0.94) translateY(0); }
     input:focus, textarea:focus, select:focus {
       outline: none;
       border-color: #1591EA !important;
-      box-shadow: 0 0 0 3px rgba(21,145,234,0.15);
+      box-shadow: 0 0 0 4px rgba(21,145,234,0.2);
     }
     a:focus-visible, button:focus-visible {
       outline: 2px solid #1591EA;
@@ -112,13 +117,33 @@
     }
     .grid-stagger .border-2.border-white.rounded,
     .grid-stagger .border-2.rounded {
-      transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.35s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.35s ease, box-shadow 0.35s ease;
     }
     .grid-stagger > *:hover .border-2.border-white.rounded,
     .grid-stagger > *:hover .border-2.rounded {
-      background-color: rgba(21,145,234,0.15);
+      background-color: rgba(21,145,234,0.25);
       border-color: #1591EA;
-      transform: translateY(-3px) scale(1.05);
+      transform: translateY(-6px) scale(1.15) rotate(-6deg);
+      box-shadow: 0 10px 24px -8px rgba(21,145,234,0.55);
+    }
+    .card-lift img, .sector-card img {
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .card-lift:hover img, .sector-card:hover img {
+      transform: scale(1.08);
+    }
+    main p a:not(.chrome-btn), .prose a {
+      position: relative;
+      text-decoration: none;
+      background-image: linear-gradient(#1591EA, #1591EA);
+      background-size: 0% 2px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size 0.3s ease, color 0.25s ease;
+    }
+    main p a:not(.chrome-btn):hover, .prose a:hover {
+      background-size: 100% 2px;
+      color: #1591EA;
     }
   </style>
 </head>
