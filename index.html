@@ -311,7 +311,7 @@
         </div>
       </a>
       <!-- Set 2 — seamless duplicate for infinite loop -->
-      <a href="services.html#assets" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#assets" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
         <img src="./asset-managing.webp" alt="Asset Lifecycle Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
@@ -320,7 +320,7 @@
           <p class="text-white/65 text-sm leading-relaxed">End-to-end IT solution for managing Distribution Transformers.</p>
         </div>
       </a>
-      <a href="services.html#erp" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#erp" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
         <img src="./erp-pt.webp" alt="Enterprise Resource Planning" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
@@ -329,7 +329,7 @@
           <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
         </div>
       </a>
-      <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#workforce" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
@@ -338,7 +338,7 @@
           <p class="text-white/65 text-sm leading-relaxed">Ensures secure access, efficient meter installations with real-time dashboards.</p>
         </div>
       </a>
-      <a href="services.html#monitoring" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#monitoring" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
         <img src="./thermal-sensing.jpeg" alt="Condition Monitoring" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
@@ -347,7 +347,7 @@
           <p class="text-white/65 text-sm leading-relaxed">Ensures reliable substation operations and prevents costly breakdowns.</p>
         </div>
       </a>
-      <a href="services.html#purchase-inventory" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#purchase-inventory" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.webp" alt="Purchase and Inventory Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
@@ -356,7 +356,7 @@
           <p class="text-white/65 text-sm leading-relaxed">End-to-end procurement and stock control for electrical materials, equipment, and consumables.</p>
         </div>
       </a>
-      <a href="services.html#revenue" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#revenue" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
         <img src="./trm-pt.webp" alt="Revenue Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-8">
@@ -835,6 +835,9 @@
     var outer = document.getElementById('cap-outer');
     var track = document.getElementById('cap-track');
     if (!outer || !track) return;
+
+    // On mobile, show only the 6 real cards as a normal swipeable row — no infinite loop/auto-scroll
+    if (window.matchMedia('(max-width: 767px)').matches) return;
 
     var AUTO_SPEED = 0.40;
     var currentSpeed = AUTO_SPEED;
