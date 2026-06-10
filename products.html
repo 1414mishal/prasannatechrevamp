@@ -60,8 +60,10 @@
   <style>
     body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
-    .card-lift { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
-    .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,30,64,0.15); }
+    /* .card-lift.card-lift boosts specificity above .grid-stagger > * so the hover lift isn't delayed/overridden */
+    .card-lift.card-lift { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease; }
+    .card-lift.card-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(0,30,64,0.15); animation: card-float 3s ease-in-out infinite; }
+    @keyframes card-float { 0%, 100% { transform: translateY(-8px); } 50% { transform: translateY(-14px); } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .img-pop { opacity: 0; transform: scale(0.82) translateY(24px); transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -72,8 +74,8 @@
     .hero-animate { opacity: 0; animation: heroSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     .nav-active { position: relative; color: #1591EA; font-weight: 600; background: rgba(21,145,234,0.08); padding: 6px 14px; border-radius: 8px; }
     .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
-    #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
-    #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    #navbar { background: rgba(255,255,255,0.7) !important; border-color: rgba(195,198,209,0.35) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,30,64,0.06); }
+    #navbar.nav-scrolled { background: rgba(255,255,255,0.92) !important; border-color: #c3c6d1 !important; box-shadow: 0 8px 30px rgba(0,30,64,0.12); }
 
     /* Link preview hover card */
     .link-preview { position: relative; }
@@ -169,10 +171,18 @@
   </style>
 </head>
 <body class="bg-surface text-on-surface">
+<style>
+  #page-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fbf9f8;transition:opacity .4s ease,visibility .4s ease;}
+  #page-loader.loader-hidden{opacity:0;visibility:hidden;pointer-events:none;}
+  #page-loader .loader-logo{width:200px;height:auto;animation:loader-pulse 1.4s ease-in-out infinite;}
+  @keyframes loader-pulse{0%,100%{opacity:.35;transform:scale(.92);}50%{opacity:1;transform:scale(1);}}
+</style>
+<div id="page-loader"><img class="loader-logo" src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies"></div>
+<script src="page-loader.js"></script>
 
 <!-- Navigation -->
-<nav id="navbar" class="sticky top-0 z-50 border-b transition-shadow duration-300">
-  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+<nav id="navbar" class="fixed top-3 inset-x-3 lg:inset-x-auto lg:left-1/2 lg:-translate-x-1/2 lg:w-full lg:max-w-5xl z-50 rounded-2xl border transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-4 sm:px-6 flex justify-between items-center h-16">
     <a href="index.html" class="flex-shrink-0">
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
            alt="Prasanna Technologies" class="h-10 w-auto">
@@ -195,7 +205,7 @@
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant shadow-xl">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/40 rounded-b-2xl overflow-hidden">
     <div class="px-4 py-3 flex flex-col gap-0.5">
       <a href="index.html"    class="px-4 py-3 text-sm font-medium text-on-surface hover:bg-surface-container rounded-xl transition-colors">Home</a>
       <a href="products.html" class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Products</a>
@@ -214,11 +224,11 @@
 </nav>
 
 <!-- Hero -->
-<header class="bg-primary overflow-hidden relative">
+<header class="relative flex items-center overflow-hidden bg-primary" style="min-height:100vh">
   <img src="./product-backdrop.webp" alt="" aria-hidden="true"
        class="absolute inset-0 w-full h-full object-cover object-center opacity-60" loading="lazy" decoding="async">
   <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(0,18,38,0.65) 0%,rgba(0,30,64,0.45) 60%,rgba(0,30,64,0.25) 100%)"></div>
-  <div class="relative z-10 max-w-container mx-auto px-6 py-24 md:py-32">
+  <div class="relative z-10 max-w-container mx-auto px-6 w-full">
     <div class="max-w-3xl">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-6">
         Strategic Solutions
@@ -527,7 +537,8 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-primary text-on-primary">
+<footer class="bg-primary text-on-primary relative overflow-hidden">
+  <canvas id="footer-shader-canvas" class="absolute inset-0 w-full h-full opacity-20 pointer-events-none"></canvas>
   <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
     <div>
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
@@ -640,5 +651,6 @@
     });
   })();
 </script>
+<script src="footer-shader.js" defer></script>
 </body>
 </html>

@@ -63,8 +63,10 @@
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
 
     /* Card hover — spring-like lift */
-    .card-lift { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
-    .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,30,64,0.15); }
+    /* .card-lift.card-lift boosts specificity above .grid-stagger > * so the hover lift isn't delayed/overridden */
+    .card-lift.card-lift { transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease; }
+    .card-lift.card-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(0,30,64,0.15); animation: card-float 3s ease-in-out infinite; }
+    @keyframes card-float { 0%, 100% { transform: translateY(-8px); } 50% { transform: translateY(-14px); } }
 
     /* Section reveal — smooth spring (not blocky ease) */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -97,7 +99,9 @@
       mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
     .cap-outer::-webkit-scrollbar { display: none; }
-    .cap-card img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .cap-card { transition: box-shadow 0.8s ease, opacity 0.5s ease; transform-origin: center center; will-change: transform, opacity; }
+    .cap-card img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .cap-card:hover { box-shadow: 0 24px 56px rgba(0,0,0,0.35); }
     .cap-card:hover img { transform: scale(1.06); }
 
     /* Chrome button — liquid iridescent pill */
@@ -110,9 +114,9 @@
     @keyframes chromeLiquid { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @keyframes chromeShimmer { 0% { left: -50%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 140%; opacity: 0; } }
 
-    /* Transparent-to-solid navbar on scroll */
-    #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
-    #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    /* Floating pill navbar */
+    #navbar { background: rgba(255,255,255,0.7) !important; border-color: rgba(195,198,209,0.35) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,30,64,0.06); }
+    #navbar.nav-scrolled { background: rgba(255,255,255,0.92) !important; border-color: #c3c6d1 !important; box-shadow: 0 8px 30px rgba(0,30,64,0.12); }
 
     /* ── Mobile compact overrides ── */
     @media (max-width: 639px) {
@@ -139,10 +143,18 @@
   </style>
 </head>
 <body class="bg-surface text-on-surface">
+<style>
+  #page-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fbf9f8;transition:opacity .4s ease,visibility .4s ease;}
+  #page-loader.loader-hidden{opacity:0;visibility:hidden;pointer-events:none;}
+  #page-loader .loader-logo{width:200px;height:auto;animation:loader-pulse 1.4s ease-in-out infinite;}
+  @keyframes loader-pulse{0%,100%{opacity:.35;transform:scale(.92);}50%{opacity:1;transform:scale(1);}}
+</style>
+<div id="page-loader"><img class="loader-logo" src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies"></div>
+<script src="page-loader.js"></script>
 
 <!-- Navigation -->
-<nav id="navbar" class="sticky top-0 z-50 border-b transition-shadow duration-300">
-  <div class="max-w-container mx-auto px-6 flex justify-between items-center h-20">
+<nav id="navbar" class="fixed top-3 inset-x-3 lg:inset-x-auto lg:left-1/2 lg:-translate-x-1/2 lg:w-full lg:max-w-5xl z-50 rounded-2xl border transition-shadow duration-300">
+  <div class="max-w-container mx-auto px-4 sm:px-6 flex justify-between items-center h-16">
     <a href="index.html" class="flex-shrink-0">
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
            alt="Prasanna Technologies: Technology for Better Governance"
@@ -166,7 +178,7 @@
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant shadow-xl">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/40 rounded-b-2xl overflow-hidden">
     <div class="px-4 py-3 flex flex-col gap-0.5">
       <a href="index.html"    class="px-4 py-3 text-sm font-medium text-on-surface hover:bg-surface-container rounded-xl transition-colors">Home</a>
       <a href="products.html" class="px-4 py-3 text-sm font-medium text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-xl transition-colors">Products</a>
@@ -185,16 +197,13 @@
 </nav>
 
 <!-- Hero -->
-<header class="relative overflow-hidden" style="min-height:clamp(480px, calc(100vh - 80px), 100vh)">
-  <!-- Hero background video -->
-  <video
-    id="hero-video"
-    src="./hero-bg-optimized.mp4"
-    preload="auto"
-    autoplay loop muted playsinline
+<header class="relative overflow-hidden" style="min-height:100vh">
+  <!-- Earth background image -->
+  <img
+    src="./hero-earth-bg.webp"
+    alt=""
     aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-cover object-center"
-    poster="./hero-earth-bg.webp"></video>
+    class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" decoding="async">
   <!-- Dark gradient overlay so text stays readable -->
   <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,18,38,0.72) 0%, rgba(0,30,64,0.52) 50%, rgba(0,18,38,0.35) 100%)"></div>
   <!-- Content -->
@@ -709,7 +718,8 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-primary text-on-primary">
+<footer class="bg-primary text-on-primary relative overflow-hidden">
+  <canvas id="footer-shader-canvas" class="absolute inset-0 w-full h-full opacity-20 pointer-events-none"></canvas>
   <div class="max-w-container mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
     <div>
       <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png"
@@ -770,15 +780,6 @@
 </footer>
 
 <script>
-  // Slow down hero background video, and pause it when off-screen
-  const heroVideo = document.getElementById('hero-video');
-  if (heroVideo) {
-    heroVideo.playbackRate = 0.5;
-    new IntersectionObserver((entries) => {
-      entries.forEach(entry => entry.isIntersecting ? heroVideo.play() : heroVideo.pause());
-    }).observe(heroVideo);
-  }
-
   // Nav transparent-to-solid on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -926,18 +927,34 @@
 
       if (!touching && !waiting) {
         if (mouseOver) {
-          targetSpeed = (mouseRel - 0.5) * 3;
+          targetSpeed = (mouseRel - 0.5) * 1.8;
         } else {
           targetSpeed = AUTO_SPEED;
         }
-        // Stronger lerp back to auto after touch momentum
-        var lerpFactor = (Math.abs(currentSpeed - AUTO_SPEED) > 1) ? 0.06 : 0.10;
+        // Gentle lerp for a slower, floatier glide; a touch stronger after touch momentum
+        var lerpFactor = (Math.abs(currentSpeed - AUTO_SPEED) > 1) ? 0.04 : 0.05;
         currentSpeed += (targetSpeed - currentSpeed) * lerpFactor;
         outer.scrollLeft += currentSpeed;
 
         var half = halfWidth();
         if (outer.scrollLeft >= half) outer.scrollLeft -= half;
         if (outer.scrollLeft < 0)    outer.scrollLeft += half;
+      }
+
+      // ── Coverflow: scale/fade cards based on distance from viewport center ──
+      var rect = outer.getBoundingClientRect();
+      var center = rect.left + rect.width / 2;
+      var cards = track.querySelectorAll('.cap-card');
+      for (var i = 0; i < cards.length; i++) {
+        var c = cards[i];
+        var cr = c.getBoundingClientRect();
+        var cardCenter = cr.left + cr.width / 2;
+        var dist = Math.abs(cardCenter - center) / (rect.width / 2);
+        dist = Math.min(dist, 1);
+        var scale = 1 - dist * 0.08;
+        var opacity = 1 - dist * 0.12;
+        c.style.transform = 'scale(' + scale.toFixed(3) + ')';
+        c.style.opacity = opacity.toFixed(3);
       }
 
       requestAnimationFrame(frame);
@@ -966,5 +983,6 @@
     });
   })();
 </script>
+<script src="footer-shader.js" defer></script>
 </body>
 </html>
