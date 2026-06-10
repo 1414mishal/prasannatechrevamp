@@ -92,6 +92,34 @@
       .grid-cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
       .aspect-video { aspect-ratio: 4/3 !important; }
     }
+
+    /* Global touch & feel polish */
+    a, button, label[for] { cursor: pointer; }
+    a:not(.cap-card):not(.card-lift),
+    button:not(.chrome-btn) {
+      transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, transform 0.15s ease;
+    }
+    a:active:not(.cap-card):not(.card-lift), button:active:not(.chrome-btn) { transform: scale(0.97); }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #1591EA !important;
+      box-shadow: 0 0 0 3px rgba(21,145,234,0.15);
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #1591EA;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .grid-stagger .border-2.border-white.rounded,
+    .grid-stagger .border-2.rounded {
+      transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    }
+    .grid-stagger > *:hover .border-2.border-white.rounded,
+    .grid-stagger > *:hover .border-2.rounded {
+      background-color: rgba(21,145,234,0.15);
+      border-color: #1591EA;
+      transform: translateY(-3px) scale(1.05);
+    }
   </style>
 </head>
 <body class="bg-surface text-on-surface">
