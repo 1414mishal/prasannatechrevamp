@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, company, message, website } = req.body || {};
+  const { name, email, company, message, website, 'g-recaptcha-response': captchaToken } = req.body || {};
 
   // Honeypot field — bots fill this, humans don't
   if (website) {
@@ -22,6 +22,23 @@ module.exports = async (req, res) => {
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Name, email, and message are required.' });
+  }
+
+  if (!captchaToken) {
+    return res.status(400).json({ error: 'Please complete the captcha.' });
+  }
+
+  const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      secret: process.env.RECAPTCHA_SECRET_KEY,
+      response: captchaToken,
+    }),
+  });
+  const verifyData = await verifyRes.json();
+  if (!verifyData.success) {
+    return res.status(400).json({ error: 'Captcha verification failed. Please try again.' });
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,7 +53,7 @@ module.exports = async (req, res) => {
         <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <div style="background-color: #001e40; background-image: linear-gradient(135deg, #001e40 0%, #003366 100%); padding: 32px 36px;">
             <p style="color: #1591EA; margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Prasanna Technologies</p>
-            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">New Website Enquiry</h1>
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">New Enquiry</h1>
           </div>
           <div style="padding: 36px; border: 1px solid #e8eaed; border-top: none;">
             <p style="font-size: 14px; color: #43474f; margin: 0 0 24px; line-height: 1.6;">A new enquiry has been submitted through the Prasanna Technologies website contact form. Details are below:</p>
