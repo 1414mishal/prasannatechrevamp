@@ -188,6 +188,7 @@
 <header class="relative overflow-hidden" style="min-height:clamp(480px, calc(100vh - 80px), 100vh)">
   <!-- Hero background video -->
   <video
+    id="hero-video"
     src="./5069-182666800_medium.mp4"
     autoplay loop muted playsinline
     aria-hidden="true"
@@ -768,6 +769,10 @@
 </footer>
 
 <script>
+  // Slow down hero background video
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) heroVideo.playbackRate = 0.5;
+
   // Nav transparent-to-solid on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
