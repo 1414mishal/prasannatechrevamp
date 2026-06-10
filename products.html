@@ -72,6 +72,85 @@
     .nav-active::after { content: ''; position: absolute; top: -4px; left: 50%; transform: translateX(-50%); width: 28px; height: 3px; border-radius: 0 0 4px 4px; background: #1591EA; box-shadow: 0 0 10px 3px rgba(21,145,234,0.45), 0 0 22px 6px rgba(21,145,234,0.18); }
     #navbar { background: transparent !important; border-color: transparent !important; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
     #navbar.nav-scrolled { background: rgba(251,249,248,0.97) !important; border-color: #c3c6d1 !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+    /* Link preview hover card */
+    .link-preview { position: relative; }
+    .link-preview-card {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%;
+      width: 240px;
+      height: 150px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      border: 2px solid #fff;
+      box-shadow: 0 24px 48px -12px rgba(0,30,64,0.35);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(calc(-50% + var(--tilt, 0px)), 16px) scale(0.7);
+      transform-origin: bottom center;
+      transition: opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1), visibility 0.35s;
+      z-index: 60;
+    }
+    .link-preview-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .link-preview:hover .link-preview-card,
+    .link-preview:focus-visible .link-preview-card {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(calc(-50% + var(--tilt, 0px)), 0) scale(1);
+    }
+    @media (max-width: 767px) {
+      .link-preview-card { display: none; }
+    }
+
+    /* Orbiting tech stack */
+    .orbit-wrap {
+      position: relative;
+      width: clamp(240px, 28vw, 340px);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+    }
+    .orbit-core {
+      position: absolute; inset: 0; margin: auto;
+      width: 30%; height: 30%;
+      border-radius: 9999px;
+      background: #ffffff;
+      box-shadow: 0 12px 32px rgba(0,30,64,0.18);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 5;
+    }
+    .orbit-core img { width: 62%; height: auto; object-fit: contain; }
+    .orbit-ring {
+      position: absolute; inset: 0; margin: auto;
+      border: 1.5px dashed #c3c6d1;
+      border-radius: 9999px;
+      animation: orbit-spin linear infinite;
+    }
+    .orbit-ring--outer { width: 100%; height: 100%; animation-duration: 38s; animation-direction: normal; }
+    .orbit-ring--inner { width: 60%; height: 60%; animation-duration: 26s; animation-direction: reverse; }
+    .orbit-icon {
+      position: absolute;
+      width: 44px; height: 44px;
+      transform: translate(-50%, -50%);
+    }
+    .orbit-icon-inner {
+      width: 100%; height: 100%;
+      border-radius: 9999px;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0,30,64,0.14);
+      display: flex; align-items: center; justify-content: center;
+      animation: orbit-spin linear infinite;
+    }
+    .orbit-ring--outer .orbit-icon-inner { animation-duration: 38s; animation-direction: reverse; }
+    .orbit-ring--inner .orbit-icon-inner { animation-duration: 26s; animation-direction: normal; }
+    .orbit-icon .material-symbols-outlined { font-size: 22px; }
+    @keyframes orbit-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @media (max-width: 639px) {
+      .orbit-icon { width: 36px; height: 36px; }
+      .orbit-icon .material-symbols-outlined { font-size: 18px; }
+    }
     @media (max-width: 639px) {
       .py-24 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .gap-16 { gap: 1.5rem !important; }
@@ -190,8 +269,11 @@
           </li>
         </ul>
         <div class="flex flex-wrap gap-3">
-          <a href="https://styraflow.ai/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
+          <a href="https://styraflow.ai/" target="_blank" rel="noopener" class="link-preview inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
             View Product <span class="material-symbols-outlined" style="font-size:16px">open_in_new</span>
+            <span class="link-preview-card" aria-hidden="true">
+              <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/styra-ui.webp" alt="" loading="lazy">
+            </span>
           </a>
           <a href="index.html#contact" class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary hover:text-white transition-colors">
             Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
@@ -238,8 +320,11 @@
           </li>
         </ul>
         <div class="flex flex-wrap gap-3">
-          <a href="https://energy-sync.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
+          <a href="https://energy-sync.com/" target="_blank" rel="noopener" class="link-preview inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
             View Product <span class="material-symbols-outlined" style="font-size:16px">open_in_new</span>
+            <span class="link-preview-card" aria-hidden="true">
+              <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/enrgysync-ui.webp" alt="" loading="lazy">
+            </span>
           </a>
           <a href="index.html#contact" class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary hover:text-white transition-colors">
             Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
@@ -294,6 +379,74 @@
         <a href="index.html#contact" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
           Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
+
+<!-- Platform Capabilities (Orbit) -->
+<section class="py-24 reveal">
+  <div class="max-w-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">Platform</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">One Platform Architecture, Built to Scale</h2>
+        <p class="text-on-surface-variant leading-relaxed mb-8">
+          STYRA, EnergySync, and AquaSys share a common technology foundation, secure cloud infrastructure, real-time analytics, automated workflows, and connected field operations, so utilities and enterprises get a consistent, reliable experience across every product.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Cloud-hosted with enterprise-grade security and uptime</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Real-time analytics and synchronisation across devices</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+            <span class="text-sm text-on-surface-variant">Automated billing, payments, and field workflows</span>
+          </li>
+        </ul>
+        <a href="index.html#contact" class="inline-flex items-center gap-2 bg-primary text-on-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
+          Talk to Our Team <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+        </a>
+      </div>
+      <div class="orbit-wrap">
+        <div class="orbit-core">
+          <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies">
+        </div>
+        <div class="orbit-ring orbit-ring--outer">
+          <div class="orbit-icon" style="left:100%; top:50%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary">cloud</span></div>
+          </div>
+          <div class="orbit-icon" style="left:69%; top:95%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary">bolt</span></div>
+          </div>
+          <div class="orbit-icon" style="left:19%; top:79%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary">water_drop</span></div>
+          </div>
+          <div class="orbit-icon" style="left:19%; top:21%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary">security</span></div>
+          </div>
+          <div class="orbit-icon" style="left:69%; top:5%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary">payments</span></div>
+          </div>
+        </div>
+        <div class="orbit-ring orbit-ring--inner">
+          <div class="orbit-icon" style="left:100%; top:50%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary" style="font-size:18px">analytics</span></div>
+          </div>
+          <div class="orbit-icon" style="left:25%; top:93%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary" style="font-size:18px">sync</span></div>
+          </div>
+          <div class="orbit-icon" style="left:25%; top:7%;">
+            <div class="orbit-icon-inner"><span class="material-symbols-outlined text-secondary" style="font-size:18px">devices</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -454,6 +607,19 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.grid-stagger').forEach(el => staggerObserver.observe(el));
+
+  // Link preview tilt
+  document.querySelectorAll('.link-preview').forEach(function (link) {
+    link.addEventListener('mousemove', function (e) {
+      var rect = link.getBoundingClientRect();
+      var offsetX = e.clientX - (rect.left + rect.width / 2);
+      var tilt = Math.max(-40, Math.min(40, offsetX / 2));
+      link.style.setProperty('--tilt', tilt + 'px');
+    });
+    link.addEventListener('mouseleave', function () {
+      link.style.setProperty('--tilt', '0px');
+    });
+  });
 
   // Mobile nav toggle
   (function() {
