@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Prasanna Technologies Website <noreply@prasannatechnologies.com>',
-      to: 'info@prasannatechnologies.com',
+      to: 'vedhshetty1206@gmail.com',
       replyTo: email,
       subject: 'New Enquiry from Prasanna Technologies Website',
       html: `
