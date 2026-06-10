@@ -28,36 +28,35 @@ module.exports = async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: 'Prasanna Technologies Website <noreply@prasannatechnologies.com>',
+      from: 'Prasanna Technologies <noreply@prasannatechnologies.com>',
       to: 'vedhshetty1206@gmail.com',
       replyTo: email,
       subject: `New Enquiry for Prasanna Technologies from ${name}`,
       html: `
-        <div style="font-family: Arial, Helvetica, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background-color: #1a3c34; padding: 24px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 20px;">New Enquiry for Prasanna Technologies</h1>
+        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+          <div style="background-color: #001e40; background-image: linear-gradient(135deg, #001e40 0%, #003366 100%); padding: 32px 36px;">
+            <p style="color: #1591EA; margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Prasanna Technologies</p>
+            <h1 style="color: #ffffff; margin: 0; font-size: 22px; font-weight: 700;">New Website Enquiry</h1>
           </div>
-          <div style="padding: 24px; border: 1px solid #e5e5e5; border-top: none;">
-            <p style="font-size: 14px; color: #555; margin-top: 0;">A new enquiry has been submitted through the Prasanna Technologies website contact form. Details are below:</p>
-            <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+          <div style="padding: 36px; border: 1px solid #e8eaed; border-top: none;">
+            <p style="font-size: 14px; color: #43474f; margin: 0 0 24px; line-height: 1.6;">A new enquiry has been submitted through the Prasanna Technologies website contact form. Details are below:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 28px;">
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; width: 120px; vertical-align: top;">Name</td>
-                <td style="padding: 8px 0;">${name}</td>
+                <td style="padding: 10px 0; font-weight: 700; width: 110px; vertical-align: top; color: #001e40; font-size: 13px; border-bottom: 1px solid #eef1f5;">Name</td>
+                <td style="padding: 10px 0; color: #1b1c1c; font-size: 14px; border-bottom: 1px solid #eef1f5;">${name}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Email</td>
-                <td style="padding: 8px 0;">${email}</td>
+                <td style="padding: 10px 0; font-weight: 700; vertical-align: top; color: #001e40; font-size: 13px; border-bottom: 1px solid #eef1f5;">Email</td>
+                <td style="padding: 10px 0; color: #1591EA; font-size: 14px; border-bottom: 1px solid #eef1f5;">${email}</td>
               </tr>
               ${company ? `<tr>
-                <td style="padding: 8px 0; font-weight: bold; vertical-align: top;">Company</td>
-                <td style="padding: 8px 0;">${company}</td>
+                <td style="padding: 10px 0; font-weight: 700; vertical-align: top; color: #001e40; font-size: 13px; border-bottom: 1px solid #eef1f5;">Company</td>
+                <td style="padding: 10px 0; color: #1b1c1c; font-size: 14px; border-bottom: 1px solid #eef1f5;">${company}</td>
               </tr>` : ''}
             </table>
-            <div style="margin-top: 8px;">
-              <p style="font-weight: bold; margin-bottom: 8px;">Message</p>
-              <p style="background-color: #f7f7f7; padding: 16px; border-radius: 6px; line-height: 1.6;">${String(message).replace(/\n/g, '<br>')}</p>
-            </div>
-            <p style="font-size: 12px; color: #999; margin-top: 24px;">Reply directly to this email to respond to ${name} at ${email}.</p>
+            <p style="font-weight: 700; color: #001e40; font-size: 13px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1px;">Message</p>
+            <div style="background-color: #f0f6fd; border-left: 3px solid #1591EA; border-radius: 4px; padding: 18px 20px; color: #1b1c1c; font-size: 14px; line-height: 1.7;">${String(message).replace(/\n/g, '<br>')}</div>
+            <p style="font-size: 12px; color: #9aa0a6; margin: 28px 0 0; padding-top: 20px; border-top: 1px solid #eef1f5;">Reply directly to this email to respond to ${name} at ${email}.</p>
           </div>
         </div>
       `,
