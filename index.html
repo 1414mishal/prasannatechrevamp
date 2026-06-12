@@ -197,6 +197,7 @@
       color: #1591EA;
     }
   </style>
+  <link rel="stylesheet" href="site-polish.css">
 </head>
 <body class="bg-surface text-on-surface">
 <style>
@@ -259,7 +260,7 @@
     src="./hero-earth-bg.webp"
     alt=""
     aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" decoding="async">
+    class="absolute inset-0 w-full h-full object-cover object-center" fetchpriority="high" decoding="async">
   <!-- Dark gradient overlay so text stays readable -->
   <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,18,38,0.72) 0%, rgba(0,30,64,0.52) 50%, rgba(0,18,38,0.35) 100%)"></div>
   <!-- Content -->
@@ -510,8 +511,9 @@
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold text-white">Why Organisations Choose Us</h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-12 grid-stagger">
-      <div>
+    <div class="grid md:grid-cols-3 gap-8 grid-stagger">
+      <div class="tilt-card why-card">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <div class="w-12 h-12 border-2 border-white rounded flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-white">tune</span>
         </div>
@@ -520,7 +522,8 @@
           Every module is built around the operational realities of electricity boards, water authorities and revenue departments, not adapted from a generic enterprise platform.
         </p>
       </div>
-      <div>
+      <div class="tilt-card why-card">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <div class="w-12 h-12 border-2 border-white rounded flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-white">handshake</span>
         </div>
@@ -529,7 +532,8 @@
           Our partnerships are built on long-term commitment, not short-term delivery. We work alongside clients through every stage from implementation, training, and ongoing support, ensuring that the systems we build continue to perform as operations evolve. Many of our major customers have been with us for over a decade, a testament to a relationship that goes well beyond a typical vendor engagement.
         </p>
       </div>
-      <div>
+      <div class="tilt-card why-card">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <div class="w-12 h-12 border-2 border-white rounded flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-white">query_stats</span>
         </div>
@@ -1040,5 +1044,6 @@
   })();
 </script>
 <script src="footer-shader.js" defer></script>
+<script src="site-polish.js" defer></script>
 </body>
 </html>

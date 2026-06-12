@@ -144,6 +144,7 @@
       color: #1591EA;
     }
   </style>
+  <link rel="stylesheet" href="site-polish.css">
 </head>
 <body class="bg-surface text-on-surface">
 <style>
@@ -256,7 +257,8 @@
 
     <div class="grid md:grid-cols-3 gap-6">
 
-      <div class="md:col-span-2 relative rounded-xl overflow-hidden h-72 group">
+      <div class="tilt-card md:col-span-2 relative rounded-xl overflow-hidden h-72 group">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/software-engineering-team.jpg"
              alt="Software engineering team at work"
              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
@@ -267,7 +269,8 @@
         </div>
       </div>
 
-      <div class="bg-primary rounded-xl overflow-hidden flex flex-col justify-between relative" style="min-height:280px">
+      <div class="tilt-card bg-primary rounded-xl overflow-hidden flex flex-col justify-between relative" style="min-height:280px">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <img src="./site-work-pt.webp" alt="Field Operations" class="absolute inset-0 w-full h-full object-cover object-center opacity-40 scale-150" loading="lazy" decoding="async">
         <div class="relative z-10 p-8 flex flex-col justify-between h-full">
           <span class="material-symbols-outlined text-secondary mb-4" style="font-size:32px">engineering</span>
@@ -278,19 +281,22 @@
         </div>
       </div>
 
-      <div class="bg-surface-container border border-outline-variant rounded-xl p-8">
+      <div class="tilt-card bg-surface-container border border-outline-variant rounded-xl p-8">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:32px">support_agent</span>
         <h3 class="font-bold text-primary text-lg mb-2">Customer Success</h3>
         <p class="text-on-surface-variant text-sm leading-relaxed">Long-term account management, training, and technical support for our utility and revenue management clients.</p>
       </div>
 
-      <div class="bg-surface-container border border-outline-variant rounded-xl p-8">
+      <div class="tilt-card bg-surface-container border border-outline-variant rounded-xl p-8">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:32px">query_stats</span>
         <h3 class="font-bold text-primary text-lg mb-2">Business Intelligence</h3>
         <p class="text-on-surface-variant text-sm leading-relaxed">Analysts and BI developers building the dashboards and reporting tools that drive decisions at our client organisations.</p>
       </div>
 
-      <div class="relative rounded-xl overflow-hidden h-52 group">
+      <div class="tilt-card relative rounded-xl overflow-hidden h-52 group">
+        <span class="tilt-glare" aria-hidden="true"></span>
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/real-work-real-impact.jpg"
              alt="Product and design field engineers"
              class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
@@ -465,5 +471,6 @@
   })();
 </script>
 <script src="footer-shader.js" defer></script>
+<script src="site-polish.js" defer></script>
 </body>
 </html>

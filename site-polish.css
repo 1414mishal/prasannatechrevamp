@@ -1,0 +1,168 @@
+/* ════════════════════════════════════════════════════════════════
+   Site-wide touch & feel layer
+   Loaded after each page's inline styles so it can refine them.
+   Pairs with site-polish.js.
+   ════════════════════════════════════════════════════════════════ */
+
+html { -webkit-tap-highlight-color: transparent; }
+::selection { background: rgba(21,145,234,0.22); }
+
+/* Stable hero height on mobile — no jump when the URL bar collapses */
+header[style*="min-height:100vh"] { min-height: 100svh !important; }
+
+/* Don't let carousel/logo images get picked up and dragged */
+.cap-card img, .logo-track img { -webkit-user-drag: none; user-select: none; }
+
+/* ── Floating navbar: hides on scroll down, returns on scroll up (mobile) ── */
+@media (max-width: 1023.5px) {
+  #navbar {
+    transition: background 0.35s ease, border-color 0.35s ease,
+                box-shadow 0.35s ease, transform 0.5s cubic-bezier(0.32, 0.72, 0, 1) !important;
+  }
+  #navbar.nav-hidden { transform: translateY(calc(-100% - 24px)); }
+}
+
+/* ── Mobile menu: animated drop + staggered items ──────────────── */
+#mobile-menu:not(.hidden) { animation: menu-drop 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+#mobile-menu:not(.hidden) > div > * { animation: menu-item 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+#mobile-menu:not(.hidden) > div > *:nth-child(1) { animation-delay: 0.03s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(2) { animation-delay: 0.06s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(3) { animation-delay: 0.09s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(4) { animation-delay: 0.12s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(5) { animation-delay: 0.15s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(6) { animation-delay: 0.18s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(7) { animation-delay: 0.21s; }
+#mobile-menu:not(.hidden) > div > *:nth-child(8) { animation-delay: 0.26s; }
+@keyframes menu-drop { from { opacity: 0; transform: translateY(-10px); } }
+@keyframes menu-item { from { opacity: 0; transform: translateX(-14px); } }
+
+#mobile-menu-btn .material-symbols-outlined {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#mobile-menu-btn.menu-open .material-symbols-outlined { transform: rotate(180deg); }
+
+/* ── Tap ripple (added by site-polish.js on pointerdown) ───────── */
+.ripple-host { position: relative; overflow: hidden; }
+.ripple-ink {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(21,145,234,0.30) 0%, rgba(21,145,234,0.14) 55%, transparent 72%);
+  transform: scale(0); opacity: 1;
+  animation: ripple-grow 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  pointer-events: none; z-index: 40;
+}
+.ripple-ink.ripple-light {
+  background: radial-gradient(circle, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.16) 55%, transparent 72%);
+}
+@keyframes ripple-grow { to { transform: scale(2.6); opacity: 0; } }
+
+/* ── Cursor spotlight on cards (desktop) ───────────────────────── */
+@media (pointer: fine) {
+  .card-lift { position: relative; }
+  .card-lift::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+                rgba(21,145,234,0.13), transparent 65%);
+    opacity: 0; transition: opacity 0.4s ease;
+    pointer-events: none; z-index: 5;
+  }
+  .card-lift:hover::after { opacity: 1; }
+}
+
+/* ── Card hover lift — universal (some pages lack the base rules) ── */
+.card-lift.card-lift {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+.card-lift.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0,30,64,0.15);
+  animation: card-float 3s ease-in-out infinite;
+}
+@keyframes card-float {
+  0%, 100% { transform: translateY(-8px); }
+  50%      { transform: translateY(-14px); }
+}
+.card-lift img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.card-lift:hover img { transform: scale(1.08); }
+
+/* ── Flagship product image panels: lift + glow once revealed ──── */
+.img-pop.rounded-2xl.visible {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+.img-pop.rounded-2xl.visible:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(0,30,64,0.18);
+}
+.img-pop.rounded-2xl img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.img-pop.rounded-2xl.visible:hover img { transform: scale(1.05); }
+
+/* ── Section divider lines draw in with their section ──────────── */
+.reveal .h-0\.5.bg-secondary {
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+}
+.reveal .h-0\.5.bg-secondary.mx-auto { transform-origin: center; }
+.reveal.visible .h-0\.5.bg-secondary { transform: scaleX(1); }
+
+/* ── Stat icons pop in as their counters start ─────────────────── */
+.stat-pop { animation: stat-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes stat-pop {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.25) rotate(4deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* ── Touch feedback & carousel snap on phones ──────────────────── */
+@media (pointer: coarse) {
+  .card-lift:active, .cap-card:active, .sector-card:active {
+    transform: scale(0.975);
+    transition: transform 0.12s ease;
+  }
+  #mobile-menu a:active { background: rgba(21,145,234,0.12); }
+}
+@media (max-width: 767px) {
+  .cap-outer {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── 3D tilt cards: perspective tilt driven by mouse/touch ──────── */
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tilt-card.tilting { transition: transform 0.06s linear; }
+.tilt-glare {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%),
+              rgba(255,255,255,0.35), transparent 60%);
+  opacity: 0; transition: opacity 0.4s ease;
+  mix-blend-mode: soft-light;
+  pointer-events: none; z-index: 25;
+}
+.tilt-card:hover .tilt-glare,
+.tilt-card.tilting .tilt-glare { opacity: 1; }
+
+/* ── "Why Choose Us" 3D cards ───────────────────────────────────── */
+.why-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  background: linear-gradient(150deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 8px 32px rgba(0,18,38,0.18);
+  overflow: hidden;
+}
+
+/* ── Respect reduced-motion preferences ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto !important; }
+  .reveal, .grid-stagger > *, .hero-animate { opacity: 1 !important; transform: none !important; }
+}
