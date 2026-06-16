@@ -156,6 +156,85 @@ header[style*="min-height:100vh"] { min-height: 100svh !important; }
   overflow: hidden;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   Mobile optimisation — applies to all pages
+   ══════════════════════════════════════════════════════════════ */
+
+/* Services subnav: scrollable on mobile, hide scrollbar chrome */
+#svc-subnav::-webkit-scrollbar { display: none; }
+
+/* Ensure minimum 44px touch targets on all interactive elements */
+@media (pointer: coarse) {
+  a, button { min-height: 44px; }
+  .svc-pill { min-height: 44px; padding-top: 10px; padding-bottom: 10px; }
+  nav a { min-height: 44px; }
+}
+
+@media (max-width: 639px) {
+  /* ── Hero sections ─────────────────────────────────────────── */
+  header h1 { font-size: clamp(1.75rem, 8vw, 2.5rem) !important; line-height: 1.15 !important; }
+  header p   { font-size: 0.9375rem !important; }
+  header [style*="padding-top:7rem"]  { padding-top: 5rem !important; }
+  header [style*="padding-bottom:3rem"] { padding-bottom: 2rem !important; }
+
+  /* ── Buttons: full-width stack on very small screens ──────── */
+  header .flex.flex-row.flex-wrap { flex-direction: column; align-items: stretch; }
+  header .flex.flex-row.flex-wrap a { text-align: center; justify-content: center; }
+
+  /* ── Section headings ─────────────────────────────────────── */
+  .text-5xl { font-size: 1.875rem !important; line-height: 1.2 !important; }
+  .text-4xl { font-size: 1.625rem !important; line-height: 1.25 !important; }
+  .text-3xl { font-size: 1.375rem !important; line-height: 1.3 !important; }
+
+  /* ── Section vertical padding ─────────────────────────────── */
+  .py-24 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .py-20 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  .mb-16 { margin-bottom: 2rem !important; }
+  .mb-14 { margin-bottom: 1.75rem !important; }
+  .mb-12 { margin-bottom: 1.25rem !important; }
+
+  /* ── Gap reduction ────────────────────────────────────────── */
+  .gap-16 { gap: 2rem !important; }
+  .gap-12 { gap: 1.5rem !important; }
+
+  /* ── Inner padding reduction ──────────────────────────────── */
+  .p-12, .p-16 { padding: 1.25rem !important; }
+  .p-8  { padding: 1rem !important; }
+  .p-6  { padding: 0.875rem !important; }
+  .px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+  /* ── Max-width unlocking ──────────────────────────────────── */
+  .max-w-xl, .max-w-2xl, .max-w-3xl { max-width: 100% !important; }
+
+  /* ── Products: image panels above text ───────────────────── */
+  .img-pop { margin-bottom: 0 !important; }
+  .aspect-\[4\/3\] { aspect-ratio: 16/9 !important; }
+
+  /* ── Careers hero stat boxes ──────────────────────────────── */
+  .grid.grid-cols-2.md\:grid-cols-4 [style*="padding:20px 24px"] {
+    padding: 14px 10px !important;
+  }
+  .grid.grid-cols-2.md\:grid-cols-4 [style*="font-size:2rem"] {
+    font-size: 1.5rem !important;
+  }
+
+  /* ── Partner cards ────────────────────────────────────────── */
+  .partner-card { padding: 1.25rem !important; }
+  .partner-logo-wrap { height: 72px !important; }
+
+  /* ── Sector cards: stack content vertically ──────────────── */
+  .sector-card .flex.flex-col.md\:flex-row { flex-direction: column !important; gap: 1rem !important; }
+  .sector-card .flex-shrink-0 { flex-shrink: 1 !important; width: 100% !important; }
+  .sector-card a.flex-shrink-0 { width: auto !important; align-self: flex-start; }
+
+  /* ── Orbit logos: smaller on mobile ──────────────────────── */
+  .orbit-logo { width: 72px !important; height: 72px !important; padding: 10px !important; }
+  .orbit-logo img { width: 46px !important; height: 46px !important; }
+
+  /* ── Footer grid: 1 column ───────────────────────────────── */
+  footer .grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+
 /* ── Respect reduced-motion preferences ────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
