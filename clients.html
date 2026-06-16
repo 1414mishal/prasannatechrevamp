@@ -233,6 +233,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .orbit-logo img { width: 66px; height: 66px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15)); }
+  @media (max-width: 639px) {
+    #orbit-stage { display: none !important; }
+  }
 </style>
 <script>
 (function(){
