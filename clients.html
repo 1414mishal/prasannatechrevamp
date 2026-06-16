@@ -222,15 +222,19 @@
   .orbit-logo {
     position: absolute;
     top: 50%; left: 50%;
-    width: 100px; height: 100px;
-    background: rgba(255,255,255,0.95);
+    width: 110px; height: 110px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px) saturate(1.6);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6);
     border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.35);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-    padding: 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+    padding: 16px;
     will-change: transform;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .orbit-logo img { width: 64px; height: 64px; object-fit: contain; }
+  .orbit-logo img { width: 66px; height: 66px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15)); }
 </style>
 <script>
 (function(){
@@ -253,7 +257,7 @@
   });
 
   var RX = 420, RY = 220;
-  var SPEED = 0.18;
+  var SPEED = 0.07;
   var start = performance.now();
 
   function resize() {
