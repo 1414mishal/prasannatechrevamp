@@ -202,17 +202,81 @@
 </nav>
 
 <!-- Hero -->
-<header class="relative flex items-center overflow-hidden bg-primary" style="min-height:100vh">
-  <img src="./clients-hero-bg.webp"
-       alt="" aria-hidden="true"
-       class="absolute inset-0 w-full h-full object-cover object-center opacity-25" loading="lazy" decoding="async">
-  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,18,38,0.88) 0%, rgba(0,30,64,0.65) 100%)"></div>
-  <div class="relative z-10 max-w-container mx-auto px-6 md:px-12">
-    <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-4">Trusted Partners</span>
-    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">Our Clients &amp; Partners</h1>
-    <p class="text-white/70 text-lg max-w-xl leading-relaxed">Serving electricity boards, water utilities, and enterprise organisations across India and beyond for over two decades.</p>
+<header class="relative overflow-hidden bg-primary" style="min-height:100vh;display:flex;align-items:center;justify-content:center;">
+  <img src="./clients-hero-bg.webp" alt="" aria-hidden="true"
+       class="absolute inset-0 w-full h-full object-cover object-center opacity-20" loading="lazy" decoding="async">
+  <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(0,18,38,0.92) 0%,rgba(0,30,64,0.75) 100%)"></div>
+
+  <!-- Orbit layer -->
+  <div id="orbit-stage" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;"></div>
+
+  <!-- Centre text -->
+  <div class="relative z-10 text-center px-6 max-w-xl">
+    <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-4 hero-animate" style="animation-delay:0.05s">Trusted Partners</span>
+    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4 hero-animate" style="animation-delay:0.15s">Our Clients &amp; Partners</h1>
+    <p class="text-white/70 text-lg leading-relaxed hero-animate" style="animation-delay:0.25s">Serving electricity boards, water utilities, and enterprise organisations across India and beyond for over two decades.</p>
   </div>
 </header>
+
+<style>
+  .orbit-logo {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100px; height: 100px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    padding: 14px;
+    will-change: transform;
+  }
+  .orbit-logo img { width: 64px; height: 64px; object-fit: contain; }
+</style>
+<script>
+(function(){
+  var BASE = './prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/';
+  var all = ['1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','10.png','11.png','lt-logo.png'];
+
+  var stage = document.getElementById('orbit-stage');
+  if(!stage) return;
+
+  var els = all.map(function(src){
+    var el = document.createElement('div');
+    el.className = 'orbit-logo';
+    var img = document.createElement('img');
+    img.src = BASE + src;
+    img.alt = '';
+    img.loading = 'lazy';
+    el.appendChild(img);
+    stage.appendChild(el);
+    return el;
+  });
+
+  var RX = 420, RY = 220;
+  var SPEED = 0.18;
+  var start = performance.now();
+
+  function resize() {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    RX = Math.min(420, vw * 0.38);
+    RY = Math.min(220, vh * 0.28);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function tick(now) {
+    var t = (now - start) / 1000;
+    els.forEach(function(el, i) {
+      var a = (i / els.length) * Math.PI * 2 + t * SPEED;
+      var x = Math.cos(a) * RX;
+      var y = Math.sin(a) * RY;
+      el.style.transform = 'translate(calc(-50% + '+x+'px), calc(-50% + '+y+'px))';
+    });
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
 
 
 <!-- Our Esteemed Clients -->
