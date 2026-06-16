@@ -77,6 +77,9 @@
     /* Quick nav scrollbar hidden on mobile */
     .quick-nav-scroll { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .quick-nav-scroll::-webkit-scrollbar { display: none; }
+    /* service card — lift only, no float */
+    .svc-card { transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.32s ease; }
+    .svc-card:hover { transform: translateY(-7px); box-shadow: 0 22px 52px rgba(0,30,64,0.13); }
     @media (max-width: 639px) {
       .py-24 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .gap-16 { gap: 1.5rem !important; }
@@ -222,19 +225,59 @@
   </div>
 </header>
 
-<!-- Quick Nav -->
-<div class="bg-surface-container border-b border-outline-variant sticky top-20 z-40">
-  <div class="max-w-container mx-auto px-6 overflow-x-auto quick-nav-scroll">
-    <div class="flex items-center gap-1 py-0 min-w-max">
-      <a href="#assets"     class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Asset Lifecycle</a>
-      <a href="#erp"        class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">ERP</a>
-      <a href="#workforce"  class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Workforce</a>
-      <a href="#monitoring" class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Condition Monitoring</a>
-      <a href="#purchase-inventory" class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Purchase &amp; Inventory</a>
-      <a href="#revenue"    class="px-4 py-4 text-sm font-medium text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary transition-all whitespace-nowrap">Revenue Management</a>
-    </div>
+<!-- Service sub-nav — always visible, sits flush under the navbar -->
+<div id="svc-subnav" style="position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:39;width:max-content;max-width:calc(100vw - 32px);background:rgba(255,255,255,0.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(195,198,209,0.5);border-radius:8px;box-shadow:0 2px 12px rgba(0,30,64,0.07);overflow:hidden;">
+  <div style="display:flex;align-items:stretch;" id="svc-pills">
+    <a href="#assets"             data-section="assets"            class="svc-pill">Asset Lifecycle</a>
+    <span class="svc-div"></span>
+    <a href="#erp"                data-section="erp"               class="svc-pill">ERP</a>
+    <span class="svc-div"></span>
+    <a href="#workforce"          data-section="workforce"         class="svc-pill">Workforce</a>
+    <span class="svc-div"></span>
+    <a href="#monitoring"         data-section="monitoring"        class="svc-pill">Condition Monitoring</a>
+    <span class="svc-div"></span>
+    <a href="#purchase-inventory" data-section="purchase-inventory" class="svc-pill">Purchase &amp; Inventory</a>
+    <span class="svc-div"></span>
+    <a href="#revenue"            data-section="revenue"           class="svc-pill">Revenue Management</a>
   </div>
 </div>
+<style>
+  .svc-pill {
+    display:inline-flex;
+    align-items:center;
+    padding:7px 18px;
+    font-size:0.8rem;
+    font-weight:500;
+    color:#43474f;
+    background:transparent;
+    white-space:nowrap;
+    text-decoration:none;
+    transition:background 0.18s,color 0.18s;
+  }
+  .svc-pill:hover { background:rgba(21,145,234,0.07); color:#1591EA; }
+  .svc-pill.active { background:rgba(21,145,234,0.1); color:#1591EA; font-weight:600; }
+  .svc-div { display:inline-block; width:1px; background:#c3c6d1; align-self:stretch; margin:6px 0; }
+</style>
+<script>
+(function(){
+  var sections = ['assets','erp','workforce','monitoring','purchase-inventory','revenue'];
+  var pills = document.querySelectorAll('.svc-pill');
+  function setActive(){
+    var best = null, bestTop = Infinity;
+    sections.forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      var top = Math.abs(el.getBoundingClientRect().top - 130);
+      if(top < bestTop){ bestTop = top; best = id; }
+    });
+    pills.forEach(function(p){
+      p.classList.toggle('active', p.dataset.section === best);
+    });
+  }
+  window.addEventListener('scroll', setActive, {passive:true});
+  setActive();
+})();
+</script>
 
 <!-- 01 Asset Lifecycle -->
 <section id="assets" class="py-24 reveal" style="scroll-margin-top:140px">
@@ -283,9 +326,9 @@
 <div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
 
 <!-- 02 ERP -->
-<section id="erp" class="py-24 bg-surface-container-low reveal" style="scroll-margin-top:140px">
+<section id="erp" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">02 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Enterprise Resource Planning</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
@@ -321,7 +364,7 @@
 <!-- 03 Workforce Management -->
 <section id="workforce" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">03 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Workforce Management</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
@@ -355,9 +398,9 @@
 <div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
 
 <!-- 04 Condition Monitoring -->
-<section id="monitoring" class="py-24 bg-surface-container-low reveal" style="scroll-margin-top:140px">
+<section id="monitoring" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">04 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Condition Monitoring</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
@@ -393,7 +436,7 @@
 <!-- 05 Purchase & Inventory Management -->
 <section id="purchase-inventory" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">05 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Purchase &amp; Inventory Management</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
@@ -423,8 +466,9 @@
 <div class="max-w-container mx-auto px-6"><div class="border-t border-outline-variant"></div></div>
 
 <!-- 06 Revenue Management -->
-<section id="revenue" class="py-24 bg-surface-container-low reveal" style="scroll-margin-top:140px">
-  <div class="max-w-container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<section id="revenue" class="py-24 reveal" style="scroll-margin-top:140px">
+  <div class="max-w-container mx-auto px-6">
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card grid md:grid-cols-2 gap-16 items-center">
     <div>
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">06 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Total Revenue Management System</h2>
@@ -454,27 +498,28 @@
       </a>
     </div>
     <div class="grid grid-cols-2 gap-4">
-      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 card-lift">
+      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">receipt_long</span>
         <h4 class="font-bold text-primary text-sm mb-2">Billing Automation</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Eliminate manual billing errors with fully automated cycle management.</p>
       </div>
-      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 card-lift">
+      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">payments</span>
         <h4 class="font-bold text-primary text-sm mb-2">Collections</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Structured follow-up workflows and payment reconciliation in one view.</p>
       </div>
-      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 card-lift">
+      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">bar_chart</span>
         <h4 class="font-bold text-primary text-sm mb-2">Revenue Analytics</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Segment performance by geography, customer type, and billing period.</p>
       </div>
-      <div class="bg-surface-container-low border border-outline-variant rounded-lg p-6 card-lift">
+      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">policy</span>
         <h4 class="font-bold text-primary text-sm mb-2">Audit &amp; Compliance</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Full audit trail for every billing and collection transaction.</p>
       </div>
     </div>
+  </div>
   </div>
 </section>
 

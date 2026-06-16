@@ -77,38 +77,6 @@
     #navbar { background: rgba(255,255,255,0.7) !important; border-color: rgba(195,198,209,0.35) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,30,64,0.06); }
     #navbar.nav-scrolled { background: rgba(255,255,255,0.92) !important; border-color: #c3c6d1 !important; box-shadow: 0 8px 30px rgba(0,30,64,0.12); }
 
-    /* Link preview hover card */
-    .link-preview { position: relative; }
-    .link-preview-card {
-      position: absolute;
-      bottom: calc(100% + 14px);
-      left: 50%;
-      width: 240px;
-      height: 150px;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #fff;
-      border: 2px solid #fff;
-      box-shadow: 0 24px 48px -12px rgba(0,30,64,0.35);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translate(calc(-50% + var(--tilt, 0px)), 16px) scale(0.7);
-      transform-origin: bottom center;
-      transition: opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1), visibility 0.35s;
-      z-index: 60;
-    }
-    .link-preview-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .link-preview:hover .link-preview-card,
-    .link-preview:focus-visible .link-preview-card {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(calc(-50% + var(--tilt, 0px)), 0) scale(1);
-    }
-    @media (max-width: 767px) {
-      .link-preview-card { display: none; }
-    }
-
     /* Orbiting tech stack */
     .orbit-wrap {
       position: relative;
@@ -224,7 +192,76 @@
   </style>
   <link rel="stylesheet" href="site-polish.css">
 </head>
-<body class="bg-surface text-on-surface">
+<body class="text-on-surface" style="background:transparent;">
+<!-- Infinite grid backdrop -->
+<div id="grid-backdrop" style="position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:linear-gradient(160deg,#f0f6ff 0%,#e8f1fd 50%,#f5f9ff 100%);">
+  <!-- ambient blue blobs -->
+  <div style="position:absolute;right:-10%;top:-15%;width:45%;padding-bottom:45%;border-radius:50%;background:rgba(21,145,234,0.08);filter:blur(90px);"></div>
+  <div style="position:absolute;left:-8%;bottom:-18%;width:40%;padding-bottom:40%;border-radius:50%;background:rgba(0,30,64,0.06);filter:blur(100px);"></div>
+  <div style="position:absolute;right:20%;bottom:5%;width:25%;padding-bottom:25%;border-radius:50%;background:rgba(21,145,234,0.05);filter:blur(80px);"></div>
+  <!-- dim base grid (always visible) -->
+  <svg id="grid-base" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07;" aria-hidden="true">
+    <defs>
+      <pattern id="igrid-base" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1591EA" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#igrid-base)"/>
+  </svg>
+  <!-- bright reveal grid (masked by mouse) -->
+  <svg id="grid-reveal" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.55;-webkit-mask-image:radial-gradient(280px circle at -999px -999px,black,transparent);mask-image:radial-gradient(280px circle at -999px -999px,black,transparent);" aria-hidden="true">
+    <defs>
+      <pattern id="igrid-reveal" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1591EA" stroke-width="1.2"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#igrid-reveal)"/>
+  </svg>
+</div>
+<style>
+  @keyframes grid-scroll {
+    from { x: 0; y: 0; }
+    to   { x: 40px; y: 40px; }
+  }
+</style>
+<script>
+(function(){
+  var CELL = 40;
+  var ox = 0, oy = 0;
+  var speedX = 0.3, speedY = 0.3;
+  var last = performance.now();
+
+  var baseP  = document.getElementById('igrid-base');
+  var revealP= document.getElementById('igrid-reveal');
+  var revealSvg = document.getElementById('grid-reveal');
+
+  var mouseX = -9999, mouseY = -9999;
+  document.addEventListener('mousemove', function(e){
+    mouseX = e.clientX; mouseY = e.clientY;
+  });
+  document.addEventListener('mouseleave', function(){
+    mouseX = -9999; mouseY = -9999;
+  });
+
+  function tick(now){
+    var dt = Math.min(now - last, 50);
+    last = now;
+    ox = (ox + speedX * dt / 16) % CELL;
+    oy = (oy + speedY * dt / 16) % CELL;
+
+    if(baseP){  baseP.setAttribute('x', ox); baseP.setAttribute('y', oy); }
+    if(revealP){ revealP.setAttribute('x', ox); revealP.setAttribute('y', oy); }
+
+    var mask = 'radial-gradient(280px circle at ' + mouseX + 'px ' + mouseY + 'px, black, transparent)';
+    if(revealSvg){
+      revealSvg.style.webkitMaskImage = mask;
+      revealSvg.style.maskImage = mask;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
 <style>
   #page-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fbf9f8;transition:opacity .4s ease,visibility .4s ease;}
   #page-loader.loader-hidden{opacity:0;visibility:hidden;pointer-events:none;}
@@ -336,11 +373,8 @@
           </li>
         </ul>
         <div class="flex flex-wrap gap-3">
-          <a href="https://styraflow.ai/" target="_blank" rel="noopener" class="link-preview inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
+          <a href="https://styraflow.ai/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
             View Product <span class="material-symbols-outlined" style="font-size:16px">open_in_new</span>
-            <span class="link-preview-card" aria-hidden="true">
-              <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/styra-link-preview.png" alt="" loading="lazy">
-            </span>
           </a>
           <a href="index.html#contact" class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary hover:text-white transition-colors">
             Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
@@ -387,11 +421,8 @@
           </li>
         </ul>
         <div class="flex flex-wrap gap-3">
-          <a href="https://energy-sync.com/" target="_blank" rel="noopener" class="link-preview inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
+          <a href="https://energy-sync.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
             View Product <span class="material-symbols-outlined" style="font-size:16px">open_in_new</span>
-            <span class="link-preview-card" aria-hidden="true">
-              <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/energysync-link-preview.png" alt="" loading="lazy">
-            </span>
           </a>
           <a href="index.html#contact" class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 text-sm font-semibold rounded hover:bg-primary hover:text-white transition-colors">
             Request a Demo <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
@@ -519,7 +550,7 @@
 </section>
 
 <!-- Additional Solutions -->
-<section class="bg-surface-container-low py-24 reveal">
+<section class="py-24 reveal" style="background:rgba(245,243,243,0.55);">
   <div class="max-w-container mx-auto px-6">
     <div class="text-center mb-16 space-y-3">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary">Additional Modules</span>
@@ -675,18 +706,6 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.grid-stagger').forEach(el => staggerObserver.observe(el));
 
-  // Link preview tilt
-  document.querySelectorAll('.link-preview').forEach(function (link) {
-    link.addEventListener('mousemove', function (e) {
-      var rect = link.getBoundingClientRect();
-      var offsetX = e.clientX - (rect.left + rect.width / 2);
-      var tilt = Math.max(-40, Math.min(40, offsetX / 2));
-      link.style.setProperty('--tilt', tilt + 'px');
-    });
-    link.addEventListener('mouseleave', function () {
-      link.style.setProperty('--tilt', '0px');
-    });
-  });
 
   // Mobile nav toggle
   (function() {

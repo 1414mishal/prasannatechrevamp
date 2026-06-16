@@ -91,18 +91,42 @@
     .logo-outer { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); }
 
     /* Capabilities carousel */
-    .cap-track { display: flex; width: max-content; gap: 4px; }
+    .cap-track { display: flex; width: max-content; gap: 20px; padding: 12px 0; }
     .cap-outer {
       overflow-x: scroll; overflow-y: hidden;
       scrollbar-width: none;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     }
     .cap-outer::-webkit-scrollbar { display: none; }
-    .cap-card { transition: box-shadow 0.8s ease, opacity 0.5s ease; transform-origin: center center; will-change: transform, opacity; }
-    .cap-card img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-    .cap-card:hover { box-shadow: 0 24px 56px rgba(0,0,0,0.35); }
+    .cap-card {
+      border-radius: 20px;
+      border: 1px solid rgba(21,145,234,0.18);
+      box-shadow: 0 4px 24px rgba(10,61,122,0.12), 0 1px 4px rgba(0,0,0,0.08);
+      transition: box-shadow 0.5s ease, opacity 0.5s ease, border-color 0.5s ease;
+      transform-origin: center center;
+      will-change: transform, opacity;
+    }
+    .cap-card img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); border-radius: 20px; }
+    .cap-card:hover { box-shadow: 0 20px 48px rgba(10,61,122,0.28), 0 0 0 1.5px rgba(21,145,234,0.45); border-color: rgba(21,145,234,0.4); }
     .cap-card:hover img { transform: scale(1.06); }
+    /* Arrow nav */
+    .cap-nav-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 10; width: 44px; height: 44px; border-radius: 50%;
+      background: #0a2a5e; border: 1px solid rgba(21,145,234,0.35);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+    .cap-nav-btn:hover { background: #1591EA; box-shadow: 0 6px 24px rgba(21,145,234,0.4); }
+    .cap-nav-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .cap-nav-prev { left: 12px; }
+    .cap-nav-next { right: 12px; }
+    /* Dot indicators */
+    .cap-dots { display: flex; gap: 8px; justify-content: center; margin-top: 28px; }
+    .cap-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(21,145,234,0.25); transition: background 0.3s, transform 0.3s; cursor: pointer; }
+    .cap-dot.active { background: #1591EA; transform: scale(1.35); }
 
     /* Chrome button — liquid iridescent pill */
     .chrome-btn { position: relative; padding: 14px 28px; border-radius: 9999px; background: #04080e; overflow: hidden; color: #fff; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.01em; cursor: pointer; display: inline-flex; align-items: center; border: 1.5px solid rgba(255,255,255,0.09); box-shadow: 0 0 24px rgba(21,145,234,0.22), 0 4px 20px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.06); text-decoration: none; transition: transform 0.07s ease, box-shadow 0.35s ease; -webkit-tap-highlight-color: transparent; }
@@ -113,6 +137,8 @@
     .chrome-btn-text { position: relative; z-index: 10; display: flex; align-items: center; gap: 8px; }
     @keyframes chromeLiquid { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     @keyframes chromeShimmer { 0% { left: -50%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 140%; opacity: 0; } }
+    .hero-text-shine { background: linear-gradient(90deg, #1591EA 0%, #2a8fd4 18%, #4aaee8 28%, #7dcaf7 35%, #4aaee8 42%, #2a8fd4 55%, #0a3d7a 75%, #1591EA 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: textShine 4s ease-in-out infinite; }
+    @keyframes textShine { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
     /* Floating pill navbar */
     #navbar { background: rgba(255,255,255,0.7) !important; border-color: rgba(195,198,209,0.35) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; box-shadow: 0 4px 24px rgba(0,30,64,0.06); }
@@ -196,6 +222,140 @@
       background-size: 100% 2px;
       color: #1591EA;
     }
+
+    /* Stats bar — floating bubbles */
+    .stat-bubble {
+      display: flex; flex-direction: row; align-items: center; text-align: left; gap: 1rem;
+      background: #ffffff;
+      border: 1px solid rgba(0,30,64,0.06);
+      border-radius: 1.25rem;
+      padding: 1.25rem 1.25rem;
+      box-shadow: 0 12px 32px -10px rgba(0,30,64,0.2), 0 2px 8px rgba(0,30,64,0.06);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+    }
+    .stat-bubble:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px -10px rgba(21,145,234,0.3), 0 6px 14px rgba(0,30,64,0.08);
+    }
+    .stat-icon {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 46px; height: 46px; border-radius: 9999px;
+      font-size: 22px; color: #ffffff;
+      background: linear-gradient(135deg,#1591EA,#003366);
+      box-shadow: 0 6px 14px -4px rgba(21,145,234,0.5);
+    }
+    .stat-text { min-width: 0; }
+    @media (max-width: 640px) {
+      .stat-bubble { flex-direction: column; text-align: center; gap: 0.6rem; padding: 1.5rem 0.75rem; }
+    }
+
+    /* Hero falling-pattern background layer */
+    .fp-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .fp-layer-global { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .fp-pattern {
+      position: absolute; inset: -1px;
+      background-color: #ffffff;
+      background-image:
+        radial-gradient(4px 100px at 0px 235px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 235px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 117.5px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 252px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 252px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 126px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 150px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 150px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 75px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 253px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 253px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 126.5px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 204px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 204px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 102px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 134px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 134px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 67px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 179px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 179px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 89.5px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 299px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 299px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 149.5px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 215px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 215px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 107.5px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 281px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 281px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 140.5px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 158px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 158px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 79px, #1591EA 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 210px, #1591EA, transparent),
+        radial-gradient(4px 100px at 300px 210px, #1591EA, transparent),
+        radial-gradient(1.5px 1.5px at 150px 105px, #1591EA 100%, transparent 150%);
+      background-size:
+        300px 235px, 300px 235px, 300px 235px,
+        300px 252px, 300px 252px, 300px 252px,
+        300px 150px, 300px 150px, 300px 150px,
+        300px 253px, 300px 253px, 300px 253px,
+        300px 204px, 300px 204px, 300px 204px,
+        300px 134px, 300px 134px, 300px 134px,
+        300px 179px, 300px 179px, 300px 179px,
+        300px 299px, 300px 299px, 300px 299px,
+        300px 215px, 300px 215px, 300px 215px,
+        300px 281px, 300px 281px, 300px 281px,
+        300px 158px, 300px 158px, 300px 158px,
+        300px 210px, 300px 210px, 300px 210px;
+      background-position:
+        0px 220px, 3px 220px, 151.5px 337.5px,
+        25px 24px, 28px 24px, 176.5px 150px,
+        50px 16px, 53px 16px, 201.5px 91px,
+        75px 224px, 78px 224px, 226.5px 230.5px,
+        100px 19px, 103px 19px, 251.5px 121px,
+        125px 120px, 128px 120px, 276.5px 187px,
+        150px 31px, 153px 31px, 301.5px 120.5px,
+        175px 235px, 178px 235px, 326.5px 384.5px,
+        200px 121px, 203px 121px, 351.5px 228.5px,
+        225px 224px, 228px 224px, 376.5px 364.5px,
+        250px 26px, 253px 26px, 401.5px 105px,
+        275px 75px, 278px 75px, 426.5px 180px;
+      animation: fp-fall 60s linear infinite;
+    }
+    .fp-overlay {
+      position: absolute; inset: 0;
+      -webkit-backdrop-filter: blur(0.35em);
+      backdrop-filter: blur(0.35em);
+      background-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 2px, #ffffff 2px);
+      background-size: 8px 8px;
+    }
+    @keyframes fp-fall {
+      to {
+        background-position:
+          0px 6800px, 3px 6800px, 151.5px 6917.5px,
+          25px 13632px, 28px 13632px, 176.5px 13758px,
+          50px 5416px, 53px 5416px, 201.5px 5491px,
+          75px 17175px, 78px 17175px, 226.5px 17301.5px,
+          100px 5119px, 103px 5119px, 251.5px 5221px,
+          125px 8428px, 128px 8428px, 276.5px 8495px,
+          150px 9876px, 153px 9876px, 301.5px 9965.5px,
+          175px 13391px, 178px 13391px, 326.5px 13540.5px,
+          200px 14741px, 203px 14741px, 351.5px 14848.5px,
+          225px 18770px, 228px 18770px, 376.5px 18910.5px,
+          250px 5082px, 253px 5082px, 401.5px 5161px,
+          275px 6375px, 278px 6375px, 426.5px 6480px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fp-pattern { animation: none; }
+    }
+
+    /* Contact section — soft glow blobs + glass form fields */
+    .blob-soft { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; z-index: 0; }
+    .field { width: 100%; padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); color: #fff; font-size: 0.92rem; transition: border-color 0.25s, box-shadow 0.25s, background 0.25s; }
+    .field::placeholder { color: rgba(255,255,255,0.5); }
+    .field:focus { outline: none; border-color: #1591EA !important; background: rgba(255,255,255,0.13); box-shadow: 0 0 0 4px rgba(21,145,234,0.25); }
+    .icon-chip-dark { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #93c5fd; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background-color 0.3s ease; }
+    a:hover .icon-chip-dark { transform: translateY(-2px) rotate(-6deg); background-color: rgba(21,145,234,0.3); }
   </style>
   <link rel="stylesheet" href="site-polish.css">
 </head>
@@ -208,6 +368,12 @@
 </style>
 <div id="page-loader"><img class="loader-logo" src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies"></div>
 <script src="page-loader.js"></script>
+
+<!-- Site-wide falling pattern background -->
+<div class="fp-layer-global">
+  <div class="fp-pattern"></div>
+  <div class="fp-overlay"></div>
+</div>
 
 <!-- Navigation -->
 <nav id="navbar" class="fixed top-3 inset-x-3 lg:inset-x-auto lg:left-1/2 lg:-translate-x-1/2 lg:w-full lg:max-w-5xl z-50 rounded-2xl border transition-shadow duration-300">
@@ -254,24 +420,17 @@
 </nav>
 
 <!-- Hero -->
-<header class="relative overflow-hidden" style="min-height:100vh">
-  <!-- Earth background image -->
-  <img
-    src="./hero-earth-bg.webp"
-    alt=""
-    aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-cover object-center" fetchpriority="high" decoding="async">
-  <!-- Dark gradient overlay so text stays readable -->
-  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0,18,38,0.72) 0%, rgba(0,30,64,0.52) 50%, rgba(0,18,38,0.35) 100%)"></div>
+<header class="relative overflow-hidden">
   <!-- Content -->
-  <div class="relative z-10 max-w-container mx-auto px-5 sm:px-8 flex flex-col items-start justify-center h-full" style="min-height:inherit;padding-top:10%;padding-bottom:10%">
-    <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim block mb-6 hero-animate" style="animation-delay:0.08s">
+  <div class="relative z-10 max-w-container mx-auto px-5 sm:px-8 flex flex-col items-start" style="padding-top:7rem;padding-bottom:3rem">
+    <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-6 hero-animate" style="animation-delay:0.08s">
       Technology for Better Governance
     </span>
-    <h1 class="text-[clamp(1.75rem,5.5vw,3.4rem)] font-bold leading-tight tracking-tight text-white hero-animate max-w-2xl" style="animation-delay:0.22s">
-      Enterprise Software for the Utility Sector, Worldwide
+    <h1 class="text-[clamp(2.25rem,7vw,4.75rem)] font-extrabold leading-[1.04] tracking-tight text-primary hero-animate max-w-3xl" style="animation-delay:0.22s">
+      Enterprise Software for the
+      <span class="hero-text-shine">Utility Sector</span>, Worldwide
     </h1>
-    <p class="mt-6 text-base sm:text-lg text-white/70 max-w-xl leading-relaxed hero-animate" style="animation-delay:0.38s">
+    <p class="mt-6 text-base sm:text-lg text-on-surface-variant max-w-xl leading-relaxed hero-animate" style="animation-delay:0.38s">
       Harnessing business intelligence to drive smarter decisions and exceptional service.
     </p>
     <div class="mt-8 flex flex-row flex-wrap gap-3 hero-animate" style="animation-delay:0.52s">
@@ -282,7 +441,7 @@
         </span>
       </a>
       <a href="#contact"
-         class="border border-white/30 text-white px-8 py-3.5 text-sm font-semibold rounded-full hover:bg-white/10 transition-colors inline-flex items-center">
+         class="border border-primary/20 text-primary px-8 py-3.5 text-sm font-semibold rounded-full hover:bg-primary/5 transition-colors inline-flex items-center">
         Contact Us
       </a>
     </div>
@@ -290,27 +449,35 @@
 </header>
 
 <!-- Stats Bar -->
-<div class="bg-primary-container">
-  <div class="max-w-container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-px md:gap-0 md:divide-x divide-white/10">
-    <div class="px-4 py-7 md:px-6 md:py-8 text-center flex flex-col items-center gap-1.5">
-      <span class="material-symbols-outlined text-secondary" style="font-size:22px">public</span>
-      <div class="text-2xl md:text-3xl font-bold text-white" data-counter="4" data-suffix="+">4+</div>
-      <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-primary-container">Countries</div>
+<div id="stats" class="relative z-20 pb-8 md:pb-12">
+  <div class="max-w-container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <div class="stat-bubble">
+      <span class="stat-icon material-symbols-outlined">public</span>
+      <div class="stat-text">
+        <div class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight leading-none" data-counter="4" data-suffix="+">4+</div>
+        <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-surface-variant mt-1">Countries</div>
+      </div>
     </div>
-    <div class="px-4 py-7 md:px-6 md:py-8 text-center flex flex-col items-center gap-1.5">
-      <span class="material-symbols-outlined text-secondary" style="font-size:22px">schedule</span>
-      <div class="text-2xl md:text-3xl font-bold text-white" data-counter="20" data-suffix="+">20+</div>
-      <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-primary-container">Years Experience</div>
+    <div class="stat-bubble">
+      <span class="stat-icon material-symbols-outlined">schedule</span>
+      <div class="stat-text">
+        <div class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight leading-none" data-counter="20" data-suffix="+">20+</div>
+        <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-surface-variant mt-1">Years Experience</div>
+      </div>
     </div>
-    <div class="px-4 py-7 md:px-6 md:py-8 text-center flex flex-col items-center gap-1.5">
-      <span class="material-symbols-outlined text-secondary" style="font-size:22px">task_alt</span>
-      <div class="text-2xl md:text-3xl font-bold text-white" data-counter="105">105</div>
-      <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-primary-container">Completed Projects</div>
+    <div class="stat-bubble">
+      <span class="stat-icon material-symbols-outlined">task_alt</span>
+      <div class="stat-text">
+        <div class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight leading-none" data-counter="105">105</div>
+        <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-surface-variant mt-1">Completed Projects</div>
+      </div>
     </div>
-    <div class="px-4 py-7 md:px-6 md:py-8 text-center flex flex-col items-center gap-1.5">
-      <span class="material-symbols-outlined text-secondary" style="font-size:22px">groups</span>
-      <div class="text-2xl md:text-3xl font-bold text-white" data-counter="450" data-suffix="+">450+</div>
-      <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-primary-container">Qualified Staff</div>
+    <div class="stat-bubble">
+      <span class="stat-icon material-symbols-outlined">groups</span>
+      <div class="stat-text">
+        <div class="text-2xl md:text-3xl font-extrabold text-primary tracking-tight leading-none" data-counter="450" data-suffix="+">450+</div>
+        <div class="text-[11px] md:text-xs font-semibold uppercase tracking-widest text-on-surface-variant mt-1">Qualified Staff</div>
+      </div>
     </div>
   </div>
 </div>
@@ -322,124 +489,126 @@
     <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Core Capabilities</h2>
     <div class="w-16 h-0.5 bg-secondary mx-auto mt-4"></div>
   </div>
+  <div class="relative">
   <div class="cap-outer" id="cap-outer">
     <div class="cap-track" id="cap-track">
       <!-- Set 1 -->
-      <a href="services.html#assets" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#assets" class="cap-card relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden block">
         <img src="./asset-managing.webp" alt="Asset Lifecycle Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Infrastructure</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Asset Lifecycle Management</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Asset Lifecycle Management</h3>
           <p class="text-white/65 text-sm leading-relaxed">End-to-end IT solution for managing Distribution Transformers.</p>
         </div>
       </a>
-      <a href="services.html#erp" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#erp" class="cap-card relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden block">
         <img src="./erp-pt.webp" alt="Enterprise Resource Planning" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">ERP</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Enterprise Resource Planning</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Enterprise Resource Planning</h3>
           <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
         </div>
       </a>
-      <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#workforce" class="cap-card relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden block">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Management</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Workforce Management</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Workforce Management</h3>
           <p class="text-white/65 text-sm leading-relaxed">Ensures secure access, efficient meter installations with real-time dashboards.</p>
         </div>
       </a>
-      <a href="services.html#monitoring" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#monitoring" class="cap-card relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden block">
         <img src="./thermal-sensing.jpeg" alt="Condition Monitoring" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Monitoring</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Condition Monitoring</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Condition Monitoring</h3>
           <p class="text-white/65 text-sm leading-relaxed">Ensures reliable substation operations and prevents costly breakdowns.</p>
         </div>
       </a>
-      <a href="services.html#purchase-inventory" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#purchase-inventory" class="cap-card relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden block">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.webp" alt="Purchase and Inventory Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Logistics</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Purchase and Inventory Management</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Purchase and Inventory Management</h3>
           <p class="text-white/65 text-sm leading-relaxed">End-to-end procurement and stock control for electrical materials, equipment, and consumables.</p>
         </div>
       </a>
-      <a href="services.html#revenue" class="cap-card relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden block">
+      <a href="services.html#revenue" class="cap-card relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden block">
         <img src="./trm-pt.webp" alt="Revenue Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Revenue</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Revenue Management System</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Revenue Management System</h3>
           <p class="text-white/65 text-sm leading-relaxed">Maximize profitability through comprehensive, data-driven revenue management solutions.</p>
         </div>
       </a>
       <!-- Set 2 — seamless duplicate for infinite loop -->
-      <a href="services.html#assets" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
+      <a href="services.html#assets" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden">
         <img src="./asset-managing.webp" alt="Asset Lifecycle Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Infrastructure</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Asset Lifecycle Management</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Asset Lifecycle Management</h3>
           <p class="text-white/65 text-sm leading-relaxed">End-to-end IT solution for managing Distribution Transformers.</p>
         </div>
       </a>
-      <a href="services.html#erp" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
+      <a href="services.html#erp" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden">
         <img src="./erp-pt.webp" alt="Enterprise Resource Planning" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">ERP</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Enterprise Resource Planning</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Enterprise Resource Planning</h3>
           <p class="text-white/65 text-sm leading-relaxed">Streamline operations with integrated, efficient enterprise resource planning solutions.</p>
         </div>
       </a>
-      <a href="services.html#workforce" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
+      <a href="services.html#workforce" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/664cb2a71c931c364da9b685_pexels-divinetechygirl-1181263.webp" alt="Workforce Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Management</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Workforce Management</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Workforce Management</h3>
           <p class="text-white/65 text-sm leading-relaxed">Ensures secure access, efficient meter installations with real-time dashboards.</p>
         </div>
       </a>
-      <a href="services.html#monitoring" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
+      <a href="services.html#monitoring" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden">
         <img src="./thermal-sensing.jpeg" alt="Condition Monitoring" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Monitoring</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Condition Monitoring</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Condition Monitoring</h3>
           <p class="text-white/65 text-sm leading-relaxed">Ensures reliable substation operations and prevents costly breakdowns.</p>
         </div>
       </a>
-      <a href="services.html#purchase-inventory" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
+      <a href="services.html#purchase-inventory" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden">
         <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/image.webp" alt="Purchase and Inventory Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Logistics</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Purchase and Inventory Management</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Purchase and Inventory Management</h3>
           <p class="text-white/65 text-sm leading-relaxed">End-to-end procurement and stock control for electrical materials, equipment, and consumables.</p>
         </div>
       </a>
-      <a href="services.html#revenue" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[400px] h-[520px] overflow-hidden">
+      <a href="services.html#revenue" class="cap-card cap-dup hidden md:block relative flex-shrink-0 w-[300px] h-[380px] overflow-hidden">
         <img src="./trm-pt.webp" alt="Revenue Management" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-8">
+        <div class="absolute bottom-0 left-0 right-0 p-6">
           <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-2">Revenue</span>
-          <h3 class="text-2xl font-bold text-white mb-2">Revenue Management System</h3>
+          <h3 class="text-lg font-bold text-white mb-2">Revenue Management System</h3>
           <p class="text-white/65 text-sm leading-relaxed">Maximize profitability through comprehensive, data-driven revenue management solutions.</p>
         </div>
       </a>
     </div>
   </div>
+  </div><!-- /cap-outer wrapper -->
 </section>
 
 <!-- Products Showcase -->
-<section class="bg-surface-container-low py-24 reveal">
+<section class="py-24 reveal">
   <div class="max-w-container mx-auto px-6">
     <div class="text-center mb-16 space-y-3">
       <span class="text-xs font-bold tracking-widest uppercase text-secondary">Software Products</span>
@@ -506,7 +675,7 @@
 </section>
 
 <!-- Why Prasanna -->
-<section class="py-24 reveal" style="background-color:#006BFF">
+<section class="py-24 reveal" style="background-color:#001e40">
   <div class="max-w-container mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold text-white">Why Organisations Choose Us</h2>
@@ -624,31 +793,42 @@
 <!-- Contact -->
 <section id="contact" class="py-24 reveal">
   <div class="max-w-container mx-auto px-6">
-    <div class="bg-primary rounded-2xl p-12 md:p-16">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Get a Consultancy</h2>
-        <p class="text-primary-fixed/75 leading-relaxed mb-10">
-          Fill out the form below to get in touch with our support team. We respond within one business day.
-        </p>
-        <form id="contact-form" class="space-y-4 text-left">
-          <div class="grid md:grid-cols-2 gap-4">
-            <input type="text" name="name" placeholder="Your Name" required
-                   class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm">
-            <input type="text" name="company" placeholder="Organisation"
-                   class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm">
+    <div class="relative overflow-hidden rounded-[32px] bg-primary text-white p-8 md:p-16">
+      <div class="blob-soft" style="width:380px;height:380px;background:rgba(21,145,234,0.28);bottom:-160px;left:-80px"></div>
+      <div class="blob-soft" style="width:300px;height:300px;background:rgba(167,200,255,0.16);top:-120px;right:-60px"></div>
+      <div class="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed-dim">Get a Consultancy</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 leading-tight">Let's build better governance, together.</h2>
+          <p class="text-white/65 mt-5 leading-relaxed max-w-md">
+            Fill out the form and our team will respond within one business day. Or reach us directly:
+          </p>
+          <div class="mt-7 space-y-3">
+            <a href="mailto:info@prasannatechnologies.com" class="flex items-center gap-3 text-white/85 hover:text-secondary-fixed-dim transition-colors">
+              <span class="icon-chip-dark"><span class="material-symbols-outlined" style="font-size:18px">mail</span></span>
+              info@prasannatechnologies.com
+            </a>
+            <a href="tel:+919448490740" class="flex items-center gap-3 text-white/85 hover:text-secondary-fixed-dim transition-colors">
+              <span class="icon-chip-dark"><span class="material-symbols-outlined" style="font-size:18px">call</span></span>
+              +91 94484 90740
+            </a>
           </div>
-          <input type="email" name="email" placeholder="Work Email" required
-                 class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm">
-          <textarea rows="4" name="message" placeholder="Tell us about your requirements" required
-                    class="w-full px-4 py-3 rounded border border-white/20 bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-secondary focus:outline-none text-sm resize-none"></textarea>
+        </div>
+        <form id="contact-form" class="space-y-3.5">
+          <div class="grid sm:grid-cols-2 gap-3.5">
+            <input type="text" name="name" placeholder="Your Name" required class="field">
+            <input type="text" name="company" placeholder="Organisation" class="field">
+          </div>
+          <input type="email" name="email" placeholder="Work Email" required class="field">
+          <textarea rows="4" name="message" placeholder="Tell us about your requirements" required class="field resize-none"></textarea>
           <input type="text" name="website" tabindex="-1" autocomplete="off"
                  class="absolute opacity-0 pointer-events-none -z-10" style="left:-9999px" aria-hidden="true">
           <div class="flex justify-center">
             <div class="g-recaptcha" data-sitekey="6Le5eRctAAAAAF_DQ_kyhMUNo_1tjrutKhMWc_lz"></div>
           </div>
           <button type="submit"
-                  class="w-full bg-secondary text-on-secondary py-3.5 font-bold rounded hover:opacity-90 transition-opacity text-sm">
-            Send Message
+                  class="w-full bg-secondary text-on-secondary py-3.5 font-bold rounded-xl hover:opacity-90 transition-opacity text-sm flex items-center justify-center gap-2">
+            <span class="btn-label">Send Message</span> <span class="material-symbols-outlined" style="font-size:18px">send</span>
           </button>
           <p id="contact-form-status" class="text-sm text-center mt-2"></p>
         </form>
@@ -667,7 +847,7 @@
                 return;
               }
               btn.disabled = true;
-              btn.textContent = 'Sending…';
+              btn.querySelector('.btn-label').textContent = 'Sending…';
               status.textContent = '';
               status.className = 'text-sm text-center mt-2';
               fetch('/api/contact', {
@@ -692,18 +872,12 @@
               })
               .finally(function() {
                 btn.disabled = false;
-                btn.textContent = 'Send Message';
+                btn.querySelector('.btn-label').textContent = 'Send Message';
                 if (window.grecaptcha) grecaptcha.reset();
               });
             });
           })();
         </script>
-        <p class="text-primary-fixed/50 text-xs mt-6">
-          Or reach us at
-          <a href="mailto:info@prasannatechnologies.com" class="text-secondary hover:underline">info@prasannatechnologies.com</a>
-          &nbsp;·&nbsp;
-          <a href="tel:+919448490740" class="text-secondary hover:underline">+91 94484 90740</a>
-        </p>
       </div>
     </div>
   </div>
@@ -887,6 +1061,7 @@
     }
     requestAnimationFrame(tick);
   }
+  const counterEls = document.querySelectorAll('[data-counter]');
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -894,8 +1069,20 @@
         counterObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+  }, { threshold: 0.1 });
+  counterEls.forEach(el => counterObserver.observe(el));
+  // Stats sit near the top of the page, so kick off the count-up shortly
+  // after load too in case the observer doesn't fire on initial paint.
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      counterEls.forEach(el => {
+        if (el.textContent === el.dataset.counter + (el.dataset.suffix || '')) {
+          animateCounter(el);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, 300);
+  });
 
   // ── Capabilities Carousel: mouse + touch driven + infinite loop ──
   (function() {
@@ -925,8 +1112,10 @@
     function halfWidth() {
       var cards = track.querySelectorAll('.cap-card');
       if (!cards.length) return 2828;
-      return (cards.length / 2) * (cards[0].offsetWidth + 4);
+      return (cards.length / 2) * (cards[0].offsetWidth + 20);
     }
+
+    var dots = document.querySelectorAll('#cap-dots .cap-dot');
 
     // ── Mouse (desktop) ──
     outer.addEventListener('mouseenter', function() { mouseOver = true; });
@@ -1016,6 +1205,16 @@
         c.style.transform = 'scale(' + scale.toFixed(3) + ')';
         c.style.opacity = opacity.toFixed(3);
       }
+
+      // Update active dot based on closest card to center (first set only)
+      var firstSetCards = Array.from(cards).slice(0, 6);
+      var closestIdx = 0, closestDist = Infinity;
+      for (var j = 0; j < firstSetCards.length; j++) {
+        var cr2 = firstSetCards[j].getBoundingClientRect();
+        var d2 = Math.abs((cr2.left + cr2.width / 2) - center);
+        if (d2 < closestDist) { closestDist = d2; closestIdx = j; }
+      }
+      dots.forEach(function(d, idx) { d.classList.toggle('active', idx === closestIdx); });
 
       requestAnimationFrame(frame);
     }
