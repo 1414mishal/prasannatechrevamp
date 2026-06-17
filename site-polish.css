@@ -12,6 +12,8 @@ header[style*="min-height:100vh"] { min-height: 100svh !important; }
 
 /* Don't let carousel/logo images get picked up and dragged */
 .cap-card img, .logo-track img { -webkit-user-drag: none; user-select: none; }
+/* Category labels sit on dark photo backgrounds — use light blue for legibility */
+.cap-card span { color: #7dcaf7 !important; }
 
 /* ── Floating navbar: hides on scroll down, returns on scroll up (mobile) ── */
 @media (max-width: 1023.5px) {
@@ -150,9 +152,9 @@ header[style*="min-height:100vh"] { min-height: 100svh !important; }
 .why-card {
   padding: 2rem;
   border-radius: 1rem;
-  background: linear-gradient(150deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 8px 32px rgba(0,18,38,0.18);
+  background: linear-gradient(150deg, rgba(125,180,247,0.05), rgba(0,18,38,0.01));
+  border: 1px solid rgba(125,180,247,0.1);
+  box-shadow: none;
   overflow: hidden;
 }
 
