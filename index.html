@@ -211,18 +211,10 @@
     .cap-outer {
       overflow-x: scroll; overflow-y: hidden;
       scrollbar-width: none;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
     }
     .cap-outer::-webkit-scrollbar { display: none; }
-    /* Align carousel start with page container on desktop — set by JS below */
-    @media (min-width: 768px) {
-      /* No left fade: first card edge must be sharp/aligned with content */
-      .cap-outer {
-        -webkit-mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
-        mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
-      }
-    }
     .cap-card {
       border-radius: 20px;
       border: 1px solid rgba(21,145,234,0.18);
@@ -761,7 +753,7 @@
     <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Core Capabilities</h2>
     <div class="w-16 h-0.5 bg-secondary mx-auto mt-4"></div>
   </div>
-  <div class="relative">
+  <div class="max-w-container mx-auto px-6 relative">
   <div class="cap-outer" id="cap-outer">
     <div class="cap-track" id="cap-track">
       <!-- Set 1 -->
@@ -1372,23 +1364,6 @@
     }, 300);
   });
 
-  // ── Align carousel first card with the section heading's left content edge ──
-  (function() {
-    function alignCapStart() {
-      var outer = document.getElementById('cap-outer');
-      var track = document.getElementById('cap-track');
-      if (!outer || !track) return;
-      if (window.matchMedia('(max-width: 767px)').matches) { track.style.paddingLeft = ''; return; }
-      var section = outer.closest('section');
-      var headingContainer = section && section.querySelector('.max-w-container');
-      if (!headingContainer) return;
-      var left = headingContainer.getBoundingClientRect().left;
-      var pad = parseFloat(getComputedStyle(headingContainer).paddingLeft) || 24;
-      track.style.paddingLeft = Math.max(left + pad, 16) + 'px';
-    }
-    alignCapStart();
-    window.addEventListener('resize', alignCapStart);
-  })();
 
   // ── Capabilities Carousel: mouse + touch driven + infinite loop ──
   (function() {
