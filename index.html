@@ -23,7 +23,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Theme init: run before render to prevent FOUC -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('pt-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script>
+    window.PT_W3F = { accessKey: '1173caf5-f3ba-47ec-9cc6-755e5ec79519' };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
@@ -99,6 +108,14 @@
       mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     }
     .cap-outer::-webkit-scrollbar { display: none; }
+    /* Align carousel start with page container on desktop — set by JS below */
+    @media (min-width: 768px) {
+      /* No left fade: first card edge must be sharp/aligned with content */
+      .cap-outer {
+        -webkit-mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
+        mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
+      }
+    }
     .cap-card {
       border-radius: 20px;
       border: 1px solid rgba(21,145,234,0.18);
@@ -377,6 +394,128 @@
     .icon-chip-dark { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #93c5fd; flex-shrink: 0; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background-color 0.3s ease; }
     a:hover .icon-chip-dark { transform: translateY(-2px) rotate(-6deg); background-color: rgba(21,145,234,0.3); }
 
+    /* ── Dark mode overrides ── */
+    [data-theme="dark"] .fp-pattern {
+      background-color: #001e40 !important;
+      background-image:
+        radial-gradient(4px 100px at 0px 235px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 235px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 117.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 252px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 252px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 126px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 150px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 150px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 75px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 253px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 253px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 126.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 204px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 204px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 102px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 134px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 134px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 67px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 179px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 179px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 89.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 299px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 299px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 149.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 215px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 215px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 107.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 281px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 281px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 140.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 158px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 158px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 79px, rgba(255,255,255,0.45) 100%, transparent 150%),
+        radial-gradient(4px 100px at 0px 210px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(4px 100px at 300px 210px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 150px 105px, rgba(255,255,255,0.45) 100%, transparent 150%) !important;
+    }
+    [data-theme="dark"] .fp-overlay {
+      background-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 2px, #001e40 2px) !important;
+    }
+    [data-theme="dark"] body { background-color: #001e40 !important; }
+    [data-theme="dark"] #navbar { background: rgba(1,14,31,0.88) !important; border-color: rgba(21,145,234,0.18) !important; }
+    [data-theme="dark"] #navbar.nav-scrolled { background: rgba(1,14,31,0.97) !important; border-color: rgba(21,145,234,0.25) !important; }
+    [data-theme="dark"] #mobile-menu { background: #010e1f; border-color: rgba(21,145,234,0.15); }
+    [data-theme="dark"] .bg-surface-container-low { background-color: #051525 !important; }
+    [data-theme="dark"] .bg-surface-container-lowest { background-color: #071c30 !important; }
+    [data-theme="dark"] .bg-white { background-color: #071c30 !important; }
+    [data-theme="dark"] .text-on-surface { color: #e2e8f0 !important; }
+    [data-theme="dark"] .text-on-surface-variant { color: #93c5fd !important; }
+    [data-theme="dark"] .text-primary { color: #93c5fd !important; }
+    [data-theme="dark"] .border-outline-variant { border-color: rgba(21,145,234,0.18) !important; }
+    [data-theme="dark"] .stat-bubble { background: #071c30 !important; border-color: rgba(21,145,234,0.2) !important; }
+    [data-theme="dark"] .stat-text > div:first-child { color: #e2e8f0 !important; }
+    [data-theme="dark"] .stat-text > div:last-child { color: #93c5fd !important; }
+    [data-theme="dark"] .card-lift { background-color: #071c30 !important; border-color: rgba(21,145,234,0.18) !important; }
+    [data-theme="dark"] a.text-on-surface-variant { color: #93c5fd !important; }
+    [data-theme="dark"] .hover\:text-primary:hover { color: #60a5fa !important; }
+    /* Nav link text in dark mode */
+    [data-theme="dark"] nav a.text-on-surface-variant { color: rgba(255,255,255,0.7) !important; }
+    [data-theme="dark"] nav a.text-on-surface-variant:hover { color: #60a5fa !important; }
+    [data-theme="dark"] nav a.text-on-surface { color: #e2e8f0 !important; }
+    /* Sections with explicit bg-surface-container-low that are not already handled */
+    [data-theme="dark"] section.bg-surface-container-low { background-color: #051525 !important; }
+    /* Input fields in contact etc */
+    [data-theme="dark"] .field { background: rgba(255,255,255,0.06) !important; }
+
+    /* ── Chatbot widget ── */
+    #pt-chat-btn{position:fixed;bottom:28px;right:28px;z-index:1000;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1591EA,#003366);box-shadow:0 6px 24px rgba(21,145,234,0.45);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;}
+    #pt-chat-btn:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(21,145,234,0.6);}
+    #pt-chat-btn .material-symbols-outlined{color:#fff;font-size:26px;}
+    #pt-chat-btn-inner{position:relative;display:flex;align-items:center;justify-content:center;}
+    #pt-chat-panel{position:fixed;bottom:96px;right:28px;z-index:1000;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,30,64,0.22);overflow:hidden;display:none;flex-direction:column;max-height:520px;border:1px solid rgba(21,145,234,0.15);}
+    #pt-chat-panel.open{display:flex;}
+    .pt-chat-header{background:linear-gradient(135deg,#001e40,#003366);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+    .pt-chat-header img{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);object-fit:contain;background:#fff;padding:3px;}
+    .pt-chat-header-text{flex:1;}
+    .pt-chat-header-text strong{display:block;color:#fff;font-size:14px;}
+    .pt-chat-header-text span{color:rgba(255,255,255,0.6);font-size:12px;}
+    .pt-close-btn{background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;padding:4px;border-radius:6px;display:flex;align-items:center;transition:color 0.2s;}
+    .pt-close-btn:hover{color:#fff;}
+    #pt-chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+    .pt-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:ptFadeIn 0.25s ease;}
+    @keyframes ptFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+    .pt-msg.bot{background:#f0f4ff;color:#001e40;border-bottom-left-radius:4px;align-self:flex-start;}
+    .pt-msg.user{background:#1591EA;color:#fff;border-bottom-right-radius:4px;align-self:flex-end;}
+    #pt-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;flex-shrink:0;}
+    .pt-chip{padding:6px 14px;border-radius:9999px;border:1.5px solid #1591EA;color:#1591EA;font-size:12.5px;font-weight:600;cursor:pointer;background:#fff;transition:background 0.15s,color 0.15s;}
+    .pt-chip:hover{background:#1591EA;color:#fff;}
+    #pt-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(0,30,64,0.08);flex-shrink:0;}
+    #pt-input-row input{flex:1;padding:9px 12px;border:1.5px solid rgba(0,30,64,0.15);border-radius:10px;font-size:13px;outline:none;transition:border-color 0.2s;font-family:inherit;}
+    #pt-input-row input:focus{border-color:#1591EA;}
+    .pt-send-btn{background:#1591EA;color:#fff;border:none;border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:opacity 0.2s;}
+    .pt-send-btn:hover{opacity:0.85;}
+    #pt-cta-row{padding:12px 16px;border-top:1px solid rgba(0,30,64,0.08);flex-shrink:0;}
+    .pt-cta-btn{width:100%;padding:11px;background:linear-gradient(135deg,#1591EA,#003366);color:#fff;border:none;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;font-family:inherit;}
+    .pt-cta-btn:hover{opacity:0.9;}
+    .pt-badge{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:#ef4444;border-radius:50%;border:2px solid #fff;}
+    [data-theme="dark"] #pt-chat-panel{background:#071c30;border-color:rgba(21,145,234,0.2);}
+    [data-theme="dark"] .pt-msg.bot{background:#0a2545;color:#e2e8f0;}
+    [data-theme="dark"] #pt-input-row{border-top-color:rgba(21,145,234,0.12);}
+    [data-theme="dark"] #pt-input-row input{background:#0a2545;border-color:rgba(21,145,234,0.2);color:#e2e8f0;}
+    [data-theme="dark"] .pt-chip{background:#0a2545;color:#93c5fd;border-color:rgba(21,145,234,0.3);}
+    [data-theme="dark"] .pt-chip:hover{background:#1591EA;color:#fff;}
+    [data-theme="dark"] #pt-cta-row{border-top-color:rgba(21,145,234,0.12);}
+
+    /* Theme toggle pill */
+    .theme-toggle-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(0,30,64,0.08); border: 1px solid rgba(0,30,64,0.15);
+      border-radius: 9999px; padding: 4px 10px; cursor: pointer;
+      font-size: 12px; font-weight: 600; color: #43474f;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      user-select: none;
+    }
+    .theme-toggle-pill:hover { background: rgba(21,145,234,0.1); border-color: #1591EA; color: #1591EA; }
+    [data-theme="dark"] .theme-toggle-pill { background: rgba(21,145,234,0.1); border-color: rgba(21,145,234,0.3); color: #93c5fd; }
+    [data-theme="dark"] .theme-toggle-pill:hover { background: rgba(21,145,234,0.2); }
+
 
   </style>
   <link rel="stylesheet" href="site-polish.css">
@@ -415,6 +554,10 @@
       <a href="careers.html"  class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors px-3 py-1.5">Careers</a>
     </div>
     <div class="flex items-center gap-2">
+      <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle-pill" title="Toggle theme" aria-label="Toggle theme">
+        <span class="material-symbols-outlined" style="font-size:16px" id="theme-icon">light_mode</span>
+        <span id="theme-label">Light</span>
+      </button>
       <a href="#contact" class="hidden md:inline-flex bg-primary text-on-primary px-5 py-2.5 text-sm font-semibold rounded hover:bg-primary-container transition-colors">
         Get in Touch
       </a>
@@ -648,7 +791,9 @@
                class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
         <div class="p-8 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-primary mb-2">STYRA</h3>
+          <div class="mb-3">
+            <img src="./styra.83c14deb.svg" alt="STYRA" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
+          </div>
           <p class="text-sm text-on-surface-variant leading-relaxed mb-6 flex-grow">
             A SaaS application that helps businesses adapt to digital transformation with integrated analytics, workflow automation, and governance dashboards.
           </p>
@@ -665,7 +810,9 @@
                class="w-full h-full object-cover" loading="lazy" decoding="async">
         </div>
         <div class="p-8 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-primary mb-2">EnergySync™</h3>
+          <div class="mb-3">
+            <img src="./EnergySync.png" alt="EnergySync" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
+          </div>
           <p class="text-sm text-on-surface-variant leading-relaxed mb-6 flex-grow">
             Eliminates back-office inefficiencies for electricity utilities. Covers billing, collections, AT&C loss monitoring, and field operations in one platform.
           </p>
@@ -831,10 +978,6 @@
               <span class="icon-chip-dark"><span class="material-symbols-outlined" style="font-size:18px">mail</span></span>
               info@prasannatechnologies.com
             </a>
-            <a href="tel:+919448490740" class="flex items-center gap-3 text-white/85 hover:text-secondary-fixed-dim transition-colors">
-              <span class="icon-chip-dark"><span class="material-symbols-outlined" style="font-size:18px">call</span></span>
-              +91 94484 90740
-            </a>
           </div>
         </div>
         <form id="contact-form" class="space-y-3.5">
@@ -864,28 +1007,29 @@
               e.preventDefault();
               var btn = form.querySelector('button[type="submit"]');
               var data = Object.fromEntries(new FormData(form).entries());
-              if (!data['g-recaptcha-response']) {
-                status.textContent = 'Please complete the captcha before sending.';
-                status.className = 'text-sm text-center mt-2 text-red-400';
-                return;
-              }
               btn.disabled = true;
               btn.querySelector('.btn-label').textContent = 'Sending…';
               status.textContent = '';
               status.className = 'text-sm text-center mt-2';
-              fetch('/api/contact', {
+              fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                  access_key: window.PT_W3F ? window.PT_W3F.accessKey : '1173caf5-f3ba-47ec-9cc6-755e5ec79519',
+                  name:    data.name    || '',
+                  email:   data.email   || '',
+                  subject: 'Contact Form Enquiry' + (data.company ? ' — ' + data.company : ''),
+                  message: (data.company ? 'Company: ' + data.company + '\n\n' : '') + (data.message || '')
+                })
               })
-              .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, body: j }; }); })
-              .then(function(res) {
-                if (res.ok) {
+              .then(function(r) { return r.json(); })
+              .then(function(d) {
+                if (d.success) {
                   status.textContent = 'Thanks! Your message has been sent. We\'ll be in touch within one business day.';
                   status.className = 'text-sm text-center mt-2 text-green-400';
                   form.reset();
                 } else {
-                  status.textContent = res.body.error || 'Something went wrong. Please try again.';
+                  status.textContent = 'Something went wrong. Please try again or email us directly.';
                   status.className = 'text-sm text-center mt-2 text-red-400';
                 }
               })
@@ -896,7 +1040,6 @@
               .finally(function() {
                 btn.disabled = false;
                 btn.querySelector('.btn-label').textContent = 'Send Message';
-                if (window.grecaptcha) grecaptcha.reset();
               });
             });
           })();
@@ -914,7 +1057,7 @@
       <h2 class="text-3xl font-bold text-primary mb-3">Where to Find Us</h2>
       <p class="text-on-surface-variant">Checkout the places where we conduct our business.</p>
     </div>
-    <div class="grid md:grid-cols-2 gap-10">
+    <div class="grid md:grid-cols-3 gap-10">
 
       <!-- Mangalore -->
       <div class="bg-surface-container-low border border-outline-variant rounded-2xl overflow-hidden">
@@ -934,10 +1077,6 @@
             <a href="mailto:info@prasannatechnologies.com" class="flex items-center gap-2 text-secondary text-sm hover:underline">
               <span class="material-symbols-outlined" style="font-size:16px">mail</span>
               info@prasannatechnologies.com
-            </a>
-            <a href="tel:+919448490740" class="flex items-center gap-2 text-secondary text-sm hover:underline">
-              <span class="material-symbols-outlined" style="font-size:16px">call</span>
-              +91 94484 90740
             </a>
           </div>
         </div>
@@ -962,9 +1101,29 @@
               <span class="material-symbols-outlined" style="font-size:16px">mail</span>
               info@prasannatechnologies.com
             </a>
-            <a href="tel:+919448490740" class="flex items-center gap-2 text-secondary text-sm hover:underline">
-              <span class="material-symbols-outlined" style="font-size:16px">call</span>
-              +91 94484 90740
+          </div>
+        </div>
+      </div>
+
+      <!-- Ras Al Khaima, UAE -->
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl overflow-hidden">
+        <div class="h-64 w-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/10">
+          <div class="text-center">
+            <span class="material-symbols-outlined text-secondary mb-2 block" style="font-size:48px">location_on</span>
+            <span class="text-xs font-bold tracking-widest uppercase text-secondary">Ras Al Khaima</span>
+            <div class="text-sm text-on-surface-variant mt-1">United Arab Emirates</div>
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-xl font-bold text-primary mb-1">Ras Al Khaima, UAE</h3>
+          <div class="w-8 h-0.5 bg-secondary mb-4"></div>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-5">
+            Prasanna Technologies FZ LLC<br>VUPR0451, Compass Building – Al Hulaila,<br>Al Hulaila Industrial Zone – FZ,<br>Ras Al Khaima, United Arab Emirates
+          </p>
+          <div class="space-y-2">
+            <a href="mailto:info@prasannatechnologies.com" class="flex items-center gap-2 text-secondary text-sm hover:underline">
+              <span class="material-symbols-outlined" style="font-size:16px">mail</span>
+              info@prasannatechnologies.com
             </a>
           </div>
         </div>
@@ -1021,7 +1180,6 @@
       <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
       <div class="space-y-3 text-sm text-on-primary/70">
         <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
-        <p><a href="tel:+919448490740" class="hover:text-white transition-colors">+91 94484 90740</a></p>
         <div class="pt-6 border-t border-white/10 mt-4 flex items-center gap-3 flex-wrap justify-center md:justify-start">
           <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso9001.png"  alt="ISO 9001"  class="h-14 w-auto" loading="lazy" decoding="async">
           <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/iso27001.png"  alt="ISO 27001" class="h-14 w-auto" loading="lazy" decoding="async">
@@ -1106,6 +1264,24 @@
       });
     }, 300);
   });
+
+  // ── Align carousel first card with the section heading's left content edge ──
+  (function() {
+    function alignCapStart() {
+      var outer = document.getElementById('cap-outer');
+      var track = document.getElementById('cap-track');
+      if (!outer || !track) return;
+      if (window.matchMedia('(max-width: 767px)').matches) { track.style.paddingLeft = ''; return; }
+      var section = outer.closest('section');
+      var headingContainer = section && section.querySelector('.max-w-container');
+      if (!headingContainer) return;
+      var left = headingContainer.getBoundingClientRect().left;
+      var pad = parseFloat(getComputedStyle(headingContainer).paddingLeft) || 24;
+      track.style.paddingLeft = Math.max(left + pad, 16) + 'px';
+    }
+    alignCapStart();
+    window.addEventListener('resize', alignCapStart);
+  })();
 
   // ── Capabilities Carousel: mouse + touch driven + infinite loop ──
   (function() {
@@ -1265,7 +1441,209 @@
     });
   })();
 </script>
+<!-- Chatbot widget -->
+<button id="pt-chat-btn" onclick="ptToggleChat()" aria-label="Open chat">
+  <div id="pt-chat-btn-inner">
+    <span class="material-symbols-outlined">chat</span>
+    <div class="pt-badge" id="pt-badge" style="display:none"></div>
+  </div>
+</button>
+<div id="pt-chat-panel">
+  <div class="pt-chat-header">
+    <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies">
+    <div class="pt-chat-header-text">
+      <strong>Prasanna Technologies</strong>
+      <span>Typically replies instantly</span>
+    </div>
+    <button class="pt-close-btn" onclick="ptToggleChat()">
+      <span class="material-symbols-outlined" style="font-size:20px">close</span>
+    </button>
+  </div>
+  <div id="pt-chat-msgs"></div>
+  <div id="pt-chips" style="display:none"></div>
+  <div id="pt-input-row" style="display:none">
+    <input id="pt-input" type="text" placeholder="Type your answer..." onkeydown="if(event.key==='Enter') ptSubmitText()">
+    <button class="pt-send-btn" onclick="ptSubmitText()">
+      <span class="material-symbols-outlined" style="font-size:18px">send</span>
+    </button>
+  </div>
+  <div id="pt-cta-row" style="display:none">
+    <button class="pt-cta-btn" onclick="ptSendEmail()">
+      <span class="material-symbols-outlined" style="font-size:18px">send</span>
+      Send Enquiry to Our Team
+    </button>
+  </div>
+</div>
+
 <script src="footer-shader.js" defer></script>
 <script src="site-polish.js" defer></script>
+
+<script>
+// ── Chatbot widget ──
+(function(){
+  var answers = {};
+  var step = 0;
+  var questions = [
+    { key: 'name',    type: 'text',   bot: "Hello! Welcome to Prasanna Technologies. What is your name?" },
+    { key: 'type',    type: 'chips',  bot: "Great! What is the nature of your enquiry?",
+      options: ['Product Demo','Partnership','Careers','Support','General'] },
+    { key: 'sector',  type: 'chips',  bot: "Which sector are you from?",
+      options: ['Electricity Utilities','Water Utilities','Revenue Department','Other'] },
+    { key: 'details', type: 'text',   bot: "Please briefly describe your query." },
+    { key: 'email',   type: 'text',   bot: "What is your email address so we can reply to you?" },
+    { key: '_done',   type: 'done',   bot: "Thank you! Click the button below to send your enquiry to our team." }
+  ];
+
+  setTimeout(function(){
+    var b = document.getElementById('pt-badge');
+    var p = document.getElementById('pt-chat-panel');
+    if (b && p && !p.classList.contains('open')) b.style.display = 'flex';
+  }, 4000);
+
+  window.ptToggleChat = function() {
+    var panel = document.getElementById('pt-chat-panel');
+    var badge = document.getElementById('pt-badge');
+    if (!panel) return;
+    var isOpen = panel.classList.toggle('open');
+    if (isOpen) {
+      if (badge) badge.style.display = 'none';
+      if (step === 0) setTimeout(ptNextStep, 300);
+    }
+  };
+
+  function addMsg(text, cls) {
+    var msgs = document.getElementById('pt-chat-msgs');
+    if (!msgs) return;
+    var d = document.createElement('div');
+    d.className = 'pt-msg ' + cls;
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function ptNextStep() {
+    if (step >= questions.length) return;
+    var q = questions[step];
+    setTimeout(function(){
+      addMsg(q.bot, 'bot');
+      showInput(q);
+    }, step === 0 ? 0 : 400);
+  }
+
+  function showInput(q) {
+    var chips    = document.getElementById('pt-chips');
+    var inputRow = document.getElementById('pt-input-row');
+    var ctaRow   = document.getElementById('pt-cta-row');
+    if (!chips || !inputRow || !ctaRow) return;
+    chips.style.display    = 'none';
+    inputRow.style.display = 'none';
+    ctaRow.style.display   = 'none';
+    while (chips.firstChild) chips.removeChild(chips.firstChild);
+
+    if (q.type === 'chips') {
+      chips.style.display = 'flex';
+      q.options.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'pt-chip';
+        btn.textContent = opt;
+        btn.onclick = function(){ ptSubmitChip(opt); };
+        chips.appendChild(btn);
+      });
+    } else if (q.type === 'text') {
+      inputRow.style.display = 'flex';
+      setTimeout(function(){
+        var inp = document.getElementById('pt-input');
+        if (inp) { inp.value = ''; inp.focus(); }
+      }, 100);
+    } else if (q.type === 'done') {
+      ctaRow.style.display = 'block';
+    }
+  }
+
+  window.ptSubmitText = function() {
+    var inp = document.getElementById('pt-input');
+    if (!inp) return;
+    var val = inp.value.trim();
+    if (!val) return;
+    addMsg(val, 'user');
+    inp.value = '';
+    answers[questions[step].key] = val;
+    step++;
+    if (step < questions.length) ptNextStep();
+  };
+
+  window.ptSubmitChip = function(val) {
+    addMsg(val, 'user');
+    var chips = document.getElementById('pt-chips');
+    if (chips) chips.style.display = 'none';
+    answers[questions[step].key] = val;
+    step++;
+    if (step < questions.length) ptNextStep();
+  };
+
+  window.ptSendEmail = function() {
+    var name    = answers.name    || '';
+    var type    = answers.type    || 'General';
+    var sector  = answers.sector  || '-';
+    var details = answers.details || '-';
+    var email   = answers.email   || '-';
+    var btn = document.querySelector('.pt-cta-btn');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    function resetBtn(b) {
+      if (!b) return; b.disabled = false; b.textContent = '';
+      var ic = document.createElement('span'); ic.className = 'material-symbols-outlined'; ic.style.fontSize = '18px'; ic.textContent = 'send';
+      b.appendChild(ic); b.appendChild(document.createTextNode(' Send Enquiry to Our Team'));
+    }
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: window.PT_W3F ? window.PT_W3F.accessKey : '1173caf5-f3ba-47ec-9cc6-755e5ec79519',
+        name: name, email: email,
+        subject: 'Chatbot Enquiry — ' + type,
+        message: 'Sector: ' + sector + '\nEnquiry Type: ' + type + '\n\nMessage: ' + details
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.success) {
+        addMsg('Your enquiry has been sent! Our team will get back to you at ' + email + ' shortly.', 'bot');
+        var ctaRow = document.getElementById('pt-cta-row');
+        if (ctaRow) ctaRow.style.display = 'none';
+      } else {
+        addMsg('Sorry, something went wrong. Please email us directly at info@prasannatechnologies.com', 'bot');
+        resetBtn(btn);
+      }
+    })
+    .catch(function() {
+      addMsg('Sorry, something went wrong. Please email us directly at info@prasannatechnologies.com', 'bot');
+      resetBtn(btn);
+    });
+  };
+})();
+
+// ── Theme toggle ──
+function updateToggleUI(theme) {
+  var icon  = document.getElementById('theme-icon');
+  var label = document.getElementById('theme-label');
+  if (!icon || !label) return;
+  if (theme === 'dark') {
+    icon.textContent  = 'light_mode';
+    label.textContent = 'Light';
+  } else {
+    icon.textContent  = 'dark_mode';
+    label.textContent = 'Dark';
+  }
+}
+function toggleTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('pt-theme', next);
+  updateToggleUI(next);
+}
+// Sync UI on page load
+updateToggleUI(document.documentElement.getAttribute('data-theme') || 'dark');
+</script>
 </body>
 </html>

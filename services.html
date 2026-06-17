@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script>
+    window.PT_W3F = { accessKey: '1173caf5-f3ba-47ec-9cc6-755e5ec79519' };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
@@ -80,6 +83,19 @@
     /* service card — lift only, no float */
     .svc-card { transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.32s ease; }
     .svc-card:hover { transform: translateY(-7px); box-shadow: 0 22px 52px rgba(0,30,64,0.13); }
+    /* feature mini-cards — shared style across all service sections */
+    .svc-feat-card {
+      background: rgba(21,145,234,0.07);
+      border: 1px solid rgba(21,145,234,0.13);
+      border-radius: 0.875rem;
+      padding: 1.5rem;
+      transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .svc-feat-card:hover {
+      background: rgba(21,145,234,0.13);
+      box-shadow: 0 12px 32px rgba(21,145,234,0.14);
+      transform: translateY(-4px);
+    }
     @media (max-width: 639px) {
       .py-24 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
       .gap-16 { gap: 1.5rem !important; }
@@ -232,7 +248,7 @@
     <span class="svc-div"></span>
     <a href="#erp"                data-section="erp"               class="svc-pill">ERP</a>
     <span class="svc-div"></span>
-    <a href="#workforce"          data-section="workforce"         class="svc-pill">Workforce</a>
+    <a href="#workforce"          data-section="workforce"         class="svc-pill">Workforce Management</a>
     <span class="svc-div"></span>
     <a href="#monitoring"         data-section="monitoring"        class="svc-pill">Condition Monitoring</a>
     <span class="svc-div"></span>
@@ -299,44 +315,58 @@
 <!-- 01 Asset Lifecycle -->
 <section id="assets" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="text-center mb-16">
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card grid md:grid-cols-2 gap-16 items-center">
+    <div>
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">01 / Services</span>
-      <h2 class="text-3xl font-bold text-primary mb-4">Asset Lifecycle Management</h2>
-      <p class="text-on-surface-variant max-w-2xl mx-auto">End-to-end IT solution for managing Distribution Transformers and high-value utility assets from commissioning through retirement.</p>
-      <div class="w-16 h-0.5 bg-secondary mx-auto mt-6"></div>
+      <h2 class="text-3xl font-bold text-primary mb-6">Asset Lifecycle Management</h2>
+      <p class="text-on-surface-variant leading-relaxed mb-8">
+        End-to-end IT solution for managing Distribution Transformers and high-value utility assets from commissioning through retirement. Every stage is tracked, documented, and auditable.
+      </p>
+      <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Strategic acquisition and digital commissioning of high-value assets</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Regular inspection scheduling and health scoring for substations</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Data-backed decisions for asset replacement and capital planning</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Full traceability from commissioning through decommissioning and disposal</span>
+        </li>
+      </ul>
+      <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
+        Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
+      </a>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-8 card-lift flex flex-col">
-        <span class="material-symbols-outlined text-secondary mb-6" style="font-size:36px">precision_manufacturing</span>
-        <h3 class="text-lg font-bold text-primary mb-3">Procurement &amp; Commissioning</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed flex-grow mb-6">
-          Strategic acquisition and digital commissioning of high-value assets. Full tracking from purchase order through installation and initial tests.
-        </p>
-        <div class="pt-5 border-t border-outline-variant">
-          <span class="text-xs font-bold uppercase tracking-widest text-secondary">Stage 01: Setup</span>
-        </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">inventory_2</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Asset Registry</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Centralised register of every transformer, substation, and field asset with full history.</p>
       </div>
-      <div class="card-lift bg-primary rounded-lg p-8 flex flex-col shadow-lg">
-        <span class="material-symbols-outlined text-secondary mb-6" style="font-size:36px">settings_suggest</span>
-        <h3 class="text-lg font-bold text-white mb-3">Condition Monitoring &amp; Maintenance</h3>
-        <p class="text-sm text-on-primary-container leading-relaxed flex-grow mb-6">
-          Regular inspection scheduling, health scoring, and fault escalation for substations and transformers. Prevents costly breakdowns through proactive intervention.
-        </p>
-        <div class="pt-5 border-t border-on-primary-container/20">
-          <span class="text-xs font-bold uppercase tracking-widest text-secondary">Stage 02: Optimisation</span>
-        </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">precision_manufacturing</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Commissioning</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Digital commissioning from purchase order through installation and initial tests.</p>
       </div>
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-8 card-lift flex flex-col">
-        <span class="material-symbols-outlined text-secondary mb-6" style="font-size:36px">analytics</span>
-        <h3 class="text-lg font-bold text-primary mb-3">Decommissioning &amp; Disposal</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed flex-grow mb-6">
-          Data-backed decisions for asset replacement. Compliant disposal records, salvage valuation, and capital planning support.
-        </p>
-        <div class="pt-5 border-t border-outline-variant">
-          <span class="text-xs font-bold uppercase tracking-widest text-secondary">Stage 03: Retirement</span>
-        </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">settings_suggest</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Maintenance Planning</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Scheduled inspection workflows with health scoring and fault escalation built in.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">analytics</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Disposal &amp; Reporting</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Compliant disposal records, salvage valuation, and capital planning support.</p>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -345,11 +375,12 @@
 <!-- 02 ERP -->
 <section id="erp" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card grid md:grid-cols-2 gap-16 items-center">
+    <div>
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">02 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Enterprise Resource Planning</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
-        Streamline operations with integrated, efficient enterprise resource planning. Our ERP solution is configured for the operational patterns of technology companies and heavy industry, consolidating HR, procurement, inventory, and project data into a single coherent system.
+        Streamline operations with integrated, efficient enterprise resource planning. Configured for technology companies and heavy industry, consolidating HR, procurement, inventory, and project data into a single coherent system.
       </p>
       <ul class="space-y-4 mb-8">
         <li class="flex items-start gap-3">
@@ -373,6 +404,29 @@
         Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
       </a>
     </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">people</span>
+        <h4 class="font-bold text-primary text-sm mb-2">HR &amp; Payroll</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Integrated attendance, payroll, and employee lifecycle management in one system.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">shopping_cart</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Procurement</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Supplier management with multi-tier approval workflows and purchase tracking.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">task_alt</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Project Tracking</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Budget and milestone management for full project lifecycle visibility.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">bar_chart</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Financial Reporting</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Consolidated financial data and management reporting across the organisation.</p>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -381,11 +435,12 @@
 <!-- 03 Workforce Management -->
 <section id="workforce" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card grid md:grid-cols-2 gap-16 items-center">
+    <div>
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">03 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Workforce Management</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
-        Ensures secure access, efficient meter installations, and real-time dashboards for field staff. Our workforce management system is built around the operational patterns of electricity and water utility field teams.
+        Ensures secure access, efficient meter installations, and real-time dashboards for field staff. Built around the operational patterns of electricity and water utility field teams.
       </p>
       <ul class="space-y-4 mb-8">
         <li class="flex items-start gap-3">
@@ -409,6 +464,29 @@
         Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
       </a>
     </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">calendar_month</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Smart Rostering</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Automated shift scheduling optimised for field team coverage and skill matching.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">location_on</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Field Tracking</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Real-time location and task status for every deployed technician on the ground.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">electric_meter</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Meter Installation</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Installation records with photographic evidence capture and quality control tracking.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">shield</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Access Control</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Role-based permissions and compliance governance for field operations.</p>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -417,7 +495,8 @@
 <!-- 04 Condition Monitoring -->
 <section id="monitoring" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card grid md:grid-cols-2 gap-16 items-center">
+    <div>
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">04 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Condition Monitoring</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
@@ -445,6 +524,29 @@
         Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
       </a>
     </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">thermostat</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Thermal Imaging</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Hotspot detection via integrated thermal camera data feeds across substations.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">water_drop</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Fluid Monitoring</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Natural ester and oil analysis for continuous transformer health tracking.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">notification_important</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Fault Escalation</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Automated alerts and maintenance scheduling triggered on fault detection.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">trending_up</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Predictive Analytics</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Historical trend analysis for data-driven predictive maintenance planning.</p>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -453,11 +555,12 @@
 <!-- 05 Purchase & Inventory Management -->
 <section id="purchase-inventory" class="py-24 reveal" style="scroll-margin-top:140px">
   <div class="max-w-container mx-auto px-6">
-    <div class="max-w-3xl mx-auto bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card">
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-10 svc-card grid md:grid-cols-2 gap-16 items-center">
+    <div>
       <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">05 / Services</span>
       <h2 class="text-3xl font-bold text-primary mb-6">Purchase &amp; Inventory Management</h2>
       <p class="text-on-surface-variant leading-relaxed mb-8">
-        End-to-end procurement and stock control for electrical materials, equipment, and consumables across utility operations. Designed to eliminate procurement delays, reduce excess stock, and ensure full traceability from purchase order to field issuance.
+        End-to-end procurement and stock control for electrical materials, equipment, and consumables across utility operations. Eliminates procurement delays, reduces excess stock, and ensures full traceability from purchase order to field issuance.
       </p>
       <ul class="space-y-4 mb-8">
         <li class="flex items-start gap-3">
@@ -472,11 +575,38 @@
           <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
           <span class="text-sm text-on-surface-variant">Threshold-based alerts for reorder, surplus, and critical shortages</span>
         </li>
+        <li class="flex items-start gap-3">
+          <span class="material-symbols-outlined text-secondary mt-0.5" style="font-size:20px">check_circle</span>
+          <span class="text-sm text-on-surface-variant">Real-time visibility into stock levels across all warehouses and stores</span>
+        </li>
       </ul>
       <a href="index.html#contact" class="text-secondary text-sm font-semibold flex items-center gap-1.5 group w-fit">
         Request a Consultation <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size:16px">arrow_forward</span>
       </a>
     </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">receipt_long</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Purchase Orders</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Vendor-linked POs with multi-tier approval workflows and delivery tracking.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">inventory_2</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Stock Ledger</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Material-level ledger with GRN, issuance, and reconciliation in one view.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">notification_important</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Reorder Alerts</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Threshold-based alerts for reorder points, surplus stock, and critical shortages.</p>
+      </div>
+      <div class="svc-feat-card">
+        <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">warehouse</span>
+        <h4 class="font-bold text-primary text-sm mb-2">Warehouse Visibility</h4>
+        <p class="text-xs text-on-surface-variant leading-relaxed">Real-time stock levels across all locations, stores, and field sites.</p>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -515,22 +645,22 @@
       </a>
     </div>
     <div class="grid grid-cols-2 gap-4">
-      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
+      <div class="svc-feat-card">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">receipt_long</span>
         <h4 class="font-bold text-primary text-sm mb-2">Billing Automation</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Eliminate manual billing errors with fully automated cycle management.</p>
       </div>
-      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
+      <div class="svc-feat-card">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">payments</span>
         <h4 class="font-bold text-primary text-sm mb-2">Collections</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Structured follow-up workflows and payment reconciliation in one view.</p>
       </div>
-      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
+      <div class="svc-feat-card">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">bar_chart</span>
         <h4 class="font-bold text-primary text-sm mb-2">Revenue Analytics</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Segment performance by geography, customer type, and billing period.</p>
       </div>
-      <div class="border border-outline-variant rounded-lg p-6 card-lift" style="background:rgba(37,99,235,0.18);">
+      <div class="svc-feat-card">
         <span class="material-symbols-outlined text-secondary mb-3 block" style="font-size:28px">policy</span>
         <h4 class="font-bold text-primary text-sm mb-2">Audit &amp; Compliance</h4>
         <p class="text-xs text-on-surface-variant leading-relaxed">Full audit trail for every billing and collection transaction.</p>
@@ -602,7 +732,6 @@
       <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
       <div class="space-y-3 text-sm text-on-primary/70">
         <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
-        <p><a href="tel:+919448490740" class="hover:text-white transition-colors">+91 94484 90740</a></p>
       </div>
     </div>
   </div>
@@ -664,5 +793,203 @@
 </script>
 <script src="footer-shader.js" defer></script>
 <script src="site-polish.js" defer></script>
+
+<!-- Chatbot widget -->
+<style>
+  #pt-chat-btn{position:fixed;bottom:28px;right:28px;z-index:1000;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1591EA,#003366);box-shadow:0 6px 24px rgba(21,145,234,0.45);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;}
+  #pt-chat-btn:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(21,145,234,0.6);}
+  #pt-chat-btn .material-symbols-outlined{color:#fff;font-size:26px;}
+  #pt-chat-btn-inner{position:relative;display:flex;align-items:center;justify-content:center;}
+  #pt-chat-panel{position:fixed;bottom:96px;right:28px;z-index:1000;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,30,64,0.22);overflow:hidden;display:none;flex-direction:column;max-height:520px;border:1px solid rgba(21,145,234,0.15);}
+  #pt-chat-panel.open{display:flex;}
+  .pt-chat-header{background:linear-gradient(135deg,#001e40,#003366);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .pt-chat-header img{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);object-fit:contain;background:#fff;padding:3px;}
+  .pt-chat-header-text{flex:1;}
+  .pt-chat-header-text strong{display:block;color:#fff;font-size:14px;}
+  .pt-chat-header-text span{color:rgba(255,255,255,0.6);font-size:12px;}
+  .pt-close-btn{background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;padding:4px;border-radius:6px;display:flex;align-items:center;transition:color 0.2s;}
+  .pt-close-btn:hover{color:#fff;}
+  #pt-chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+  .pt-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:ptFadeIn 0.25s ease;}
+  @keyframes ptFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  .pt-msg.bot{background:#f0f4ff;color:#001e40;border-bottom-left-radius:4px;align-self:flex-start;}
+  .pt-msg.user{background:#1591EA;color:#fff;border-bottom-right-radius:4px;align-self:flex-end;}
+  #pt-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;flex-shrink:0;}
+  .pt-chip{padding:6px 14px;border-radius:9999px;border:1.5px solid #1591EA;color:#1591EA;font-size:12.5px;font-weight:600;cursor:pointer;background:#fff;transition:background 0.15s,color 0.15s;}
+  .pt-chip:hover{background:#1591EA;color:#fff;}
+  #pt-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(0,30,64,0.08);flex-shrink:0;}
+  #pt-input-row input{flex:1;padding:9px 12px;border:1.5px solid rgba(0,30,64,0.15);border-radius:10px;font-size:13px;outline:none;transition:border-color 0.2s;font-family:inherit;}
+  #pt-input-row input:focus{border-color:#1591EA;}
+  .pt-send-btn{background:#1591EA;color:#fff;border:none;border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:opacity 0.2s;}
+  .pt-send-btn:hover{opacity:0.85;}
+  #pt-cta-row{padding:12px 16px;border-top:1px solid rgba(0,30,64,0.08);flex-shrink:0;}
+  .pt-cta-btn{width:100%;padding:11px;background:linear-gradient(135deg,#1591EA,#003366);color:#fff;border:none;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;font-family:inherit;}
+  .pt-cta-btn:hover{opacity:0.9;}
+  .pt-badge{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:#ef4444;border-radius:50%;border:2px solid #fff;}
+</style>
+<button id="pt-chat-btn" onclick="ptToggleChat()" aria-label="Open chat">
+  <div id="pt-chat-btn-inner">
+    <span class="material-symbols-outlined">chat</span>
+    <div class="pt-badge" id="pt-badge" style="display:none"></div>
+  </div>
+</button>
+<div id="pt-chat-panel">
+  <div class="pt-chat-header">
+    <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies">
+    <div class="pt-chat-header-text">
+      <strong>Prasanna Technologies</strong>
+      <span>Typically replies instantly</span>
+    </div>
+    <button class="pt-close-btn" onclick="ptToggleChat()">
+      <span class="material-symbols-outlined" style="font-size:20px">close</span>
+    </button>
+  </div>
+  <div id="pt-chat-msgs"></div>
+  <div id="pt-chips" style="display:none"></div>
+  <div id="pt-input-row" style="display:none">
+    <input id="pt-input" type="text" placeholder="Type your answer..." onkeydown="if(event.key==='Enter') ptSubmitText()">
+    <button class="pt-send-btn" onclick="ptSubmitText()">
+      <span class="material-symbols-outlined" style="font-size:18px">send</span>
+    </button>
+  </div>
+  <div id="pt-cta-row" style="display:none">
+    <button class="pt-cta-btn" onclick="ptSendEmail()">
+      <span class="material-symbols-outlined" style="font-size:18px">send</span>
+      Send Enquiry to Our Team
+    </button>
+  </div>
+</div>
+<script>
+(function(){
+  var answers = {};
+  var step = 0;
+  var questions = [
+    { key: 'name',    type: 'text',   bot: "Hello! Welcome to Prasanna Technologies. What is your name?" },
+    { key: 'type',    type: 'chips',  bot: "Great! What is the nature of your enquiry?",
+      options: ['Product Demo','Partnership','Careers','Support','General'] },
+    { key: 'sector',  type: 'chips',  bot: "Which sector are you from?",
+      options: ['Electricity Utilities','Water Utilities','Revenue Department','Other'] },
+    { key: 'details', type: 'text',   bot: "Please briefly describe your query." },
+    { key: 'email',   type: 'text',   bot: "What is your email address so we can reply to you?" },
+    { key: '_done',   type: 'done',   bot: "Thank you! Click the button below to send your enquiry to our team." }
+  ];
+  function resetCtaBtn(btn) {
+    if (!btn) return;
+    btn.disabled = false;
+    btn.textContent = '';
+    var icon = document.createElement('span');
+    icon.className = 'material-symbols-outlined';
+    icon.style.fontSize = '18px';
+    icon.textContent = 'send';
+    btn.appendChild(icon);
+    btn.appendChild(document.createTextNode(' Send Enquiry to Our Team'));
+  }
+  setTimeout(function(){
+    var b = document.getElementById('pt-badge');
+    var p = document.getElementById('pt-chat-panel');
+    if (b && p && !p.classList.contains('open')) b.style.display = 'flex';
+  }, 4000);
+  window.ptToggleChat = function() {
+    var panel = document.getElementById('pt-chat-panel');
+    var badge = document.getElementById('pt-badge');
+    if (!panel) return;
+    var isOpen = panel.classList.toggle('open');
+    if (isOpen) {
+      if (badge) badge.style.display = 'none';
+      if (step === 0) setTimeout(ptNextStep, 300);
+    }
+  };
+  function addMsg(text, cls) {
+    var msgs = document.getElementById('pt-chat-msgs');
+    if (!msgs) return;
+    var d = document.createElement('div');
+    d.className = 'pt-msg ' + cls;
+    d.textContent = text;
+    msgs.appendChild(d);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+  function ptNextStep() {
+    if (step >= questions.length) return;
+    var q = questions[step];
+    setTimeout(function(){
+      addMsg(q.bot, 'bot');
+      showInput(q);
+    }, step === 0 ? 0 : 400);
+  }
+  function showInput(q) {
+    var chips    = document.getElementById('pt-chips');
+    var inputRow = document.getElementById('pt-input-row');
+    var ctaRow   = document.getElementById('pt-cta-row');
+    if (!chips || !inputRow || !ctaRow) return;
+    chips.style.display    = 'none';
+    inputRow.style.display = 'none';
+    ctaRow.style.display   = 'none';
+    while (chips.firstChild) chips.removeChild(chips.firstChild);
+    if (q.type === 'chips') {
+      chips.style.display = 'flex';
+      q.options.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'pt-chip';
+        btn.textContent = opt;
+        btn.onclick = function(){ ptSubmitChip(opt); };
+        chips.appendChild(btn);
+      });
+    } else if (q.type === 'text') {
+      inputRow.style.display = 'flex';
+      setTimeout(function(){ var inp = document.getElementById('pt-input'); if (inp) { inp.value = ''; inp.focus(); } }, 100);
+    } else if (q.type === 'done') {
+      ctaRow.style.display = 'block';
+    }
+  }
+  window.ptSubmitText = function() {
+    var inp = document.getElementById('pt-input');
+    if (!inp) return;
+    var val = inp.value.trim();
+    if (!val) return;
+    addMsg(val, 'user');
+    inp.value = '';
+    answers[questions[step].key] = val;
+    step++;
+    if (step < questions.length) ptNextStep();
+  };
+  window.ptSubmitChip = function(val) {
+    addMsg(val, 'user');
+    var chips = document.getElementById('pt-chips');
+    if (chips) chips.style.display = 'none';
+    answers[questions[step].key] = val;
+    step++;
+    if (step < questions.length) ptNextStep();
+  };
+  window.ptSendEmail = function() {
+    var name=answers.name||'', type=answers.type||'General', sector=answers.sector||'-', details=answers.details||'-', email=answers.email||'-';
+    var btn = document.querySelector('.pt-cta-btn');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: window.PT_W3F ? window.PT_W3F.accessKey : '1173caf5-f3ba-47ec-9cc6-755e5ec79519',
+        name: name, email: email,
+        subject: 'Chatbot Enquiry — ' + type,
+        message: 'Sector: ' + sector + '\nEnquiry Type: ' + type + '\n\nMessage: ' + details
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.success) {
+        addMsg('Your enquiry has been sent! Our team will get back to you at '+email+' shortly.','bot');
+        var r=document.getElementById('pt-cta-row'); if(r) r.style.display='none';
+      } else {
+        addMsg('Sorry, something went wrong. Please email us directly at info@prasannatechnologies.com','bot');
+        resetCtaBtn(btn);
+      }
+    })
+    .catch(function(){
+      addMsg('Sorry, something went wrong. Please email us directly at info@prasannatechnologies.com','bot');
+      resetCtaBtn(btn);
+    });
+  };
+})();
+</script>
 </body>
 </html>

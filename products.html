@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <script>
+    window.PT_W3F = { accessKey: '1173caf5-f3ba-47ec-9cc6-755e5ec79519' };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
@@ -346,11 +349,12 @@
       </div>
       <div>
         <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">01 / Products</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
-          <a href="https://styraflow.ai/" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2">
-            STYRA <span class="material-symbols-outlined text-secondary" style="font-size:22px">open_in_new</span>
+        <div class="mb-6 flex items-center gap-3">
+          <a href="https://styraflow.ai/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="./styra.83c14deb.svg" alt="STYRA" class="h-10 w-auto object-contain" loading="lazy" decoding="async">
+            <span class="material-symbols-outlined text-secondary" style="font-size:20px">open_in_new</span>
           </a>
-        </h2>
+        </div>
         <p class="text-on-surface-variant leading-relaxed mb-8">
           A SaaS application that helps businesses adapt to digital transformation. STYRA consolidates key operational functions, including scheduling, analytics, approvals, and reporting, into a single governed platform that scales with your organisation.
         </p>
@@ -394,11 +398,12 @@
     <div class="grid md:grid-cols-2 gap-16 items-center">
       <div class="order-2 md:order-1">
         <span class="text-xs font-bold tracking-widest uppercase text-secondary block mb-3">02 / Products</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
-          <a href="https://energy-sync.com/" target="_blank" rel="noopener" class="hover:text-secondary transition-colors inline-flex items-center gap-2">
-            EnergySync™ <span class="material-symbols-outlined text-secondary" style="font-size:22px">open_in_new</span>
+        <div class="mb-6 flex items-center gap-3">
+          <a href="https://energy-sync.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="./EnergySync.png" alt="EnergySync" class="h-10 w-auto object-contain" loading="lazy" decoding="async">
+            <span class="material-symbols-outlined text-secondary" style="font-size:20px">open_in_new</span>
           </a>
-        </h2>
+        </div>
         <p class="text-on-surface-variant leading-relaxed mb-8">
           A solution for electricity utilities that eliminates inefficiencies from back-office operations. EnergySync covers the full billing cycle, field workforce coordination, AT&C loss identification, and management reporting for DISCOMs of all sizes.
         </p>
@@ -666,7 +671,6 @@
       <h4 class="text-xs font-bold tracking-widest uppercase text-secondary mb-6">Contact</h4>
       <div class="space-y-3 text-sm text-on-primary/70">
         <p><a href="mailto:info@prasannatechnologies.com" class="hover:text-white transition-colors">info@prasannatechnologies.com</a></p>
-        <p><a href="tel:+919448490740" class="hover:text-white transition-colors">+91 94484 90740</a></p>
       </div>
     </div>
   </div>
@@ -729,5 +733,93 @@
 </script>
 <script src="footer-shader.js" defer></script>
 <script src="site-polish.js" defer></script>
+
+<!-- Chatbot widget -->
+<style>
+  #pt-chat-btn{position:fixed;bottom:28px;right:28px;z-index:1000;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1591EA,#003366);box-shadow:0 6px 24px rgba(21,145,234,0.45);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;}
+  #pt-chat-btn:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(21,145,234,0.6);}
+  #pt-chat-btn .material-symbols-outlined{color:#fff;font-size:26px;}
+  #pt-chat-btn-inner{position:relative;display:flex;align-items:center;justify-content:center;}
+  #pt-chat-panel{position:fixed;bottom:96px;right:28px;z-index:1000;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,30,64,0.22);overflow:hidden;display:none;flex-direction:column;max-height:520px;border:1px solid rgba(21,145,234,0.15);}
+  #pt-chat-panel.open{display:flex;}
+  .pt-chat-header{background:linear-gradient(135deg,#001e40,#003366);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .pt-chat-header img{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);object-fit:contain;background:#fff;padding:3px;}
+  .pt-chat-header-text{flex:1;}
+  .pt-chat-header-text strong{display:block;color:#fff;font-size:14px;}
+  .pt-chat-header-text span{color:rgba(255,255,255,0.6);font-size:12px;}
+  .pt-close-btn{background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;padding:4px;border-radius:6px;display:flex;align-items:center;transition:color 0.2s;}
+  .pt-close-btn:hover{color:#fff;}
+  #pt-chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+  .pt-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13.5px;line-height:1.5;animation:ptFadeIn 0.25s ease;}
+  @keyframes ptFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  .pt-msg.bot{background:#f0f4ff;color:#001e40;border-bottom-left-radius:4px;align-self:flex-start;}
+  .pt-msg.user{background:#1591EA;color:#fff;border-bottom-right-radius:4px;align-self:flex-end;}
+  #pt-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;flex-shrink:0;}
+  .pt-chip{padding:6px 14px;border-radius:9999px;border:1.5px solid #1591EA;color:#1591EA;font-size:12.5px;font-weight:600;cursor:pointer;background:#fff;transition:background 0.15s,color 0.15s;}
+  .pt-chip:hover{background:#1591EA;color:#fff;}
+  #pt-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(0,30,64,0.08);flex-shrink:0;}
+  #pt-input-row input{flex:1;padding:9px 12px;border:1.5px solid rgba(0,30,64,0.15);border-radius:10px;font-size:13px;outline:none;transition:border-color 0.2s;font-family:inherit;}
+  #pt-input-row input:focus{border-color:#1591EA;}
+  .pt-send-btn{background:#1591EA;color:#fff;border:none;border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:opacity 0.2s;}
+  .pt-send-btn:hover{opacity:0.85;}
+  #pt-cta-row{padding:12px 16px;border-top:1px solid rgba(0,30,64,0.08);flex-shrink:0;}
+  .pt-cta-btn{width:100%;padding:11px;background:linear-gradient(135deg,#1591EA,#003366);color:#fff;border:none;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;font-family:inherit;}
+  .pt-cta-btn:hover{opacity:0.9;}
+  .pt-badge{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:#ef4444;border-radius:50%;border:2px solid #fff;}
+</style>
+<button id="pt-chat-btn" onclick="ptToggleChat()" aria-label="Open chat">
+  <div id="pt-chat-btn-inner">
+    <span class="material-symbols-outlined">chat</span>
+    <div class="pt-badge" id="pt-badge" style="display:none"></div>
+  </div>
+</button>
+<div id="pt-chat-panel">
+  <div class="pt-chat-header">
+    <img src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies">
+    <div class="pt-chat-header-text">
+      <strong>Prasanna Technologies</strong>
+      <span>Typically replies instantly</span>
+    </div>
+    <button class="pt-close-btn" onclick="ptToggleChat()">
+      <span class="material-symbols-outlined" style="font-size:20px">close</span>
+    </button>
+  </div>
+  <div id="pt-chat-msgs"></div>
+  <div id="pt-chips" style="display:none"></div>
+  <div id="pt-input-row" style="display:none">
+    <input id="pt-input" type="text" placeholder="Type your answer..." onkeydown="if(event.key==='Enter') ptSubmitText()">
+    <button class="pt-send-btn" onclick="ptSubmitText()">
+      <span class="material-symbols-outlined" style="font-size:18px">send</span>
+    </button>
+  </div>
+  <div id="pt-cta-row" style="display:none">
+    <button class="pt-cta-btn" onclick="ptSendEmail()">
+      <span class="material-symbols-outlined" style="font-size:18px">send</span>
+      Send Enquiry to Our Team
+    </button>
+  </div>
+</div>
+<script>
+(function(){
+  var answers={},step=0;
+  var questions=[
+    {key:'name',type:'text',bot:"Hello! Welcome to Prasanna Technologies. What is your name?"},
+    {key:'type',type:'chips',bot:"Great! What is the nature of your enquiry?",options:['Product Demo','Partnership','Careers','Support','General']},
+    {key:'sector',type:'chips',bot:"Which sector are you from?",options:['Electricity Utilities','Water Utilities','Revenue Department','Other']},
+    {key:'details',type:'text',bot:"Please briefly describe your query."},
+    {key:'email',type:'text',bot:"What is your email address so we can reply to you?"},
+    {key:'_done',type:'done',bot:"Thank you! Click the button below to send your enquiry to our team."}
+  ];
+  function resetCtaBtn(btn){if(!btn)return;btn.disabled=false;btn.textContent='';var ic=document.createElement('span');ic.className='material-symbols-outlined';ic.style.fontSize='18px';ic.textContent='send';btn.appendChild(ic);btn.appendChild(document.createTextNode(' Send Enquiry to Our Team'));}
+  setTimeout(function(){var b=document.getElementById('pt-badge'),p=document.getElementById('pt-chat-panel');if(b&&p&&!p.classList.contains('open'))b.style.display='flex';},4000);
+  window.ptToggleChat=function(){var panel=document.getElementById('pt-chat-panel'),badge=document.getElementById('pt-badge');if(!panel)return;var isOpen=panel.classList.toggle('open');if(isOpen){if(badge)badge.style.display='none';if(step===0)setTimeout(ptNextStep,300);}};
+  function addMsg(text,cls){var msgs=document.getElementById('pt-chat-msgs');if(!msgs)return;var d=document.createElement('div');d.className='pt-msg '+cls;d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+  function ptNextStep(){if(step>=questions.length)return;var q=questions[step];setTimeout(function(){addMsg(q.bot,'bot');showInput(q);},step===0?0:400);}
+  function showInput(q){var chips=document.getElementById('pt-chips'),inputRow=document.getElementById('pt-input-row'),ctaRow=document.getElementById('pt-cta-row');if(!chips||!inputRow||!ctaRow)return;chips.style.display='none';inputRow.style.display='none';ctaRow.style.display='none';while(chips.firstChild)chips.removeChild(chips.firstChild);if(q.type==='chips'){chips.style.display='flex';q.options.forEach(function(opt){var btn=document.createElement('button');btn.className='pt-chip';btn.textContent=opt;btn.onclick=function(){ptSubmitChip(opt);};chips.appendChild(btn);});}else if(q.type==='text'){inputRow.style.display='flex';setTimeout(function(){var inp=document.getElementById('pt-input');if(inp){inp.value='';inp.focus();}},100);}else if(q.type==='done'){ctaRow.style.display='block';}}
+  window.ptSubmitText=function(){var inp=document.getElementById('pt-input');if(!inp)return;var val=inp.value.trim();if(!val)return;addMsg(val,'user');inp.value='';answers[questions[step].key]=val;step++;if(step<questions.length)ptNextStep();};
+  window.ptSubmitChip=function(val){addMsg(val,'user');var chips=document.getElementById('pt-chips');if(chips)chips.style.display='none';answers[questions[step].key]=val;step++;if(step<questions.length)ptNextStep();};
+  window.ptSendEmail=function(){var name=answers.name||'',type=answers.type||'General',sector=answers.sector||'-',details=answers.details||'-',email=answers.email||'-';var btn=document.querySelector('.pt-cta-btn');if(btn){btn.disabled=true;btn.textContent='Sending…';}fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({access_key:window.PT_W3F?window.PT_W3F.accessKey:'1173caf5-f3ba-47ec-9cc6-755e5ec79519',name:name,email:email,subject:'Chatbot Enquiry — '+type,message:'Sector: '+sector+'\nEnquiry Type: '+type+'\n\nMessage: '+details})}).then(function(r){return r.json();}).then(function(d){if(d.success){addMsg('Your enquiry has been sent! Our team will get back to you at '+email+' shortly.','bot');var r=document.getElementById('pt-cta-row');if(r)r.style.display='none';}else{addMsg('Sorry, something went wrong. Please email us directly at info@prasannatechnologies.com','bot');resetCtaBtn(btn);}}).catch(function(){addMsg('Sorry, something went wrong. Please email us directly at info@prasannatechnologies.com','bot');resetCtaBtn(btn);});};
+})();
+</script>
 </body>
 </html>
