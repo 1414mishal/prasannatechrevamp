@@ -115,8 +115,11 @@
     }, { passive: true });
   }
 
-  /* ── 3D tilt cards: perspective tilt on mouse & touch ─────────── */
-  if (!reduceMotion) {
+  /* ── 3D tilt cards: perspective tilt on mouse (desktop only) ──────
+     Skipped on touch devices — the per-touchmove transform + glare
+     repaint was a source of scroll jank on phones, and the effect adds
+     little on a finger-driven screen. ── */
+  if (finePointer && !reduceMotion) {
     var tiltCards = document.querySelectorAll('.tilt-card');
     Array.prototype.forEach.call(tiltCards, function (card) {
       var rect = null;

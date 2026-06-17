@@ -3,6 +3,17 @@
   const canvas = document.getElementById('footer-shader-canvas');
   if (!canvas) return;
 
+  // Skip the WebGL plasma on phones, tablets, touch devices, low-core
+  // hardware, and when the user prefers reduced motion. The footer keeps its
+  // solid dark-blue background — this is the single biggest battery/jank win
+  // on mobile. Desktop pointers with a real GPU still get the effect.
+  var skip =
+    window.matchMedia('(max-width: 1023px)').matches ||
+    window.matchMedia('(pointer: coarse)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+  if (skip) { canvas.style.display = 'none'; return; }
+
   const gl = canvas.getContext('webgl');
   if (!gl) return;
 

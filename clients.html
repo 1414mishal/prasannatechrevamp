@@ -245,6 +245,12 @@
   var stage = document.getElementById('orbit-stage');
   if(!stage) return;
 
+  // The orbit is hidden on phones (CSS). Don't build it or run the rAF loop
+  // there — computing transforms for 12 hidden nodes every frame is pure waste
+  // and a needless battery drain on mobile.
+  var mobileMQ = window.matchMedia('(max-width: 639px)');
+  if (mobileMQ.matches) return;
+
   var els = all.map(function(src){
     var el = document.createElement('div');
     el.className = 'orbit-logo';

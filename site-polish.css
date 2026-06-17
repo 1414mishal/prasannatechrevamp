@@ -233,6 +233,15 @@ header[style*="min-height:100vh"] { min-height: 100svh !important; }
 
   /* ── Footer grid: 1 column ───────────────────────────────── */
   footer .grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+
+  /* ── Lighter glow blobs: a 70px blur is costly to rasterise on
+     low-end phones; 40px reads the same at this scale. ───────── */
+  .blob-soft { filter: blur(40px) !important; }
+}
+
+/* On touch devices, neutralise the desktop card-spotlight repaint layer. */
+@media (pointer: coarse) {
+  .card-lift::after { display: none !important; }
 }
 
 /* ── Respect reduced-motion preferences ────────────────────────── */
