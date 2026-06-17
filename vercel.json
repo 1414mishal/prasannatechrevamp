@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    { "source": "/contact.html",      "destination": "/#contact",      "permanent": true },
+    { "source": "/contact",           "destination": "/#contact",      "permanent": true },
+    { "source": "/work-culture.html", "destination": "/careers.html",  "permanent": true },
+    { "source": "/work-culture",      "destination": "/careers.html",  "permanent": true },
+    { "source": "/culture.html",      "destination": "/careers.html",  "permanent": true },
+    { "source": "/our-team.html",     "destination": "/team.html",     "permanent": true },
+    { "source": "/our-team",          "destination": "/team.html",     "permanent": true },
+    { "source": "/home.html",         "destination": "/",              "permanent": true },
+    { "source": "/index.php",         "destination": "/",              "permanent": true }
+  ]
+}
