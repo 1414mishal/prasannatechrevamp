@@ -152,10 +152,12 @@ header[style*="min-height:100vh"] { min-height: 100svh !important; }
 .why-card {
   padding: 2rem;
   border-radius: 1rem;
-  background: #ffffff;
-  border: 1px solid rgba(0,30,64,0.08);
-  box-shadow: 0 8px 32px rgba(0,30,64,0.08);
+  background: linear-gradient(150deg, rgba(0,30,64,0.88), rgba(0,51,102,0.82));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 8px 40px rgba(0,18,38,0.22);
   overflow: hidden;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 /* ══════════════════════════════════════════════════════════════
