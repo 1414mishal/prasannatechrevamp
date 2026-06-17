@@ -156,7 +156,16 @@
   </style>
   <link rel="stylesheet" href="site-polish.css">
 </head>
-<body class="bg-surface text-on-surface">
+<body class="text-on-surface" style="background:transparent;">
+<!-- Infinite grid backdrop -->
+<div id="grid-backdrop" style="position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:linear-gradient(160deg,#f0f6ff 0%,#e8f1fd 50%,#f5f9ff 100%);">
+  <div style="position:absolute;right:-10%;top:-15%;width:45%;padding-bottom:45%;border-radius:50%;background:rgba(21,145,234,0.08);filter:blur(90px);"></div>
+  <div style="position:absolute;left:-8%;bottom:-18%;width:40%;padding-bottom:40%;border-radius:50%;background:rgba(0,30,64,0.06);filter:blur(100px);"></div>
+  <div style="position:absolute;right:20%;bottom:5%;width:25%;padding-bottom:25%;border-radius:50%;background:rgba(21,145,234,0.05);filter:blur(80px);"></div>
+  <svg id="grid-base" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07;" aria-hidden="true"><defs><pattern id="igrid-base" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1591EA" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#igrid-base)"/></svg>
+  <svg id="grid-reveal" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.55;-webkit-mask-image:radial-gradient(280px circle at -999px -999px,black,transparent);mask-image:radial-gradient(280px circle at -999px -999px,black,transparent);" aria-hidden="true"><defs><pattern id="igrid-reveal" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1591EA" stroke-width="1.2"/></pattern></defs><rect width="100%" height="100%" fill="url(#igrid-reveal)"/></svg>
+</div>
+<script>(function(){var CELL=40,ox=0,oy=0,speedX=0.3,speedY=0.3,last=performance.now();var baseP=document.getElementById('igrid-base'),revealP=document.getElementById('igrid-reveal'),revealSvg=document.getElementById('grid-reveal');var mouseX=-9999,mouseY=-9999;document.addEventListener('mousemove',function(e){mouseX=e.clientX;mouseY=e.clientY;});document.addEventListener('mouseleave',function(){mouseX=-9999;mouseY=-9999;});function tick(now){var dt=Math.min(now-last,50);last=now;ox=(ox+speedX*dt/16)%CELL;oy=(oy+speedY*dt/16)%CELL;if(baseP){baseP.setAttribute('x',ox);baseP.setAttribute('y',oy);}if(revealP){revealP.setAttribute('x',ox);revealP.setAttribute('y',oy);}var mask='radial-gradient(280px circle at '+mouseX+'px '+mouseY+'px,black,transparent)';if(revealSvg){revealSvg.style.webkitMaskImage=mask;revealSvg.style.maskImage=mask;}requestAnimationFrame(tick);}requestAnimationFrame(tick);})();</script>
 <style>
   #page-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fbf9f8;transition:opacity .4s ease,visibility .4s ease;}
   #page-loader.loader-hidden{opacity:0;visibility:hidden;pointer-events:none;}
