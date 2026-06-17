@@ -395,6 +395,9 @@
               <input name="attachment" type="file" accept="application/pdf" class="hidden" onchange="document.getElementById('file-label').textContent = this.files[0]?.name || 'Choose PDF file…'">
             </label>
           </div>
+          <div class="flex justify-center">
+            <div class="g-recaptcha" data-sitekey="6Le5eRctAAAAAF_DQ_kyhMUNo_1tjrutKhMWc_lz"></div>
+          </div>
           <button type="submit"
             class="mt-2 inline-flex items-center justify-center gap-2 bg-secondary text-white px-6 py-3 text-sm font-semibold rounded hover:opacity-90 transition-opacity">
             <span class="material-symbols-outlined" style="font-size:18px">send</span>
@@ -522,6 +525,7 @@
     });
   })();
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="footer-shader.js" defer></script>
 <script src="site-polish.js" defer></script>
 
