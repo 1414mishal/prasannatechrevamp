@@ -362,13 +362,7 @@
     @media (prefers-reduced-motion: reduce) {
       .fp-pattern { animation: none; }
     }
-    /* ── Mobile: the falling pattern is the #1 source of phone jank. ──
-       Animating background-position on a fixed full-viewport layer that
-       sits under a backdrop-filter blur forces a full-page repaint every
-       frame. On phones we freeze the pattern and drop the blur — the look
-       is preserved (static dotted field) at zero per-frame cost. */
     @media (max-width: 1023px), (pointer: coarse) {
-      .fp-pattern { animation: none !important; }
       .fp-overlay {
         -webkit-backdrop-filter: none !important;
         backdrop-filter: none !important;
