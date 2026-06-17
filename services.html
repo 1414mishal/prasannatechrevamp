@@ -245,23 +245,33 @@
   .svc-pill {
     display:inline-flex;
     align-items:center;
-    padding:7px 18px;
-    font-size:0.8rem;
+    padding:10px 20px;
+    font-size:0.82rem;
     font-weight:500;
     color:#43474f;
     background:transparent;
     white-space:nowrap;
     text-decoration:none;
     transition:background 0.18s,color 0.18s;
+    border-bottom:2px solid transparent;
   }
   .svc-pill:hover { background:rgba(21,145,234,0.07); color:#1591EA; }
-  .svc-pill.active { background:rgba(21,145,234,0.1); color:#1591EA; font-weight:600; }
+  .svc-pill.active {
+    background:rgba(21,145,234,0.1);
+    color:#1591EA;
+    font-weight:600;
+    border-bottom:2px solid #1591EA;
+  }
   .svc-div { display:inline-block; width:1px; background:#c3c6d1; align-self:stretch; margin:6px 0; }
+  @media (max-width:640px) {
+    .svc-pill { padding:11px 16px; font-size:0.78rem; }
+  }
 </style>
 <script>
 (function(){
   var sections = ['assets','erp','workforce','monitoring','purchase-inventory','revenue'];
   var pills = document.querySelectorAll('.svc-pill');
+  var subnav = document.getElementById('svc-subnav');
   function setActive(){
     var best = null, bestTop = Infinity;
     sections.forEach(function(id){
@@ -271,7 +281,14 @@
       if(top < bestTop){ bestTop = top; best = id; }
     });
     pills.forEach(function(p){
-      p.classList.toggle('active', p.dataset.section === best);
+      var isActive = p.dataset.section === best;
+      p.classList.toggle('active', isActive);
+      if(isActive && subnav){
+        var pillLeft = p.offsetLeft;
+        var pillWidth = p.offsetWidth;
+        var navWidth = subnav.offsetWidth;
+        subnav.scrollTo({ left: pillLeft - navWidth/2 + pillWidth/2, behavior:'smooth' });
+      }
     });
   }
   window.addEventListener('scroll', setActive, {passive:true});
