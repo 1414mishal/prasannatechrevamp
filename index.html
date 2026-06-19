@@ -380,110 +380,6 @@
       .stat-text > div:last-child { font-size: 8.5px !important; letter-spacing: 0.06em; line-height: 1.2; margin-top: 1px; }
     }
 
-    /* Hero falling-pattern background layer */
-    .fp-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-    .fp-layer-global { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-    .fp-pattern {
-      position: absolute; inset: -1px;
-      background-color: #ffffff;
-      background-image:
-        radial-gradient(4px 100px at 0px 235px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 235px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 117.5px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 252px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 252px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 126px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 150px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 150px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 75px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 253px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 253px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 126.5px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 204px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 204px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 102px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 134px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 134px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 67px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 179px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 179px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 89.5px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 299px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 299px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 149.5px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 215px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 215px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 107.5px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 281px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 281px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 140.5px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 158px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 158px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 79px, rgba(21,145,234,0.5) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 210px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(4px 100px at 300px 210px, rgba(21,145,234,0.9), transparent),
-        radial-gradient(1.5px 1.5px at 150px 105px, rgba(21,145,234,0.5) 100%, transparent 150%);
-      background-size:
-        300px 235px, 300px 235px, 300px 235px,
-        300px 252px, 300px 252px, 300px 252px,
-        300px 150px, 300px 150px, 300px 150px,
-        300px 253px, 300px 253px, 300px 253px,
-        300px 204px, 300px 204px, 300px 204px,
-        300px 134px, 300px 134px, 300px 134px,
-        300px 179px, 300px 179px, 300px 179px,
-        300px 299px, 300px 299px, 300px 299px,
-        300px 215px, 300px 215px, 300px 215px,
-        300px 281px, 300px 281px, 300px 281px,
-        300px 158px, 300px 158px, 300px 158px,
-        300px 210px, 300px 210px, 300px 210px;
-      background-position:
-        0px 220px, 3px 220px, 151.5px 337.5px,
-        25px 24px, 28px 24px, 176.5px 150px,
-        50px 16px, 53px 16px, 201.5px 91px,
-        75px 224px, 78px 224px, 226.5px 230.5px,
-        100px 19px, 103px 19px, 251.5px 121px,
-        125px 120px, 128px 120px, 276.5px 187px,
-        150px 31px, 153px 31px, 301.5px 120.5px,
-        175px 235px, 178px 235px, 326.5px 384.5px,
-        200px 121px, 203px 121px, 351.5px 228.5px,
-        225px 224px, 228px 224px, 376.5px 364.5px,
-        250px 26px, 253px 26px, 401.5px 105px,
-        275px 75px, 278px 75px, 426.5px 180px;
-      animation: fp-fall 600s linear infinite;
-    }
-    .fp-overlay {
-      position: absolute; inset: 0;
-      -webkit-backdrop-filter: blur(0.35em);
-      backdrop-filter: blur(0.35em);
-      background-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 2px, #ffffff 2px);
-      background-size: 8px 8px;
-    }
-    @keyframes fp-fall {
-      to {
-        background-position:
-          0px -6800px, 3px -6800px, 151.5px -6917.5px,
-          25px -13632px, 28px -13632px, 176.5px -13758px,
-          50px -5416px, 53px -5416px, 201.5px -5491px,
-          75px -17175px, 78px -17175px, 226.5px -17301.5px,
-          100px -5119px, 103px -5119px, 251.5px -5221px,
-          125px -8428px, 128px -8428px, 276.5px -8495px,
-          150px -9876px, 153px -9876px, 301.5px -9965.5px,
-          175px -13391px, 178px -13391px, 326.5px -13540.5px,
-          200px -14741px, 203px -14741px, 351.5px -14848.5px,
-          225px -18770px, 228px -18770px, 376.5px -18910.5px,
-          250px -5082px, 253px -5082px, 401.5px -5161px,
-          275px -6375px, 278px -6375px, 426.5px -6480px;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .fp-pattern { animation: none; }
-    }
-    @media (max-width: 1023px), (pointer: coarse) {
-      .fp-overlay {
-        -webkit-backdrop-filter: none !important;
-        backdrop-filter: none !important;
-      }
-    }
 
     /* Contact section — soft glow blobs + glass form fields */
     .blob-soft { position: absolute; border-radius: 50%; filter: blur(70px); pointer-events: none; z-index: 0; }
@@ -494,49 +390,6 @@
     a:hover .icon-chip-dark { transform: translateY(-2px) rotate(-6deg); background-color: rgba(21,145,234,0.3); }
 
     /* ── Dark mode overrides ── */
-    [data-theme="dark"] .fp-pattern {
-      background-color: #001e40 !important;
-      background-image:
-        radial-gradient(4px 100px at 0px 235px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 235px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 117.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 252px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 252px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 126px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 150px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 150px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 75px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 253px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 253px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 126.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 204px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 204px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 102px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 134px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 134px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 67px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 179px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 179px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 89.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 299px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 299px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 149.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 215px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 215px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 107.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 281px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 281px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 140.5px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 158px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 158px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 79px, rgba(255,255,255,0.45) 100%, transparent 150%),
-        radial-gradient(4px 100px at 0px 210px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(4px 100px at 300px 210px, rgba(255,255,255,0.85), transparent),
-        radial-gradient(1.5px 1.5px at 150px 105px, rgba(255,255,255,0.45) 100%, transparent 150%) !important;
-    }
-    [data-theme="dark"] .fp-overlay {
-      background-image: radial-gradient(circle at 50% 50%, transparent 0, transparent 2px, #001e40 2px) !important;
-    }
     [data-theme="dark"] body { background-color: #001e40 !important; }
     [data-theme="dark"] #navbar { background: rgba(1,14,31,0.88) !important; border-color: rgba(21,145,234,0.18) !important; }
     [data-theme="dark"] #navbar.nav-scrolled { background: rgba(1,14,31,0.97) !important; border-color: rgba(21,145,234,0.25) !important; }
@@ -629,11 +482,8 @@
 <div id="page-loader"><img class="loader-logo" src="./prasannatechnologies.com_6066f744-096c-4fa9-b851-2fbb4dcaa51f/logo.png" alt="Prasanna Technologies"></div>
 <script src="page-loader.js"></script>
 
-<!-- Site-wide falling pattern background -->
-<div class="fp-layer-global">
-  <div class="fp-pattern"></div>
-  <div class="fp-overlay"></div>
-</div>
+<!-- Site-wide wave canvas background -->
+<canvas id="hero-wave-canvas" class="fixed inset-0 w-full h-full pointer-events-none" style="z-index:-1"></canvas>
 
 <!-- Navigation -->
 <nav id="navbar" class="fixed top-3 inset-x-3 lg:inset-x-auto lg:left-1/2 lg:-translate-x-1/2 lg:w-full lg:max-w-5xl z-50 rounded-2xl border transition-shadow duration-300">
@@ -944,7 +794,6 @@
 
 <!-- Why Prasanna -->
 <section class="py-24 reveal" style="position:relative;overflow:hidden">
-  <div class="fp-layer"><div class="fp-pattern"></div><div class="fp-overlay"></div></div>
   <div class="max-w-container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold text-white">Why Organisations Choose Us</h2>
@@ -1559,6 +1408,7 @@
 </div>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="hero-wave.js" defer></script>
 <script src="footer-shader.js" defer></script>
 <script src="site-polish.js" defer></script>
 
